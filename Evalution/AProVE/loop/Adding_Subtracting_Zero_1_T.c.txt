@@ -1,0 +1,211 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Adding_Subtracting_Zero_1_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Adding_Subtracting_Zero_1_T.c
+YES
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_1_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be proven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 69 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 475 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) LLVM Symbolic Execution SCC
+(7) SCC2IRS [SOUND, 0 ms]
+(8) IntTRS
+(9) IntTRSCompressionProof [EQUIVALENT, 0 ms]
+(10) IntTRS
+(11) RankingReductionPairProof [EQUIVALENT, 12 ms]
+(12) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_1_T.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_1_T.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%4 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %4, %2
+		%5 = load %2
+		%6 = icmp slt %5 0
+		br %6, %7, %8
+	7:
+		store 0, %1
+		br %29
+	8:
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		%9 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %9, %3
+		br %10
+	10:
+		%11 = load %2
+		%12 = icmp ne %11 0
+		br %12, %13, %16
+	13:
+		%14 = load %3
+		%15 = icmp sgt %14 0
+		br %16
+	16:
+		%17 = phi [0, %10], [%15, %13]
+		br %17, %18, %28
+	18:
+		%19 = load %2
+		%20 = load %3
+		%21 = icmp sgt %19 %20
+		br %21, %22, %24
+	22:
+		%23 = load %3
+		store %23, %2
+		br %24
+	24:
+		%25 = load %2
+		%26 = load %3
+		%27 = sub i32 %26, %25
+		store %27, %3
+		br %10
+	28:
+		store 0, %1
+		br %29
+	29:
+		%30 = load %1
+		ret %30
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Splitted symbolic execution graph to 1 SCC.
+----------------------------------------
+
+(6)
+Obligation:
+SCC
+----------------------------------------
+
+(7) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 19 rulesP rules:
+f_234(v170, v171, v172, v173, 0, v175, 1, v177, v178, v179, v180, v181, 3, 4) -> f_235(v170, v171, v172, v173, 0, v175, 1, v177, v178, v179, v180, v181, 3, 4) :|: 0 = 0
+f_235(v170, v171, v172, v173, 0, v175, 1, v177, v178, v179, v180, v181, 3, 4) -> f_236(v170, v171, v172, v173, 0, v175, 1, v177, v178, v179, v180, v181, 3, 4) :|: TRUE
+f_236(v170, v171, v172, v173, 0, v175, 1, v177, v178, v179, v180, v181, 3, 4) -> f_237(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 4) :|: 0 = 0
+f_237(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 4) -> f_238(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) :|: 0 < v178 && 2 <= v177
+f_238(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) -> f_240(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) :|: 0 = 0
+f_240(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) -> f_242(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) :|: 0 = 0
+f_242(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) -> f_244(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) :|: TRUE
+f_244(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) -> f_246(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) :|: 0 = 0
+f_246(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) -> f_248(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) :|: 0 = 0
+f_248(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) -> f_251(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) :|: v173 <= v178
+f_251(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) -> f_254(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) :|: 0 = 0
+f_254(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) -> f_256(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) :|: TRUE
+f_256(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) -> f_258(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) :|: 0 = 0
+f_258(v170, v171, v172, v173, 0, v175, 1, v178, v177, v179, v180, v181, 3, 2, 4) -> f_260(v170, v171, v172, v173, 0, v175, 1, v178, v179, v180, v181, 3, 4) :|: 0 = 0
+f_260(v170, v171, v172, v173, 0, v175, 1, v178, v179, v180, v181, 3, 4) -> f_262(v170, v171, v172, v173, 0, v175, 1, v178, v270, v179, v180, v181, 3, 4) :|: v270 + v173 = v178 && 0 <= v270
+f_262(v170, v171, v172, v173, 0, v175, 1, v178, v270, v179, v180, v181, 3, 4) -> f_264(v170, v171, v172, v173, 0, v175, 1, v178, v270, v179, v180, v181, 3, 4) :|: TRUE
+f_264(v170, v171, v172, v173, 0, v175, 1, v178, v270, v179, v180, v181, 3, 4) -> f_266(v170, v171, v172, v173, 0, v175, 1, v178, v270, v179, v180, v181, 3, 4) :|: TRUE
+f_266(v170, v171, v172, v173, 0, v175, 1, v178, v270, v179, v180, v181, 3, 4) -> f_233(v170, v171, v172, v173, 0, v175, 1, v178, v270, v179, v180, v181, 3, 4) :|: 1 <= v170 && 1 <= v171 && 1 <= v172 && 1 <= v173 && 1 <= v175 && 1 <= v178 && 0 <= v270 && 4 <= v179 && 4 <= v180 && 4 <= v181 && v170 <= v179 && v171 <= v180 && v172 <= v181
+f_233(v170, v171, v172, v173, 0, v175, 1, v177, v178, v179, v180, v181, 3, 4) -> f_234(v170, v171, v172, v173, 0, v175, 1, v177, v178, v179, v180, v181, 3, 4) :|: 0 = 0
+Combined rules. Obtained 1 rulesP rules:
+f_234(v170:0, v171:0, v172:0, v173:0, 0, v175:0, 1, v177:0, v270:0 + v173:0, v179:0, v180:0, v181:0, 3, 4) -> f_234(v170:0, v171:0, v172:0, v173:0, 0, v175:0, 1, v270:0 + v173:0, v270:0, v179:0, v180:0, v181:0, 3, 4) :|: v177:0 > 1 && v270:0 + v173:0 > 0 && v171:0 > 0 && v170:0 > 0 && v172:0 > 0 && v173:0 > 0 && v175:0 > 0 && v270:0 + v173:0 >= v173:0 && v270:0 > -1 && v179:0 > 3 && v180:0 > 3 && v181:0 > 3 && v179:0 >= v170:0 && v181:0 >= v172:0 && v180:0 >= v171:0
+Filtered unneeded arguments:
+   f_234(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14) -> f_234(x1, x2, x3, x4, x6, x8, x9, x10, x11, x12)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_234(v170:0, v171:0, v172:0, v173:0, v175:0, v177:0, sum~v270:0~v173:0, v179:0, v180:0, v181:0) -> f_234(v170:0, v171:0, v172:0, v173:0, v175:0, v270:0 + v173:0, v270:0, v179:0, v180:0, v181:0) :|: v270:0 + v173:0 > 0 && v177:0 > 1 && v171:0 > 0 && v170:0 > 0 && v172:0 > 0 && v173:0 > 0 && v175:0 > 0 && v270:0 + v173:0 >= v173:0 && v270:0 > -1 && v179:0 > 3 && v180:0 > 3 && v181:0 > 3 && v179:0 >= v170:0 && v180:0 >= v171:0 && v181:0 >= v172:0 && sum~v270:0~v173:0 = v270:0 + v173:0
+
+----------------------------------------
+
+(8)
+Obligation:
+Rules:
+f_234(v170:0, v171:0, v172:0, v173:0, v175:0, v177:0, sum~v270:0~v173:0, v179:0, v180:0, v181:0) -> f_234(v170:0, v171:0, v172:0, v173:0, v175:0, v270:0 + v173:0, v270:0, v179:0, v180:0, v181:0) :|: v270:0 + v173:0 > 0 && v177:0 > 1 && v171:0 > 0 && v170:0 > 0 && v172:0 > 0 && v173:0 > 0 && v175:0 > 0 && v270:0 + v173:0 >= v173:0 && v270:0 > -1 && v179:0 > 3 && v180:0 > 3 && v181:0 > 3 && v179:0 >= v170:0 && v180:0 >= v171:0 && v181:0 >= v172:0 && sum~v270:0~v173:0 = v270:0 + v173:0
+
+----------------------------------------
+
+(9) IntTRSCompressionProof (EQUIVALENT)
+Compressed rules.
+----------------------------------------
+
+(10)
+Obligation:
+Rules:
+f_234(v170:0:0, v171:0:0, v172:0:0, v173:0:0, v175:0:0, v177:0:0, sum~v270:0:0~v173:0:0, v179:0:0, v180:0:0, v181:0:0) -> f_234(v170:0:0, v171:0:0, v172:0:0, v173:0:0, v175:0:0, v270:0:0 + v173:0:0, v270:0:0, v179:0:0, v180:0:0, v181:0:0) :|: v180:0:0 >= v171:0:0 && v181:0:0 >= v172:0:0 && v179:0:0 >= v170:0:0 && v181:0:0 > 3 && v180:0:0 > 3 && v179:0:0 > 3 && v270:0:0 > -1 && v270:0:0 + v173:0:0 >= v173:0:0 && v175:0:0 > 0 && v173:0:0 > 0 && v172:0:0 > 0 && v170:0:0 > 0 && v171:0:0 > 0 && v177:0:0 > 1 && v270:0:0 + v173:0:0 > 0 && sum~v270:0:0~v173:0:0 = v270:0:0 + v173:0:0
+
+----------------------------------------
+
+(11) RankingReductionPairProof (EQUIVALENT)
+Interpretation:
+[ f_234 ] = f_234_7
+
+The following rules are decreasing:
+f_234(v170:0:0, v171:0:0, v172:0:0, v173:0:0, v175:0:0, v177:0:0, sum~v270:0:0~v173:0:0, v179:0:0, v180:0:0, v181:0:0) -> f_234(v170:0:0, v171:0:0, v172:0:0, v173:0:0, v175:0:0, v270:0:0 + v173:0:0, v270:0:0, v179:0:0, v180:0:0, v181:0:0) :|: v180:0:0 >= v171:0:0 && v181:0:0 >= v172:0:0 && v179:0:0 >= v170:0:0 && v181:0:0 > 3 && v180:0:0 > 3 && v179:0:0 > 3 && v270:0:0 > -1 && v270:0:0 + v173:0:0 >= v173:0:0 && v175:0:0 > 0 && v173:0:0 > 0 && v172:0:0 > 0 && v170:0:0 > 0 && v171:0:0 > 0 && v177:0:0 > 1 && v270:0:0 + v173:0:0 > 0 && sum~v270:0:0~v173:0:0 = v270:0:0 + v173:0:0
+
+The following rules are bounded:
+f_234(v170:0:0, v171:0:0, v172:0:0, v173:0:0, v175:0:0, v177:0:0, sum~v270:0:0~v173:0:0, v179:0:0, v180:0:0, v181:0:0) -> f_234(v170:0:0, v171:0:0, v172:0:0, v173:0:0, v175:0:0, v270:0:0 + v173:0:0, v270:0:0, v179:0:0, v180:0:0, v181:0:0) :|: v180:0:0 >= v171:0:0 && v181:0:0 >= v172:0:0 && v179:0:0 >= v170:0:0 && v181:0:0 > 3 && v180:0:0 > 3 && v179:0:0 > 3 && v270:0:0 > -1 && v270:0:0 + v173:0:0 >= v173:0:0 && v175:0:0 > 0 && v173:0:0 > 0 && v172:0:0 > 0 && v170:0:0 > 0 && v171:0:0 > 0 && v177:0:0 > 1 && v270:0:0 + v173:0:0 > 0 && sum~v270:0:0~v173:0:0 = v270:0:0 + v173:0:0
+
+
+----------------------------------------
+
+(12)
+YES
+/home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_1_T.c:13:23: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int linesToRead = __VERIFIER_nondet_int();
+                      ^
+1 warning generated.
+
+line 76:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.0s
+ 

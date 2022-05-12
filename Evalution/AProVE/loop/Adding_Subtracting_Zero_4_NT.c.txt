@@ -1,0 +1,17 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Adding_Subtracting_Zero_4_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Adding_Subtracting_Zero_4_NT.c
+/home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_4_NT.c:19:20: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+        int num =  __VERIFIER_nondet_int();
+                   ^
+/home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_4_NT.c:46:16: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int count =__VERIFIER_nondet_int();
+               ^
+2 warnings generated.
+
+line 162:18 mismatched input 'nofree' expecting CLOSEC
+ 

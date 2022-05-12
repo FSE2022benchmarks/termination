@@ -1,0 +1,32 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Missing_Corner-case_Handling_4_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Missing_Corner-case_Handling_4_NT.c
+MAYBE
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Missing_Corner-case_Handling_4_NT.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could not be shown:
+
+(0) C Problem
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Missing_Corner-case_Handling_4_NT.c/home/ubuntu/tool/FSE_benchmark/loop/Missing_Corner-case_Handling_4_NT.c:12:23: warning: implicitly declaring library function 'malloc' with type 'void *(unsigned long)' [-Wimplicit-function-declaration]
+    Node* head=(Node*)malloc(sizeof(Node));
+                      ^
+/home/ubuntu/tool/FSE_benchmark/loop/Missing_Corner-case_Handling_4_NT.c:12:23: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+/home/ubuntu/tool/FSE_benchmark/loop/Missing_Corner-case_Handling_4_NT.c:38:15: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int num = __VERIFIER_nondet_int();
+              ^
+2 warnings generated.
+
+line 18:12 no viable alternative at input 'align'
+ 

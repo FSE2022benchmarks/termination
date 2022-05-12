@@ -1,0 +1,25 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Adding_Subtracting_Zero_3_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Adding_Subtracting_Zero_3_T.c
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 16384 bytes for committing reserved memory.
+# An error report file with more information is saved as:
+# /home/ubuntu/tool/aprove/aprove/hs_err_pid22546.log
+[thread 23163 also had an error][thread 23162 also had an error]
+
+/home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_3_T.c:37:20: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+        int num =  __VERIFIER_nondet_int();
+                   ^
+/home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_3_T.c:65:16: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int size = __VERIFIER_nondet_int();
+               ^
+2 warnings generated.
+
+line 192:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+ 

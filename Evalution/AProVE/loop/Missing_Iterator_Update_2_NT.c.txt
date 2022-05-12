@@ -1,0 +1,159 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Missing_Iterator_Update_2_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Missing_Iterator_Update_2_NT.c
+NO
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Missing_Iterator_Update_2_NT.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be disproven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 77 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 571 ms]
+(4) LLVM Symbolic Execution Graph
+(5) LLVMNonterminationProof [COMPLETE, 94 ms]
+(6) NO
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Missing_Iterator_Update_2_NT.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Missing_Iterator_Update_2_NT.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Name: flag initVal: 0 type: i32 addrSpace: null alignment: 4 threadLocal: false constant: false linkageType: null section: null
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "mdb_cursor_get" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 14
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%3 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %3, %2
+		%4 = load @flag
+		%5 = add i32 %4, 1
+		store %5, @flag
+		%6 = load @flag
+		%7 = icmp sgt %6 1000
+		br %7, %8, %9
+	8:
+		store 1, %1
+		br %14
+	9:
+		%10 = load %2
+		%11 = icmp sge %10 0
+		br %11, %12, %13
+	12:
+		store 0, %1
+		br %14
+	13:
+		store 1, %1
+		br %14
+	14:
+		%15 = load %1
+		ret %15
+
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 33
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%4 = call i32 @mdb_cursor_get()
+		store %4, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		%5 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %5, %3
+		br %6
+	6:
+		%7 = load %2
+		%8 = icmp eq %7 0
+		br %8, %9, %15
+	9:
+		%10 = load %3
+		%11 = icmp sle %10 0
+		br %11, %12, %13
+	12:
+		br %6
+	13:
+		%14 = call i32 @mdb_cursor_get()
+		store %14, %2
+		br %6
+	15:
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) LLVMNonterminationProof (COMPLETE)
+Proved nontermination with the following witness:
+
+State #137 with references set to {v1=516, v2=519, v3=(-1041)}.
+Nondeterministic instruction %1 = alloca i32, align 4 in node #137 yields value 1536.
+Nondeterministic instruction %2 = alloca i32, align 4 in node #138 yields value 1.
+Nondeterministic instruction %3 = alloca i32, align 4 in node #139 yields value 256.
+Nondeterministic instruction %1 = alloca i32, align 4 in node #143 yields value 2048.
+Nondeterministic instruction %2 = alloca i32, align 4 in node #144 yields value 1280.
+Nondeterministic instruction %3 = call i32 (...)* @__VERIFIER_nondet_int() in node #146 yields value 0.
+Nondeterministic instruction %5 = call i32 (...)* @__VERIFIER_nondet_int() in node #186 yields value 0.
+
+----------------------------------------
+
+(6)
+NO
+/home/ubuntu/tool/FSE_benchmark/loop/Missing_Iterator_Update_2_NT.c:12:14: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int i =  __VERIFIER_nondet_int();;
+             ^
+/home/ubuntu/tool/FSE_benchmark/loop/Missing_Iterator_Update_2_NT.c:26:24: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int dval_mv_size = __VERIFIER_nondet_int();
+                       ^
+2 warnings generated.
+
+line 86:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+ 

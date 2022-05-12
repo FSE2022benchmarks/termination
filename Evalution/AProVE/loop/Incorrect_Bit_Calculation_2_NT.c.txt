@@ -1,0 +1,97 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Incorrect_Bit_Calculation_2_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Bit_Calculation_2_NT.c
+MAYBE
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Incorrect_Bit_Calculation_2_NT.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could not be shown:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 105 ms]
+(2) LLVM problem
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Incorrect_Bit_Calculation_2_NT.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Incorrect_Bit_Calculation_2_NT.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%4 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %4, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		%5 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %5, %3
+		br %6
+	6:
+		%7 = load %2
+		%8 = and i32 %7, 1
+		%9 = icmp eq %8 0
+		br %9, %10, %18
+	10:
+		%11 = load %3
+		%12 = shl i32 %11, 31
+		%13 = load %2
+		%14 = ashr i32 %13, 1
+		%15 = or i32 %12, %14
+		store %15, %2
+		%16 = load %3
+		%17 = ashr i32 %16, 1
+		store %17, %3
+		br %6
+	18:
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()/home/ubuntu/tool/FSE_benchmark/loop/Incorrect_Bit_Calculation_2_NT.c:17:14: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int a0 = __VERIFIER_nondet_int();
+             ^
+1 warning generated.
+
+line 48:18 mismatched input 'nofree' expecting CLOSEC
+Aborted 1652279851Exec. 4, LLVMToSEGraph with some error. Reason: java.lang.UnsupportedOperationException: Not yet implemented!.
+            aprove.InputModules.Programs.llvm.internalStructures.module.LLVMBinaryOpType$13.toLLVMTerm(LLVMBinaryOpType.java:618)
+            aprove.InputModules.Programs.llvm.internalStructures.instructions.LLVMBinaryInstruction.evaluate(LLVMBinaryInstruction.java:310)
+            aprove.InputModules.Programs.llvm.states.LLVMAbstractState.evaluate(LLVMAbstractState.java:531)
+ 

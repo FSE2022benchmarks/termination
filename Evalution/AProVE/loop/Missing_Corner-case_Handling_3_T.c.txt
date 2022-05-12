@@ -1,0 +1,8 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Missing_Corner-case_Handling_3_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Missing_Corner-case_Handling_3_T.c
+ 

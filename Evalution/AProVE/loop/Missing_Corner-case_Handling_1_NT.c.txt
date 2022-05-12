@@ -1,0 +1,159 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Missing_Corner-case_Handling_1_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Missing_Corner-case_Handling_1_NT.c
+NO
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Missing_Corner-case_Handling_1_NT.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be disproven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 72 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 762 ms]
+(4) LLVM Symbolic Execution Graph
+(5) LLVMNonterminationProof [COMPLETE, 138 ms]
+(6) NO
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Missing_Corner-case_Handling_1_NT.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Missing_Corner-case_Handling_1_NT.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Name: flag initVal: 0 type: i32 addrSpace: null alignment: 4 threadLocal: false constant: false linkageType: null section: null
+
+Name: count initVal: 0 type: i32 addrSpace: null alignment: 4 threadLocal: false constant: false linkageType: null section: null
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "read" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 16
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = load @flag
+		%4 = icmp eq %3 1
+		br %4, %8, %5
+	5:
+		%6 = load @count
+		%7 = icmp sgt %6 100
+		br %7, %8, %9
+	8:
+		store 0, %1
+		br %24
+	9:
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%10 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %10, %2
+		%11 = load %2
+		%12 = icmp sle %11 0
+		br %12, %13, %14
+	13:
+		store -1, %1
+		br %24
+	14:
+		%15 = load %2
+		%16 = srem i32 %15, 1000
+		store %16, %2
+		%17 = load %2
+		%18 = icmp slt %17 995
+		br %18, %19, %23
+	19:
+		%20 = load @count
+		%21 = add i32 %20, 1
+		store %21, @count
+		%22 = load %2
+		store %22, %1
+		br %24
+	23:
+		store 1, @flag
+		store 0, %1
+		br %24
+	24:
+		%25 = load %1
+		ret %25
+
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 52
+	0:
+		%1 = alloca i32, align 4
+		store 0, %1
+		br %2
+	2:
+		%3 = call i32 @read()
+		%4 = icmp slt %3 0
+		br %4, %5, %6
+	5:
+		br %7
+	6:
+		br %2
+	7:
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) LLVMNonterminationProof (COMPLETE)
+Proved nontermination with the following witness:
+
+State #137 with references set to {v1=17, v5=13, v2=20, v6=16, v3=1, v7=0}.
+Nondeterministic instruction %1 = alloca i32, align 4 in node #137 yields value 1.
+Nondeterministic instruction %1 = alloca i32, align 4 in node #141 yields value 9.
+Nondeterministic instruction %2 = alloca i32, align 4 in node #142 yields value 5.
+Nondeterministic instruction %1 = alloca i32, align 4 in node #171 yields value 9.
+Nondeterministic instruction %2 = alloca i32, align 4 in node #174 yields value 5.
+
+----------------------------------------
+
+(6)
+NO
+/home/ubuntu/tool/FSE_benchmark/loop/Missing_Corner-case_Handling_1_NT.c:12:16: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int num =  __VERIFIER_nondet_int();
+               ^
+1 warning generated.
+
+line 91:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.001s
+ 

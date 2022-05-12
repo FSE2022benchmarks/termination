@@ -1,0 +1,32 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Adding_Subtracting_Zero_5_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Adding_Subtracting_Zero_5_T.c
+MAYBE
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_5_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could not be shown:
+
+(0) C Problem
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_5_T.c/home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_5_T.c:12:25: warning: implicitly declaring library function 'malloc' with type 'void *(unsigned long)' [-Wimplicit-function-declaration]
+    INSDS* head=(INSDS*)malloc(sizeof(INSDS));
+                        ^
+/home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_5_T.c:12:25: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+/home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_5_T.c:29:15: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int num = __VERIFIER_nondet_int();
+              ^
+2 warnings generated.
+
+line 18:12 no viable alternative at input 'align'
+ 

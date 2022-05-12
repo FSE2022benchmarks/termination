@@ -1,0 +1,232 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Incorrect_Initialization_4_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Initialization_4_T.c
+YES
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Incorrect_Initialization_4_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be proven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 85 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 1873 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) LLVM Symbolic Execution SCC
+(7) SCC2IRS [SOUND, 0 ms]
+(8) IntTRS
+(9) IntTRSCompressionProof [EQUIVALENT, 0 ms]
+(10) IntTRS
+(11) RankingReductionPairProof [EQUIVALENT, 24 ms]
+(12) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Incorrect_Initialization_4_T.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Incorrect_Initialization_4_T.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		%4 = alloca i32, align 4
+		%5 = alloca i32, align 4
+		%6 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%7 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %7, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		%8 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %8, %3
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %4)
+		%9 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %9, %4
+		%10 = load %2
+		%11 = icmp slt %10 0
+		br %11, %25, %12
+	12:
+		%13 = load %3
+		%14 = icmp sle %13 0
+		br %14, %25, %15
+	15:
+		%16 = load %4
+		%17 = icmp sle %16 0
+		br %17, %25, %18
+	18:
+		%19 = load %4
+		%20 = load %3
+		%21 = icmp sgt %19 %20
+		br %21, %25, %22
+	22:
+		%23 = load %3
+		%24 = icmp sgt %23 65534
+		br %24, %25, %26
+	25:
+		store 0, %1
+		br %47
+	26:
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %5)
+		%27 = load %2
+		%28 = load %3
+		%29 = srem i32 %27, %28
+		store %29, %5
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %6)
+		store 0, %6
+		br %30
+	30:
+		%31 = load %5
+		%32 = load %3
+		%33 = icmp slt %31 %32
+		br %33, %34, %46
+	34:
+		%35 = load %6
+		%36 = icmp ne %35 0
+		br %36, %42, %37
+	37:
+		%38 = load %2
+		%39 = load %4
+		%40 = srem i32 %38, %39
+		%41 = add i32 %40, 1
+		store %41, %6
+		br %42
+	42:
+		%43 = load %6
+		%44 = load %5
+		%45 = add i32 %44, %43
+		store %45, %5
+		br %30
+	46:
+		store 0, %1
+		br %47
+	47:
+		%48 = load %1
+		ret %48
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Splitted symbolic execution graph to 1 SCC.
+----------------------------------------
+
+(6)
+Obligation:
+SCC
+----------------------------------------
+
+(7) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 14 rulesP rules:
+f_321(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v239, v240, v241, v242, v243, v244, v245, 3, 2, 4) -> f_322(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v240, v241, v242, v243, v244, v245, 3, 2, 4) :|: 0 = 0
+f_322(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v240, v241, v242, v243, v244, v245, 3, 2, 4) -> f_323(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v246, v240, v241, v242, v243, v244, v245, 3, 2, 4) :|: v246 = v235 + v237 && 2 <= v246
+f_323(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v246, v240, v241, v242, v243, v244, v245, 3, 2, 4) -> f_324(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v246, v240, v241, v242, v243, v244, v245, 3, 2, 4) :|: TRUE
+f_324(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v246, v240, v241, v242, v243, v244, v245, 3, 2, 4) -> f_325(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v246, v240, v241, v242, v243, v244, v245, 3, 2, 4) :|: TRUE
+f_325(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v246, v240, v241, v242, v243, v244, v245, 3, 2, 4) -> f_326(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 2, 4) :|: 0 = 0
+f_326(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 2, 4) -> f_327(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 2, 4) :|: 0 = 0
+f_327(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 2, 4) -> f_328(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) :|: v246 < v231 && 3 <= v231
+f_328(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) -> f_330(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) :|: 0 = 0
+f_330(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) -> f_332(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) :|: TRUE
+f_332(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) -> f_334(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) :|: 0 = 0
+f_334(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) -> f_336(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) :|: 0 = 0
+f_336(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) -> f_338(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) :|: TRUE
+f_338(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 4, 2) -> f_320(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v246, 1, v237, v238, v235, v240, v241, v242, v243, v244, v245, 3, 2, 4) :|: v234 < v231 && v235 < v231 && v238 < v232 && v246 < v231 && v232 <= v231 && 1 <= v224 && 1 <= v225 && 1 <= v226 && 1 <= v227 && 1 <= v228 && 1 <= v229 && 0 <= v230 && 2 <= v231 && 1 <= v232 && 0 <= v234 && 1 <= v246 && 1 <= v237 && 0 <= v238 && 0 <= v235 && 4 <= v240 && 4 <= v241 && 4 <= v242 && 4 <= v243 && 4 <= v244 && 4 <= v245 && v224 <= v240 && v225 <= v241 && v226 <= v242 && v227 <= v243 && v228 <= v244 && v229 <= v245
+f_320(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v239, v240, v241, v242, v243, v244, v245, 3, 2, 4) -> f_321(v224, v225, v226, v227, v228, v229, v230, v231, v232, 0, v234, v235, 1, v237, v238, v239, v240, v241, v242, v243, v244, v245, 3, 2, 4) :|: 0 = 0
+Combined rules. Obtained 1 rulesP rules:
+f_321(v224:0, v225:0, v226:0, v227:0, v228:0, v229:0, v230:0, v231:0, v232:0, 0, v234:0, v235:0, 1, v237:0, v238:0, v239:0, v240:0, v241:0, v242:0, v243:0, v244:0, v245:0, 3, 2, 4) -> f_321(v224:0, v225:0, v226:0, v227:0, v228:0, v229:0, v230:0, v231:0, v232:0, 0, v234:0, v235:0 + v237:0, 1, v237:0, v238:0, v235:0, v240:0, v241:0, v242:0, v243:0, v244:0, v245:0, 3, 2, 4) :|: v235:0 + v237:0 > 1 && v231:0 > 2 && v235:0 < v231:0 && v234:0 < v231:0 && v238:0 < v232:0 && v235:0 + v237:0 < v231:0 && v232:0 <= v231:0 && v224:0 > 0 && v225:0 > 0 && v226:0 > 0 && v227:0 > 0 && v228:0 > 0 && v229:0 > 0 && v230:0 > -1 && v232:0 > 0 && v234:0 > -1 && v237:0 > 0 && v238:0 > -1 && v235:0 > -1 && v240:0 > 3 && v241:0 > 3 && v242:0 > 3 && v243:0 > 3 && v244:0 > 3 && v245:0 > 3 && v240:0 >= v224:0 && v241:0 >= v225:0 && v242:0 >= v226:0 && v243:0 >= v227:0 && v245:0 >= v229:0 && v244:0 >= v228:0
+Filtered unneeded arguments:
+   f_321(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25) -> f_321(x1, x2, x3, x4, x5, x6, x7, x8, x9, x11, x12, x14, x15, x17, x18, x19, x20, x21, x22)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_321(v224:0, v225:0, v226:0, v227:0, v228:0, v229:0, v230:0, v231:0, v232:0, v234:0, v235:0, v237:0, v238:0, v240:0, v241:0, v242:0, v243:0, v244:0, v245:0) -> f_321(v224:0, v225:0, v226:0, v227:0, v228:0, v229:0, v230:0, v231:0, v232:0, v234:0, v235:0 + v237:0, v237:0, v238:0, v240:0, v241:0, v242:0, v243:0, v244:0, v245:0) :|: v231:0 > 2 && v235:0 + v237:0 > 1 && v235:0 < v231:0 && v234:0 < v231:0 && v238:0 < v232:0 && v235:0 + v237:0 < v231:0 && v232:0 <= v231:0 && v224:0 > 0 && v225:0 > 0 && v226:0 > 0 && v227:0 > 0 && v228:0 > 0 && v229:0 > 0 && v230:0 > -1 && v232:0 > 0 && v234:0 > -1 && v237:0 > 0 && v238:0 > -1 && v235:0 > -1 && v240:0 > 3 && v241:0 > 3 && v242:0 > 3 && v243:0 > 3 && v244:0 > 3 && v245:0 > 3 && v240:0 >= v224:0 && v241:0 >= v225:0 && v242:0 >= v226:0 && v243:0 >= v227:0 && v244:0 >= v228:0 && v245:0 >= v229:0
+
+----------------------------------------
+
+(8)
+Obligation:
+Rules:
+f_321(v224:0, v225:0, v226:0, v227:0, v228:0, v229:0, v230:0, v231:0, v232:0, v234:0, v235:0, v237:0, v238:0, v240:0, v241:0, v242:0, v243:0, v244:0, v245:0) -> f_321(v224:0, v225:0, v226:0, v227:0, v228:0, v229:0, v230:0, v231:0, v232:0, v234:0, v235:0 + v237:0, v237:0, v238:0, v240:0, v241:0, v242:0, v243:0, v244:0, v245:0) :|: v231:0 > 2 && v235:0 + v237:0 > 1 && v235:0 < v231:0 && v234:0 < v231:0 && v238:0 < v232:0 && v235:0 + v237:0 < v231:0 && v232:0 <= v231:0 && v224:0 > 0 && v225:0 > 0 && v226:0 > 0 && v227:0 > 0 && v228:0 > 0 && v229:0 > 0 && v230:0 > -1 && v232:0 > 0 && v234:0 > -1 && v237:0 > 0 && v238:0 > -1 && v235:0 > -1 && v240:0 > 3 && v241:0 > 3 && v242:0 > 3 && v243:0 > 3 && v244:0 > 3 && v245:0 > 3 && v240:0 >= v224:0 && v241:0 >= v225:0 && v242:0 >= v226:0 && v243:0 >= v227:0 && v244:0 >= v228:0 && v245:0 >= v229:0
+
+----------------------------------------
+
+(9) IntTRSCompressionProof (EQUIVALENT)
+Compressed rules.
+----------------------------------------
+
+(10)
+Obligation:
+Rules:
+f_321(v224:0:0, v225:0:0, v226:0:0, v227:0:0, v228:0:0, v229:0:0, v230:0:0, v231:0:0, v232:0:0, v234:0:0, v235:0:0, v237:0:0, v238:0:0, v240:0:0, v241:0:0, v242:0:0, v243:0:0, v244:0:0, v245:0:0) -> f_321(v224:0:0, v225:0:0, v226:0:0, v227:0:0, v228:0:0, v229:0:0, v230:0:0, v231:0:0, v232:0:0, v234:0:0, v235:0:0 + v237:0:0, v237:0:0, v238:0:0, v240:0:0, v241:0:0, v242:0:0, v243:0:0, v244:0:0, v245:0:0) :|: v244:0:0 >= v228:0:0 && v245:0:0 >= v229:0:0 && v243:0:0 >= v227:0:0 && v242:0:0 >= v226:0:0 && v241:0:0 >= v225:0:0 && v240:0:0 >= v224:0:0 && v245:0:0 > 3 && v244:0:0 > 3 && v243:0:0 > 3 && v242:0:0 > 3 && v241:0:0 > 3 && v240:0:0 > 3 && v235:0:0 > -1 && v238:0:0 > -1 && v237:0:0 > 0 && v234:0:0 > -1 && v232:0:0 > 0 && v230:0:0 > -1 && v229:0:0 > 0 && v228:0:0 > 0 && v227:0:0 > 0 && v226:0:0 > 0 && v225:0:0 > 0 && v224:0:0 > 0 && v232:0:0 <= v231:0:0 && v235:0:0 + v237:0:0 < v231:0:0 && v238:0:0 < v232:0:0 && v234:0:0 < v231:0:0 && v235:0:0 < v231:0:0 && v235:0:0 + v237:0:0 > 1 && v231:0:0 > 2
+
+----------------------------------------
+
+(11) RankingReductionPairProof (EQUIVALENT)
+Interpretation:
+[ f_321 ] = -1*f_321_11 + f_321_8
+
+The following rules are decreasing:
+f_321(v224:0:0, v225:0:0, v226:0:0, v227:0:0, v228:0:0, v229:0:0, v230:0:0, v231:0:0, v232:0:0, v234:0:0, v235:0:0, v237:0:0, v238:0:0, v240:0:0, v241:0:0, v242:0:0, v243:0:0, v244:0:0, v245:0:0) -> f_321(v224:0:0, v225:0:0, v226:0:0, v227:0:0, v228:0:0, v229:0:0, v230:0:0, v231:0:0, v232:0:0, v234:0:0, v235:0:0 + v237:0:0, v237:0:0, v238:0:0, v240:0:0, v241:0:0, v242:0:0, v243:0:0, v244:0:0, v245:0:0) :|: v244:0:0 >= v228:0:0 && v245:0:0 >= v229:0:0 && v243:0:0 >= v227:0:0 && v242:0:0 >= v226:0:0 && v241:0:0 >= v225:0:0 && v240:0:0 >= v224:0:0 && v245:0:0 > 3 && v244:0:0 > 3 && v243:0:0 > 3 && v242:0:0 > 3 && v241:0:0 > 3 && v240:0:0 > 3 && v235:0:0 > -1 && v238:0:0 > -1 && v237:0:0 > 0 && v234:0:0 > -1 && v232:0:0 > 0 && v230:0:0 > -1 && v229:0:0 > 0 && v228:0:0 > 0 && v227:0:0 > 0 && v226:0:0 > 0 && v225:0:0 > 0 && v224:0:0 > 0 && v232:0:0 <= v231:0:0 && v235:0:0 + v237:0:0 < v231:0:0 && v238:0:0 < v232:0:0 && v234:0:0 < v231:0:0 && v235:0:0 < v231:0:0 && v235:0:0 + v237:0:0 > 1 && v231:0:0 > 2
+
+The following rules are bounded:
+f_321(v224:0:0, v225:0:0, v226:0:0, v227:0:0, v228:0:0, v229:0:0, v230:0:0, v231:0:0, v232:0:0, v234:0:0, v235:0:0, v237:0:0, v238:0:0, v240:0:0, v241:0:0, v242:0:0, v243:0:0, v244:0:0, v245:0:0) -> f_321(v224:0:0, v225:0:0, v226:0:0, v227:0:0, v228:0:0, v229:0:0, v230:0:0, v231:0:0, v232:0:0, v234:0:0, v235:0:0 + v237:0:0, v237:0:0, v238:0:0, v240:0:0, v241:0:0, v242:0:0, v243:0:0, v244:0:0, v245:0:0) :|: v244:0:0 >= v228:0:0 && v245:0:0 >= v229:0:0 && v243:0:0 >= v227:0:0 && v242:0:0 >= v226:0:0 && v241:0:0 >= v225:0:0 && v240:0:0 >= v224:0:0 && v245:0:0 > 3 && v244:0:0 > 3 && v243:0:0 > 3 && v242:0:0 > 3 && v241:0:0 > 3 && v240:0:0 > 3 && v235:0:0 > -1 && v238:0:0 > -1 && v237:0:0 > 0 && v234:0:0 > -1 && v232:0:0 > 0 && v230:0:0 > -1 && v229:0:0 > 0 && v228:0:0 > 0 && v227:0:0 > 0 && v226:0:0 > 0 && v225:0:0 > 0 && v224:0:0 > 0 && v232:0:0 <= v231:0:0 && v235:0:0 + v237:0:0 < v231:0:0 && v238:0:0 < v232:0:0 && v234:0:0 < v231:0:0 && v235:0:0 < v231:0:0 && v235:0:0 + v237:0:0 > 1 && v231:0:0 > 2
+
+
+----------------------------------------
+
+(12)
+YES
+/home/ubuntu/tool/FSE_benchmark/loop/Incorrect_Initialization_4_T.c:8:13: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int h = __VERIFIER_nondet_int();
+            ^
+1 warning generated.
+
+line 104:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.001s
+ 

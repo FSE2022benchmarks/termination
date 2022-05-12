@@ -1,0 +1,23 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Adding_Subtracting_Zero_4_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Adding_Subtracting_Zero_4_T.c
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 207618048 bytes for committing reserved memory.
+# An error report file with more information is saved as:
+# /home/ubuntu/tool/aprove/aprove/hs_err_pid24971.log
+/home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_4_T.c:16:20: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+        int num =  __VERIFIER_nondet_int();
+                   ^
+/home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_4_T.c:43:16: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int count =__VERIFIER_nondet_int();
+               ^
+2 warnings generated.
+
+line 180:18 mismatched input 'nofree' expecting CLOSEC
+OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x0000000690900000, 207618048, 0) failed; error='Not enough space' (errno=12)
+ 

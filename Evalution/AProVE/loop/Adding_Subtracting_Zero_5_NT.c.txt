@@ -1,0 +1,14 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Adding_Subtracting_Zero_5_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Adding_Subtracting_Zero_5_NT.c
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 230686720 bytes for committing reserved memory.
+# An error report file with more information is saved as:
+# /home/ubuntu/tool/aprove/aprove/hs_err_pid25075.log
+OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x0000000680000000, 230686720, 0) failed; error='Not enough space' (errno=12)
+ 

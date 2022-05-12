@@ -1,0 +1,335 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Missing_Initialization_1_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Missing_Initialization_1_T.c
+YES
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Missing_Initialization_1_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be proven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 0 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 486 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) LLVM Symbolic Execution SCC
+(7) SCC2IRS [SOUND, 74 ms]
+(8) IntTRS
+(9) IRS2T2 [EQUIVALENT, 6 ms]
+(10) T2IntSys
+(11) T2 [EQUIVALENT, 520 ms]
+(12) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Missing_Initialization_1_T.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Missing_Initialization_1_T.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		%4 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %4, %3
+		br %5
+	5:
+		%6 = load %3
+		%7 = icmp slt %6 10
+		br %7, %8, %21
+	8:
+		store 0, %2
+		br %9
+	9:
+		%10 = load %2
+		%11 = icmp eq %10 0
+		br %11, %12, %20
+	12:
+		%13 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %13, %2
+		%14 = load %3
+		%15 = add i32 %14, 1
+		store %15, %3
+		%16 = load %2
+		%17 = icmp eq %16 0
+		br %17, %18, %19
+	18:
+		br %20
+	19:
+		br %9
+	20:
+		br %5
+	21:
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Splitted symbolic execution graph to 1 SCC.
+----------------------------------------
+
+(6)
+Obligation:
+SCC
+----------------------------------------
+
+(7) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 53 rulesP rules:
+f_230(v168, v169, v170, v171, v172, 1, v175, v176, 0, v177, v178, v179, 3, 9, 10, 4) -> f_232(v168, v169, v170, v171, v172, 1, v175, 0, v176, v177, v178, v179, 3, 9, 10, 4) :|: 0 = 0
+f_232(v168, v169, v170, v171, v172, 1, v175, 0, v176, v177, v178, v179, 3, 9, 10, 4) -> f_235(v168, v169, v170, v171, v172, 1, v175, 0, v176, v177, v178, v179, 3, 9, 10, 4) :|: TRUE
+f_235(v168, v169, v170, v171, v172, 1, v175, 0, v176, v177, v178, v179, 3, 9, 10, 4) -> f_238(v168, v169, v170, v171, v172, 1, v175, 0, v176, v177, v178, v179, 3, 9, 10, 4) :|: TRUE
+f_238(v168, v169, v170, v171, v172, 1, v175, 0, v176, v177, v178, v179, 3, 9, 10, 4) -> f_241(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 9, 10, 4) :|: 0 = 0
+f_241(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 9, 10, 4) -> f_243(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 8, 9, 4) :|: v176 < 10 && v172 <= 8 && v171 <= 8
+f_243(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 8, 9, 4) -> f_246(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 8, 9, 4) :|: 0 = 0
+f_246(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 8, 9, 4) -> f_249(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 8, 9, 4) :|: TRUE
+f_249(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 8, 9, 4) -> f_252(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 8, 9, 4) :|: TRUE
+f_252(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 8, 9, 4) -> f_254(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 8, 9, 4) :|: TRUE
+f_254(v168, v169, v170, v171, v176, 1, v175, 0, v172, v177, v178, v179, 3, 8, 9, 4) -> f_256(v168, v169, v170, v171, v176, 1, 0, v175, v172, v177, v178, v179, 3, 8, 9, 4) :|: 0 = 0
+f_256(v168, v169, v170, v171, v176, 1, 0, v175, v172, v177, v178, v179, 3, 8, 9, 4) -> f_258(v168, v169, v170, v171, v176, 1, 0, v175, v172, v177, v178, v179, 3, 8, 9, 4) :|: 0 = 0
+f_258(v168, v169, v170, v171, v176, 1, 0, v175, v172, v177, v178, v179, 3, 8, 9, 4) -> f_260(v168, v169, v170, v171, v176, 1, 0, v175, v172, v177, v178, v179, 3, 8, 9, 4) :|: TRUE
+f_260(v168, v169, v170, v171, v176, 1, 0, v175, v172, v177, v178, v179, 3, 8, 9, 4) -> f_262(v168, v169, v170, v171, v176, 1, 0, v255, v172, v175, v177, v178, v179, 3, 8, 9, 4) :|: TRUE
+f_262(v168, v169, v170, v171, v176, 1, 0, v255, v172, v175, v177, v178, v179, 3, 8, 9, 4) -> f_264(v168, v169, v170, v171, v176, 1, 0, v255, v172, v175, v177, v178, v179, 3, 8, 9, 4) :|: TRUE
+f_264(v168, v169, v170, v171, v176, 1, 0, v255, v172, v175, v177, v178, v179, 3, 8, 9, 4) -> f_266(v168, v169, v170, v171, v176, 1, 0, v255, v175, v177, v178, v179, 3, 8, 9, 4) :|: 0 = 0
+f_266(v168, v169, v170, v171, v176, 1, 0, v255, v175, v177, v178, v179, 3, 8, 9, 4) -> f_269(v168, v169, v170, v171, v176, 1, 0, v255, v258, v175, v177, v178, v179, 3, 8, 9, 4, 10) :|: v258 = 1 + v176 && v258 <= 10
+f_269(v168, v169, v170, v171, v176, 1, 0, v255, v258, v175, v177, v178, v179, 3, 8, 9, 4, 10) -> f_272(v168, v169, v170, v171, v176, 1, 0, v255, v258, v175, v177, v178, v179, 3, 8, 9, 4, 10) :|: TRUE
+f_272(v168, v169, v170, v171, v176, 1, 0, v255, v258, v175, v177, v178, v179, 3, 8, 9, 4, 10) -> f_275(v168, v169, v170, v171, v176, 1, 0, v255, v258, v177, v178, v179, 3, 8, 9, 4, 10) :|: 0 = 0
+f_275(v168, v169, v170, v171, v176, 1, 0, v255, v258, v177, v178, v179, 3, 8, 9, 4, 10) -> f_278(v168, v169, v170, v171, v176, 1, 0, v258, v177, v178, v179, 3, 8, 9, 4, 10) :|: v255 = 0
+f_275(v168, v169, v170, v171, v176, 1, 0, v255, v258, v177, v178, v179, 3, 8, 9, 4, 10) -> f_279(v168, v169, v170, v171, v176, 1, 0, v255, v258, v177, v178, v179, 3, 8, 9, 4, 10) :|: v255 != 0
+f_278(v168, v169, v170, v171, v176, 1, 0, v258, v177, v178, v179, 3, 8, 9, 4, 10) -> f_281(v168, v169, v170, v171, v176, 1, 0, v258, v177, v178, v179, 3, 8, 9, 4, 10) :|: 0 = 0
+f_281(v168, v169, v170, v171, v176, 1, 0, v258, v177, v178, v179, 3, 8, 9, 4, 10) -> f_283(v168, v169, v170, v171, v176, 1, 0, v258, v177, v178, v179, 3, 8, 9, 4, 10) :|: TRUE
+f_283(v168, v169, v170, v171, v176, 1, 0, v258, v177, v178, v179, 3, 8, 9, 4, 10) -> f_273(v168, v169, v170, v171, v176, 1, 0, v258, v177, v178, v179, 3, 8, 9, 4, 10) :|: TRUE
+f_273(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_276(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: TRUE
+f_276(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_280(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: TRUE
+f_280(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_229(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 9, 10, 4) :|: TRUE
+f_229(v195, v196, v197, v198, v199, 1, 0, v202, v203, v204, v205, 3, 9, 10, 4) -> f_231(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 9, 10, 4) :|: 0 = 0
+f_231(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 9, 10, 4) -> f_233(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) :|: v202 < 10 && v199 <= 8 && v198 <= 8
+f_233(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) -> f_236(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) :|: 0 = 0
+f_236(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) -> f_239(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) :|: TRUE
+f_239(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) -> f_242(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) :|: TRUE
+f_242(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) -> f_245(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) :|: TRUE
+f_245(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) -> f_248(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) :|: 0 = 0
+f_248(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) -> f_251(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) :|: 0 = 0
+f_251(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) -> f_253(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) :|: TRUE
+f_253(v195, v196, v197, v198, v202, 1, 0, v199, v203, v204, v205, 3, 8, 9, 4) -> f_255(v195, v196, v197, v198, v202, 1, 0, v245, v199, v203, v204, v205, 3, 8, 9, 4) :|: TRUE
+f_255(v195, v196, v197, v198, v202, 1, 0, v245, v199, v203, v204, v205, 3, 8, 9, 4) -> f_257(v195, v196, v197, v198, v202, 1, 0, v245, v199, v203, v204, v205, 3, 8, 9, 4) :|: TRUE
+f_257(v195, v196, v197, v198, v202, 1, 0, v245, v199, v203, v204, v205, 3, 8, 9, 4) -> f_259(v195, v196, v197, v198, v202, 1, 0, v245, v203, v204, v205, 3, 8, 9, 4) :|: 0 = 0
+f_259(v195, v196, v197, v198, v202, 1, 0, v245, v203, v204, v205, 3, 8, 9, 4) -> f_261(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: v254 = 1 + v202 && v254 <= 10
+f_261(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_263(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: TRUE
+f_263(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_265(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: 0 = 0
+f_265(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_267(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: v245 = 0
+f_265(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_268(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: v245 != 0
+f_267(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_270(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: 0 = 0
+f_270(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_273(v195, v196, v197, v198, v202, 1, 0, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: TRUE
+f_268(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_271(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: 0 = 0
+f_271(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_274(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: TRUE
+f_274(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_277(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) :|: TRUE
+f_277(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 8, 9, 4, 10) -> f_227(v195, v196, v197, v198, v202, 1, 0, v245, v254, v203, v204, v205, 3, 9, 10, 4) :|: TRUE
+f_227(v168, v169, v170, v171, v172, 1, 0, v175, v176, v177, v178, v179, 3, 9, 10, 4) -> f_230(v168, v169, v170, v171, v172, 1, v175, v176, 0, v177, v178, v179, 3, 9, 10, 4) :|: 0 = 0
+f_279(v168, v169, v170, v171, v176, 1, 0, v255, v258, v177, v178, v179, 3, 8, 9, 4, 10) -> f_282(v168, v169, v170, v171, v176, 1, 0, v255, v258, v177, v178, v179, 3, 8, 9, 4, 10) :|: 0 = 0
+f_282(v168, v169, v170, v171, v176, 1, 0, v255, v258, v177, v178, v179, 3, 8, 9, 4, 10) -> f_284(v168, v169, v170, v171, v176, 1, 0, v255, v258, v177, v178, v179, 3, 8, 9, 4, 10) :|: TRUE
+f_284(v168, v169, v170, v171, v176, 1, 0, v255, v258, v177, v178, v179, 3, 8, 9, 4, 10) -> f_274(v168, v169, v170, v171, v176, 1, 0, v255, v258, v177, v178, v179, 3, 8, 9, 4, 10) :|: TRUE
+Combined rules. Obtained 6 rulesP rules:
+f_230(v168:0, v169:0, v170:0, v171:0, v172:0, 1, v175:0, v176:0, 0, v177:0, v178:0, v179:0, 3, 9, 10, 4) -> f_230(v168:0, v169:0, v170:0, v171:0, v176:0, 1, v255:0, 1 + v176:0, 0, v177:0, v178:0, v179:0, 3, 9, 10, 4) :|: v172:0 < 9 && v176:0 < 10 && v171:0 < 9 && v255:0 < 0
+f_230(v168:0, v169:0, v170:0, v171:0, v172:0, 1, v175:0, v176:0, 0, v177:0, v178:0, v179:0, 3, 9, 10, 4) -> f_230(v168:0, v169:0, v170:0, v171:0, v176:0, 1, v255:0, 1 + v176:0, 0, v177:0, v178:0, v179:0, 3, 9, 10, 4) :|: v172:0 < 9 && v176:0 < 10 && v171:0 < 9 && v255:0 > 0
+f_265(v195:0, v196:0, v197:0, v198:0, v202:0, 1, 0, v245:0, v254:0, v203:0, v204:0, v205:0, 3, 8, 9, 4, 10) -> f_230(v195:0, v196:0, v197:0, v198:0, v202:0, 1, v245:0, v254:0, 0, v203:0, v204:0, v205:0, 3, 9, 10, 4) :|: v245:0 < 0
+f_265(v195:0, v196:0, v197:0, v198:0, v202:0, 1, 0, v245:0, v254:0, v203:0, v204:0, v205:0, 3, 8, 9, 4, 10) -> f_230(v195:0, v196:0, v197:0, v198:0, v202:0, 1, v245:0, v254:0, 0, v203:0, v204:0, v205:0, 3, 9, 10, 4) :|: v245:0 > 0
+f_230(v168:0, v169:0, v170:0, v171:0, v172:0, 1, v175:0, v176:0, 0, v177:0, v178:0, v179:0, 3, 9, 10, 4) -> f_265(v168:0, v169:0, v170:0, v171:0, 1 + v176:0, 1, 0, v245:0, 1 + (1 + v176:0), v177:0, v178:0, v179:0, 3, 8, 9, 4, 10) :|: v172:0 < 9 && v176:0 < 10 && v171:0 < 9 && v176:0 < 9
+f_265(v195:0, v196:0, v197:0, v198:0, v202:0, 1, 0, 0, v254:0, v203:0, v204:0, v205:0, 3, 8, 9, 4, 10) -> f_265(v195:0, v196:0, v197:0, v198:0, v254:0, 1, 0, v245:1, 1 + v254:0, v203:0, v204:0, v205:0, 3, 8, 9, 4, 10) :|: v202:0 < 9 && v254:0 < 10 && v198:0 < 9
+Filtered unneeded arguments:
+   f_230(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16) -> f_230(x4, x5, x8)
+   f_265(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17) -> f_265(x4, x5, x8, x9)
+Removed division, modulo operations, cleaned up constraints. Obtained 5 rules.P rules:
+f_230(v171:0, v172:0, v176:0) -> f_230(v171:0, v176:0, 1 + v176:0) :|: v176:0 < 10 && v171:0 < 9 && v172:0 < 9
+f_265(v198:0, v202:0, v245:0, v254:0) -> f_230(v198:0, v202:0, v254:0) :|: v245:0 < 0
+f_265(v198:0, v202:0, v245:0, v254:0) -> f_230(v198:0, v202:0, v254:0) :|: v245:0 > 0
+f_230(v171:0, v172:0, v176:0) -> f_265(v171:0, 1 + v176:0, v245:0, 1 + (1 + v176:0)) :|: v176:0 < 10 && v172:0 < 9 && v176:0 < 9 && v171:0 < 9
+f_265(v198:0, v202:0, cons_0, v254:0) -> f_265(v198:0, v254:0, v245:1, 1 + v254:0) :|: v254:0 < 10 && v198:0 < 9 && v202:0 < 9 && cons_0 = 0
+
+----------------------------------------
+
+(8)
+Obligation:
+Rules:
+f_230(v171:0, v172:0, v176:0) -> f_230(v171:0, v176:0, 1 + v176:0) :|: v176:0 < 10 && v171:0 < 9 && v172:0 < 9
+f_265(v198:0, v202:0, v245:0, v254:0) -> f_230(v198:0, v202:0, v254:0) :|: v245:0 < 0
+f_265(x, x1, x2, x3) -> f_230(x, x1, x3) :|: x2 > 0
+f_230(x4, x5, x6) -> f_265(x4, 1 + x6, x7, 1 + (1 + x6)) :|: x6 < 10 && x5 < 9 && x6 < 9 && x4 < 9
+f_265(x8, x9, x10, x11) -> f_265(x8, x11, x12, 1 + x11) :|: x11 < 10 && x8 < 9 && x9 < 9 && x10 = 0
+
+----------------------------------------
+
+(9) IRS2T2 (EQUIVALENT)
+Transformed input IRS into an integer transition system.Used the following mapping from defined symbols to location IDs:
+
+   (f_230_4,1)
+   (f_265_4,2)
+
+----------------------------------------
+
+(10)
+Obligation:
+START: 0;
+
+FROM: 0;
+TO: 1;
+
+FROM: 0;
+TO: 2;
+
+FROM: 1;
+oldX0 := x0;
+oldX1 := x1;
+oldX2 := x2;
+oldX3 := x3;
+oldX4 := nondet();
+assume(oldX2 < 10 && oldX0 < 9 && oldX1 < 9);
+x0 := oldX0;
+x1 := oldX2;
+x2 := 1 + oldX2;
+x3 := oldX4;
+TO: 1;
+
+FROM: 2;
+oldX0 := x0;
+oldX1 := x1;
+oldX2 := x2;
+oldX3 := x3;
+oldX4 := nondet();
+assume(oldX2 < 0);
+x0 := oldX0;
+x1 := oldX1;
+x2 := oldX3;
+x3 := oldX4;
+TO: 1;
+
+FROM: 2;
+oldX0 := x0;
+oldX1 := x1;
+oldX2 := x2;
+oldX3 := x3;
+oldX4 := nondet();
+assume(oldX2 > 0);
+x0 := oldX0;
+x1 := oldX1;
+x2 := oldX3;
+x3 := oldX4;
+TO: 1;
+
+FROM: 1;
+oldX0 := x0;
+oldX1 := x1;
+oldX2 := x2;
+oldX3 := x3;
+oldX4 := nondet();
+assume(oldX2 < 10 && oldX1 < 9 && oldX2 < 9 && oldX0 < 9);
+x0 := oldX0;
+x1 := 1 + oldX2;
+x2 := oldX4;
+x3 := 1 + (1 + oldX2);
+TO: 2;
+
+FROM: 2;
+oldX0 := x0;
+oldX1 := x1;
+oldX2 := x2;
+oldX3 := x3;
+oldX4 := nondet();
+assume(oldX3 < 10 && oldX0 < 9 && oldX1 < 9 && oldX2 = 0);
+x0 := oldX0;
+x1 := oldX3;
+x2 := oldX4;
+x3 := 1 + oldX3;
+TO: 2;
+
+
+----------------------------------------
+
+(11) T2 (EQUIVALENT)
+Termination proof succeeded
+Initially, performed program simplifications using lexicographic rank functions:
+ * Removed transitions 2, 5, 6, 14, 17, 18, 19 using the following rank functions:
+    - Rank function 1:
+      RF for loc. 6: -1-2*x2
+      RF for loc. 7: 1-2*x3
+      RF for loc. 8: -2-2*x2
+      RF for loc. 12: -2*x3
+      Bound for (chained) transitions 5: -20
+      Bound for (chained) transitions 6: -20
+      Bound for (chained) transitions 19: -18
+    - Rank function 2:
+      RF for loc. 6: -1
+      RF for loc. 7: 1
+      RF for loc. 8: -2
+      RF for loc. 12: 0
+      Bound for (chained) transitions 2: -1
+      Bound for (chained) transitions 14: 1
+      Bound for (chained) transitions 17: 0
+    - Rank function 3:
+      RF for loc. 6: -1
+      RF for loc. 12: 0
+      Bound for (chained) transitions 18: 0
+
+----------------------------------------
+
+(12)
+YES
+/home/ubuntu/tool/FSE_benchmark/loop/Missing_Initialization_1_T.c:7:15: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int pkt = __VERIFIER_nondet_int();
+              ^
+1 warning generated.
+
+line 61:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.001s
+ 

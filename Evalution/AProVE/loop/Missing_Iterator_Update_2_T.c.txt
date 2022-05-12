@@ -1,0 +1,303 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Missing_Iterator_Update_2_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Missing_Iterator_Update_2_T.c
+YES
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Missing_Iterator_Update_2_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be proven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 86 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 854 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) AND
+    (7) LLVM Symbolic Execution SCC
+        (8) SCC2IRS [SOUND, 131 ms]
+        (9) IntTRS
+        (10) PolynomialOrderProcessor [EQUIVALENT, 3 ms]
+        (11) YES
+    (12) LLVM Symbolic Execution SCC
+        (13) SCC2IRS [SOUND, 124 ms]
+        (14) IntTRS
+        (15) RankingReductionPairProof [EQUIVALENT, 18 ms]
+        (16) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Missing_Iterator_Update_2_T.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Missing_Iterator_Update_2_T.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Name: flag initVal: 0 type: i32 addrSpace: null alignment: 4 threadLocal: false constant: false linkageType: null section: null
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "mdb_cursor_get" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 14
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%3 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %3, %2
+		%4 = load @flag
+		%5 = add i32 %4, 1
+		store %5, @flag
+		%6 = load @flag
+		%7 = icmp sgt %6 1000
+		br %7, %8, %9
+	8:
+		store 1, %1
+		br %14
+	9:
+		%10 = load %2
+		%11 = icmp sge %10 0
+		br %11, %12, %13
+	12:
+		store 0, %1
+		br %14
+	13:
+		store 1, %1
+		br %14
+	14:
+		%15 = load %1
+		ret %15
+
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 33
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%4 = call i32 @mdb_cursor_get()
+		store %4, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		%5 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %5, %3
+		br %6
+	6:
+		%7 = load %2
+		%8 = icmp eq %7 0
+		br %8, %9, %16
+	9:
+		%10 = load %3
+		%11 = icmp sle %10 0
+		br %11, %12, %14
+	12:
+		%13 = call i32 @mdb_cursor_get()
+		store %13, %2
+		br %6
+	14:
+		%15 = call i32 @mdb_cursor_get()
+		store %15, %2
+		br %6
+	16:
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Splitted symbolic execution graph to 2 SCCs.
+----------------------------------------
+
+(6)
+Complex Obligation (AND)
+
+----------------------------------------
+
+(7)
+Obligation:
+SCC
+----------------------------------------
+
+(8) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 30 rulesP rules:
+f_330(v461, v476, v468, v462, v469, v463, v470, v464, v471, v477, v472, 0, v466, 1, 3, 4, 1001) -> f_332(v461, v476, v480, v468, v462, v469, v463, v470, v464, v471, v477, v481, v472, 0, v466, 1, 3, 4, 1001) :|: 1 <= v480 && v481 = 3 + v480 && 4 <= v481
+f_332(v461, v476, v480, v468, v462, v469, v463, v470, v464, v471, v477, v481, v472, 0, v466, 1, 3, 4, 1001) -> f_334(v461, v476, v480, v468, v462, v469, v463, v470, v464, v471, v477, v481, v472, 0, v466, 1, 3, 4, 1001) :|: TRUE
+f_334(v461, v476, v480, v468, v462, v469, v463, v470, v464, v471, v477, v481, v472, 0, v466, 1, 3, 4, 1001) -> f_336(v461, v476, v480, v483, v468, v462, v469, v463, v470, v464, v471, v477, v481, v472, 0, v466, 1, 3, 4, 1001) :|: TRUE
+f_336(v461, v476, v480, v483, v468, v462, v469, v463, v470, v464, v471, v477, v481, v472, 0, v466, 1, 3, 4, 1001) -> f_338(v461, v476, v480, v483, v468, v462, v469, v463, v470, v464, v471, v477, v481, v472, 0, v466, 1, 3, 4, 1001) :|: TRUE
+f_338(v461, v476, v480, v483, v468, v462, v469, v463, v470, v464, v471, v477, v481, v472, 0, v466, 1, 3, 4, 1001) -> f_340(v461, v476, v480, v483, v472, v468, v462, v469, v463, v470, v464, v471, v477, v481, 0, v466, 1, 3, 4, 1001) :|: 0 = 0
+f_340(v461, v476, v480, v483, v472, v468, v462, v469, v463, v470, v464, v471, v477, v481, 0, v466, 1, 3, 4, 1001) -> f_342(v461, v476, v480, v483, v472, v487, v468, v462, v469, v463, v470, v464, v471, v477, v481, 0, v466, 1, 3, 4, 1001, 1002) :|: v487 = 1 + v472 && v487 <= 1002
+f_342(v461, v476, v480, v483, v472, v487, v468, v462, v469, v463, v470, v464, v471, v477, v481, 0, v466, 1, 3, 4, 1001, 1002) -> f_344(v461, v476, v480, v483, v472, v487, v468, v462, v469, v463, v470, v464, v471, v477, v481, 0, v466, 1, 3, 4, 1001, 1002) :|: TRUE
+f_344(v461, v476, v480, v483, v472, v487, v468, v462, v469, v463, v470, v464, v471, v477, v481, 0, v466, 1, 3, 4, 1001, 1002) -> f_346(v461, v476, v480, v483, v472, v487, v468, v462, v469, v463, v470, v464, v471, v477, v481, 0, v466, 1, 3, 4, 1001, 1002) :|: 0 = 0
+f_346(v461, v476, v480, v483, v472, v487, v468, v462, v469, v463, v470, v464, v471, v477, v481, 0, v466, 1, 3, 4, 1001, 1002) -> f_350(v461, v476, v480, v483, v472, v487, v468, v462, v469, v463, v470, v464, v471, v477, v481, 0, v466, 1, 3, 4, 999, 1000) :|: v487 <= 1000 && v472 <= 999
+f_350(v461, v476, v480, v483, v472, v487, v468, v462, v469, v463, v470, v464, v471, v477, v481, 0, v466, 1, 3, 4, 999, 1000) -> f_354(v461, v476, v480, v483, v472, v487, 0, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 1, 3, 4, 999, 1000) :|: 0 = 0
+f_354(v461, v476, v480, v483, v472, v487, 0, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 1, 3, 4, 999, 1000) -> f_358(v461, v476, v480, v483, v472, v487, 0, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 1, 3, 4, 999, 1000) :|: TRUE
+f_358(v461, v476, v480, v483, v472, v487, 0, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 1, 3, 4, 999, 1000) -> f_362(v461, v476, v480, v483, v472, v487, 0, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 1, 3, 4, 999, 1000) :|: 0 = 0
+f_362(v461, v476, v480, v483, v472, v487, 0, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 1, 3, 4, 999, 1000) -> f_367(v461, v476, v480, v483, v472, v487, 0, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 1, 3, 4, 999, 1000) :|: 0 <= v483
+f_367(v461, v476, v480, v483, v472, v487, 0, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 1, 3, 4, 999, 1000) -> f_373(v461, v476, v480, v483, v472, v487, 0, 1, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 3, 4, 999, 1000) :|: 0 = 0
+f_373(v461, v476, v480, v483, v472, v487, 0, 1, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 3, 4, 999, 1000) -> f_379(v461, v476, v480, v483, v472, v487, 0, 1, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 3, 4, 999, 1000) :|: TRUE
+f_379(v461, v476, v480, v483, v472, v487, 0, 1, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 3, 4, 999, 1000) -> f_385(v461, v476, v480, v483, v472, v487, 0, 1, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 3, 4, 999, 1000) :|: TRUE
+f_385(v461, v476, v480, v483, v472, v487, 0, 1, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 3, 4, 999, 1000) -> f_391(v461, v476, v480, v483, v472, v487, 0, 1, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 3, 4, 999, 1000) :|: TRUE
+f_391(v461, v476, v480, v483, v472, v487, 0, 1, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 3, 4, 999, 1000) -> f_397(v461, v476, v480, v483, v472, v487, 0, 1, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 3, 4, 999, 1000) :|: 0 = 0
+f_397(v461, v476, v480, v483, v472, v487, 0, 1, v468, v462, v469, v463, v470, v464, v471, v477, v481, v466, 3, 4, 999, 1000) -> f_403(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) :|: 0 = 0
+f_403(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) -> f_409(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) :|: TRUE
+f_409(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) -> f_413(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) :|: TRUE
+f_413(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) -> f_417(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) :|: 0 = 0
+f_417(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) -> f_421(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) :|: 0 = 0
+f_421(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) -> f_425(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) :|: TRUE
+f_425(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) -> f_428(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) :|: 0 = 0
+f_428(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) -> f_430(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) :|: 0 = 0
+f_430(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) -> f_432(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) :|: TRUE
+f_432(v461, v462, v463, v464, 0, v466, 1, v468, v469, v470, v471, v487, 3, 4, 1000) -> f_434(v461, v468, v462, v469, v463, v470, v464, v471, 0, v466, v487, 1, 3, 4, 1000) :|: TRUE
+f_434(v461, v468, v462, v469, v463, v470, v464, v471, 0, v466, v487, 1, 3, 4, 1000) -> f_328(v461, v468, v462, v469, v463, v470, v464, v471, v487, 0, v466, 1, 3, 4, 1001) :|: TRUE
+f_328(v461, v468, v462, v469, v463, v470, v464, v471, v472, 0, v466, 1, 3, 4, 1001) -> f_330(v461, v476, v468, v462, v469, v463, v470, v464, v471, v477, v472, 0, v466, 1, 3, 4, 1001) :|: 1 <= v476 && v477 = 3 + v476 && 4 <= v477
+Combined rules. Obtained 1 rulesP rules:
+f_330(v461:0, v476:0, v468:0, v462:0, v469:0, v463:0, v470:0, v464:0, v471:0, v477:0, v472:0, 0, v466:0, 1, 3, 4, 1001) -> f_330(v461:0, v476:1, v468:0, v462:0, v469:0, v463:0, v470:0, v464:0, v471:0, 3 + v476:1, 1 + v472:0, 0, v466:0, 1, 3, 4, 1001) :|: v480:0 > 0 && v472:0 < 1002 && v472:0 < 1000 && v483:0 > -1 && v476:1 > 0
+Filtered unneeded arguments:
+   f_330(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17) -> f_330(x11)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_330(v472:0) -> f_330(1 + v472:0) :|: v472:0 < 1002 && v472:0 < 1000
+
+----------------------------------------
+
+(9)
+Obligation:
+Rules:
+f_330(v472:0) -> f_330(1 + v472:0) :|: v472:0 < 1002 && v472:0 < 1000
+
+----------------------------------------
+
+(10) PolynomialOrderProcessor (EQUIVALENT)
+Found the following polynomial interpretation:
+[f_330(x)] = 999 - x
+
+The following rules are decreasing:
+f_330(v472:0) -> f_330(1 + v472:0) :|: v472:0 < 1002 && v472:0 < 1000
+The following rules are bounded:
+f_330(v472:0) -> f_330(1 + v472:0) :|: v472:0 < 1002 && v472:0 < 1000
+
+----------------------------------------
+
+(11)
+YES
+
+----------------------------------------
+
+(12)
+Obligation:
+SCC
+----------------------------------------
+
+(13) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 30 rulesP rules:
+f_329(v448, v474, v455, v449, v456, v450, v457, v451, v458, v475, v459, 0, v453, 1, 3, 4, 1001) -> f_331(v448, v474, v478, v455, v449, v456, v450, v457, v451, v458, v475, v479, v459, 0, v453, 1, 3, 4, 1001) :|: 1 <= v478 && v479 = 3 + v478 && 4 <= v479
+f_331(v448, v474, v478, v455, v449, v456, v450, v457, v451, v458, v475, v479, v459, 0, v453, 1, 3, 4, 1001) -> f_333(v448, v474, v478, v455, v449, v456, v450, v457, v451, v458, v475, v479, v459, 0, v453, 1, 3, 4, 1001) :|: TRUE
+f_333(v448, v474, v478, v455, v449, v456, v450, v457, v451, v458, v475, v479, v459, 0, v453, 1, 3, 4, 1001) -> f_335(v448, v474, v478, v482, v455, v449, v456, v450, v457, v451, v458, v475, v479, v459, 0, v453, 1, 3, 4, 1001) :|: TRUE
+f_335(v448, v474, v478, v482, v455, v449, v456, v450, v457, v451, v458, v475, v479, v459, 0, v453, 1, 3, 4, 1001) -> f_337(v448, v474, v478, v482, v455, v449, v456, v450, v457, v451, v458, v475, v479, v459, 0, v453, 1, 3, 4, 1001) :|: TRUE
+f_337(v448, v474, v478, v482, v455, v449, v456, v450, v457, v451, v458, v475, v479, v459, 0, v453, 1, 3, 4, 1001) -> f_339(v448, v474, v478, v482, v459, v455, v449, v456, v450, v457, v451, v458, v475, v479, 0, v453, 1, 3, 4, 1001) :|: 0 = 0
+f_339(v448, v474, v478, v482, v459, v455, v449, v456, v450, v457, v451, v458, v475, v479, 0, v453, 1, 3, 4, 1001) -> f_341(v448, v474, v478, v482, v459, v486, v455, v449, v456, v450, v457, v451, v458, v475, v479, 0, v453, 1, 3, 4, 1001, 1002) :|: v486 = 1 + v459 && v486 <= 1002
+f_341(v448, v474, v478, v482, v459, v486, v455, v449, v456, v450, v457, v451, v458, v475, v479, 0, v453, 1, 3, 4, 1001, 1002) -> f_343(v448, v474, v478, v482, v459, v486, v455, v449, v456, v450, v457, v451, v458, v475, v479, 0, v453, 1, 3, 4, 1001, 1002) :|: TRUE
+f_343(v448, v474, v478, v482, v459, v486, v455, v449, v456, v450, v457, v451, v458, v475, v479, 0, v453, 1, 3, 4, 1001, 1002) -> f_345(v448, v474, v478, v482, v459, v486, v455, v449, v456, v450, v457, v451, v458, v475, v479, 0, v453, 1, 3, 4, 1001, 1002) :|: 0 = 0
+f_345(v448, v474, v478, v482, v459, v486, v455, v449, v456, v450, v457, v451, v458, v475, v479, 0, v453, 1, 3, 4, 1001, 1002) -> f_348(v448, v474, v478, v482, v459, v486, v455, v449, v456, v450, v457, v451, v458, v475, v479, 0, v453, 1, 3, 4, 999, 1000) :|: v486 <= 1000 && v459 <= 999
+f_348(v448, v474, v478, v482, v459, v486, v455, v449, v456, v450, v457, v451, v458, v475, v479, 0, v453, 1, 3, 4, 999, 1000) -> f_352(v448, v474, v478, v482, v459, v486, 0, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 1, 3, 4, 999, 1000) :|: 0 = 0
+f_352(v448, v474, v478, v482, v459, v486, 0, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 1, 3, 4, 999, 1000) -> f_356(v448, v474, v478, v482, v459, v486, 0, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 1, 3, 4, 999, 1000) :|: TRUE
+f_356(v448, v474, v478, v482, v459, v486, 0, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 1, 3, 4, 999, 1000) -> f_360(v448, v474, v478, v482, v459, v486, 0, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 1, 3, 4, 999, 1000) :|: 0 = 0
+f_360(v448, v474, v478, v482, v459, v486, 0, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 1, 3, 4, 999, 1000) -> f_364(v448, v474, v478, v482, v459, v486, 0, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 1, 3, 4, 999, 1000) :|: 0 <= v482
+f_364(v448, v474, v478, v482, v459, v486, 0, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 1, 3, 4, 999, 1000) -> f_370(v448, v474, v478, v482, v459, v486, 0, 1, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 3, 4, 999, 1000) :|: 0 = 0
+f_370(v448, v474, v478, v482, v459, v486, 0, 1, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 3, 4, 999, 1000) -> f_376(v448, v474, v478, v482, v459, v486, 0, 1, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 3, 4, 999, 1000) :|: TRUE
+f_376(v448, v474, v478, v482, v459, v486, 0, 1, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 3, 4, 999, 1000) -> f_382(v448, v474, v478, v482, v459, v486, 0, 1, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 3, 4, 999, 1000) :|: TRUE
+f_382(v448, v474, v478, v482, v459, v486, 0, 1, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 3, 4, 999, 1000) -> f_388(v448, v474, v478, v482, v459, v486, 0, 1, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 3, 4, 999, 1000) :|: TRUE
+f_388(v448, v474, v478, v482, v459, v486, 0, 1, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 3, 4, 999, 1000) -> f_394(v448, v474, v478, v482, v459, v486, 0, 1, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 3, 4, 999, 1000) :|: 0 = 0
+f_394(v448, v474, v478, v482, v459, v486, 0, 1, v455, v449, v456, v450, v457, v451, v458, v475, v479, v453, 3, 4, 999, 1000) -> f_400(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) :|: 0 = 0
+f_400(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) -> f_406(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) :|: TRUE
+f_406(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) -> f_411(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) :|: TRUE
+f_411(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) -> f_415(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) :|: 0 = 0
+f_415(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) -> f_419(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) :|: 0 = 0
+f_419(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) -> f_423(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) :|: TRUE
+f_423(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) -> f_427(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) :|: 0 = 0
+f_427(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) -> f_429(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) :|: 0 = 0
+f_429(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) -> f_431(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) :|: TRUE
+f_431(v448, v449, v450, v451, 0, v453, 1, v455, v456, v457, v458, v486, 3, 4, 1000) -> f_433(v448, v455, v449, v456, v450, v457, v451, v458, 0, v453, v486, 1, 3, 4, 1000) :|: TRUE
+f_433(v448, v455, v449, v456, v450, v457, v451, v458, 0, v453, v486, 1, 3, 4, 1000) -> f_326(v448, v455, v449, v456, v450, v457, v451, v458, v486, 0, v453, 1, 3, 4, 1001) :|: TRUE
+f_326(v448, v455, v449, v456, v450, v457, v451, v458, v459, 0, v453, 1, 3, 4, 1001) -> f_329(v448, v474, v455, v449, v456, v450, v457, v451, v458, v475, v459, 0, v453, 1, 3, 4, 1001) :|: 1 <= v474 && v475 = 3 + v474 && 4 <= v475
+Combined rules. Obtained 1 rulesP rules:
+f_329(v448:0, v474:0, v455:0, v449:0, v456:0, v450:0, v457:0, v451:0, v458:0, v475:0, v459:0, 0, v453:0, 1, 3, 4, 1001) -> f_329(v448:0, v474:1, v455:0, v449:0, v456:0, v450:0, v457:0, v451:0, v458:0, 3 + v474:1, 1 + v459:0, 0, v453:0, 1, 3, 4, 1001) :|: v478:0 > 0 && v459:0 < 1002 && v459:0 < 1000 && v482:0 > -1 && v474:1 > 0
+Filtered unneeded arguments:
+   f_329(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17) -> f_329(x11)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_329(v459:0) -> f_329(1 + v459:0) :|: v459:0 < 1002 && v459:0 < 1000
+
+----------------------------------------
+
+(14)
+Obligation:
+Rules:
+f_329(v459:0) -> f_329(1 + v459:0) :|: v459:0 < 1002 && v459:0 < 1000
+
+----------------------------------------
+
+(15) RankingReductionPairProof (EQUIVALENT)
+Interpretation:
+[ f_329 ] = -1*f_329_1
+
+The following rules are decreasing:
+f_329(v459:0) -> f_329(1 + v459:0) :|: v459:0 < 1002 && v459:0 < 1000
+
+The following rules are bounded:
+f_329(v459:0) -> f_329(1 + v459:0) :|: v459:0 < 1002 && v459:0 < 1000
+
+
+----------------------------------------
+
+(16)
+YES
+/home/ubuntu/tool/FSE_benchmark/loop/Missing_Iterator_Update_2_T.c:12:14: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int i =  __VERIFIER_nondet_int();;
+             ^
+/home/ubuntu/tool/FSE_benchmark/loop/Missing_Iterator_Update_2_T.c:26:24: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int dval_mv_size = __VERIFIER_nondet_int();
+                       ^
+2 warnings generated.
+
+line 88:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+ 
