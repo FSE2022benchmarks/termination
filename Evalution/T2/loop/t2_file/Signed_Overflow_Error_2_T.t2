@@ -1,0 +1,33 @@
+///*** 1_main ***///
+START: 1;
+
+FROM: 1;
+TO: 2;
+FROM: 2;
+  kittel_old__v_0 := v_0;
+  kittel_old__v_smallest.0 := v_smallest.0;
+  nondef.0 := nondet();
+  v_0 := nondef.0;
+  v_smallest.0 := 1;
+TO: 3;
+FROM: 3;
+  assume(v_smallest.0 > v_0);
+TO: 4;
+FROM: 3;
+  assume(v_smallest.0 == 0);
+TO: 4;
+FROM: 3;
+  assume((v_smallest.0 <= v_0) /\ (v_smallest.0 < 0));
+TO: 5;
+FROM: 3;
+  assume((v_smallest.0 <= v_0) /\ (v_smallest.0 > 0));
+TO: 5;
+FROM: 4;
+TO: 6;
+FROM: 5;
+  kittel_old__v_smallest.0 := v_smallest.0;
+  kittel_old__v_3 := v_3;
+  nondef.1 := nondet();
+  v_smallest.0 := nondef.1;
+  v_3 := nondef.1;
+TO: 3;

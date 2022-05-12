@@ -1,0 +1,30 @@
+///*** 1_main ***///
+START: 1;
+
+FROM: 1;
+TO: 2;
+FROM: 2;
+  kittel_old__v_i.0 := v_i.0;
+  v_i.0 := 1;
+TO: 3;
+FROM: 3;
+  assume(v_i.0 > 4294967295);
+TO: 4;
+FROM: 3;
+  assume(v_i.0 == 2147483648);
+TO: 4;
+FROM: 3;
+  assume((v_i.0 <= 4294967295) /\ (v_i.0 < 2147483648));
+TO: 5;
+FROM: 3;
+  assume((v_i.0 <= 4294967295) /\ (v_i.0 > 2147483648));
+TO: 5;
+FROM: 4;
+TO: 6;
+FROM: 5;
+  kittel_old__v_i.0 := v_i.0;
+  kittel_old__v_2 := v_2;
+  nondef.0 := nondet();
+  v_i.0 := nondef.0;
+  v_2 := nondef.0;
+TO: 3;
