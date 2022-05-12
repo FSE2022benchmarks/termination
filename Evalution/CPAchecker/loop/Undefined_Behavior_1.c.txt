@@ -1,0 +1,205 @@
+timeout 900 scripts/cpa.sh -preprocess -config -heap 10000M -stats -spec -config config/terminationAnalysis.properties -64 Undefined_Behavior_1.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Undefined_Behavior_1.c
+Running CPAchecker with Java heap of size 10000M.
+Running CPAchecker with default stack size (1024k). Specify a larger value with -stack if needed.
+
+PredicateCPA statistics
+-----------------------
+Number of abstractions:            39 (4% of all post computations)
+  Times abstraction was reused:    0
+  Because of function entry/exit:  0 (0%)
+  Because of loop head:            21 (54%)
+  Because of join nodes:           0 (0%)
+  Because of threshold:            0 (0%)
+  Because of target state:         18 (46%)
+  Times precision was empty:       39 (100%)
+  Times precision was {false}:     0 (0%)
+  Times result was cached:         0 (0%)
+  Times cartesian abs was used:    0 (0%)
+  Times boolean abs was used:      0 (0%)
+  Times result was 'false':        0 (0%)
+Number of strengthen sat checks:   0
+Number of coverage checks:         250
+  BDD entailment checks:           4
+Number of SMT sat checks:          0
+  trivial:                         0
+  cached:                          0
+
+Max ABE block size:                       10
+Avg ABE block size:                                5.56 (sum: 217, count: 39, min: 0, max: 10)
+Number of predicates discovered:          0
+
+Time for post operator:                                0.120s
+  Time for path formula creation:                      0.115s
+Time for strengthen operator:                          0.021s
+Time for prec operator:                                0.009s
+  Time for abstraction:                  0.004s (Max:     0.001s, Count: 39)
+    Solving time:                        0.000s (Max:     0.000s)
+    Model enumeration time:              0.000s
+    Time for BDD construction:           0.000s (Max:     0.000s)
+Time for merge operator:                               0.004s
+Time for coverage checks:                              0.004s
+  Time for BDD entailment checks:                      0.004s
+Total time for SMT solver (w/o itp):     0.000s
+
+Number of path formula cache hits:   450 (34%)
+
+Inside post operator:                  
+  Inside path formula creation:        
+    Time for path formula computation:     0.121s
+
+Total number of created targets for pointer analysis: 0
+
+
+Number of BDD nodes:                               202
+Size of BDD node table:                            524309
+Size of BDD cache:                                 52433
+Size of BDD node cleanup queue:                    0.00 (sum: 0, count: 59, min: 0, max: 0)
+Time for BDD node cleanup:                             0.000s
+Time for BDD garbage collection:                       0.000s (in 0 runs)
+
+KeyValue statistics
+-------------------
+Init. function predicates:                         0
+Init. global predicates:                           0
+Init. location predicates:                         0
+
+Invariant Generation statistics
+-------------------------------
+
+AutomatonAnalysis (NonTerminationLabelAutomaton) statistics
+-----------------------------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.007s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     1.00 (sum: 989, count: 989, min: 1, max: 1) [1 x 989]
+Number of states with assumption transitions:      0
+
+AutomatonAnalysis (TerminatingFunctions) statistics
+---------------------------------------------------
+Number of states:                                  1
+Total time for successor computation:                  0.003s
+Automaton transfers with branching:                0
+Automaton transfer successors:                     1.00 (sum: 989, count: 989, min: 1, max: 1) [1 x 989]
+Number of states with assumption transitions:      0
+
+Termination Algorithm statistics
+--------------------------------
+Total time :                                            4.638s
+Time for recursion analysis:                            0.000s
+
+Number of analysed loops:                               1 (100%)
+Total time for loop analysis:                           4.637s
+  Avg time per loop analysis:                           4.637s
+  Max time per loop analysis:                           4.637s
+
+Number of safety analysis runs:                        19
+  Avg safety analysis run per loop:                    19.00
+  Max safety analysis run per loop:                    19 	 for loops [N6]
+Total time for safety analysis:                         0.435s
+  Avg time per safety analysis run:                     0.022s
+  Max time per safety analysis run:                     0.106s
+
+Number of analysed lassos:                             36
+  Avg number of lassos per loop:                       36.00
+  Max number of lassos per loop:                       36 	 for loops [N6]
+  Avg number of lassos per iteration:                   2.00
+  Max number of lassos per iteration:                   2
+
+Total time for lassos analysis:                         4.176s
+  Avg time per iteration:                               0.232s
+  Max time per iteration:                               0.430s
+  Time for lassos construction:                         0.221s
+    Avg time for lasso construction per iteration:      0.012s
+    Max time for lasso construction per iteration:      0.069s
+      Time for stem and loop construction:                         0.022s
+        Avg time for stem and loop construction per iteration:      0.001s
+        Max time for stem and loop construction per iteration:      0.007s
+      Time for lassos creation:                         0.199s
+        Avg time for lassos creation per iteration:      0.011s
+        Max time for lassos creation per iteration:      0.062s
+  Total time for non-termination analysis:              0.835s
+    Avg time for non-termination analysis per lasso:    0.023s
+    Max time for non-termination analysis per lasso:    0.070s
+  Total time for termination analysis:                  3.118s
+    Avg time for termination analysis per lasso:        0.086s
+    Max time for termination analysis per lasso:        0.147s
+
+Total number of termination arguments:                 36
+  Avg termination arguments per loop:                  36.00
+  Max termination arguments per loop:                  36 	 for loops [N6]
+
+  affine:                                              36
+
+Code Coverage
+-----------------------------
+  Function coverage:      1.000
+  Visited lines:          5
+  Total lines:            5
+  Line coverage:          1.000
+  Visited conditions:     2
+  Total conditions:       2
+  Condition coverage:     1.000
+
+CPAchecker general statistics
+-----------------------------
+Number of program locations:                       14
+Number of CFA edges (per node):                          14 (count: 14, min: 0, max: 2, avg: 1.00)
+Number of relevant variables:                      2
+Number of functions:                               1
+Number of loops (and loop nodes):                         1 (sum: 5, min: 5, max: 5, avg: 5.00)
+Size of reached set:             15
+  Number of reached locations:   10 (71%)
+    Avg states per location:     1
+    Max states per location:     3 (at node N7)
+  Number of reached functions:   1 (100%)
+  Number of partitions:          12
+    Avg size of partitions:      1
+    Max size of partitions:      2 (with key [N6 (before line 11), Function main called from node N1, stack depth 1 [476ec9d0], stack [main]])
+  Number of target states:       0
+
+Time for analysis setup:          0.793s
+  Time for loading CPAs:          0.245s
+  Time for loading parser:        0.125s
+  Time for CFA construction:      0.294s
+    Time for parsing file(s):     0.148s
+    Time for AST to CFA:          0.052s
+    Time for CFA sanity check:    0.015s
+    Time for post-processing:     0.043s
+    Time for CFA export:          0.235s
+      Time for function pointers resolving:            0.002s
+        Function calls via function pointers:             0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer calls:              0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Function calls with function pointer arguments:        0 (count: 1, min: 0, max: 0, avg: 0.00)
+        Instrumented function pointer arguments:          0 (count: 1, min: 0, max: 0, avg: 0.00)
+      Time for classifying variables:                  0.024s
+        Time for collecting variables:                 0.008s
+        Time for solving dependencies:                 0.001s
+        Time for building hierarchy:                   0.000s
+        Time for building classification:              0.014s
+        Time for exporting data:                       0.001s
+Time for Analysis:                4.638s
+CPU time for analysis:            9.610s
+Time for analyzing result:        0.001s
+Total time for CPAchecker:        5.432s
+Total CPU time for CPAchecker:   12.470s
+Time for statistics:              0.056s
+
+Time for Garbage Collector:       0.044s (in 8 runs)
+Garbage Collector(s) used:    G1 Old Generation, G1 Young Generation
+Used heap memory:                190MB (   181 MiB) max;     90MB (    86 MiB) avg;    201MB (   192 MiB) peak
+Used non-heap memory:             55MB (    52 MiB) max;     46MB (    44 MiB) avg;     56MB (    54 MiB) peak
+Used in G1 Old Gen pool:          27MB (    26 MiB) max;     23MB (    22 MiB) avg;     27MB (    26 MiB) peak
+Allocated heap memory:           283MB (   270 MiB) max;    263MB (   251 MiB) avg
+Allocated non-heap memory:        58MB (    55 MiB) max;     49MB (    47 MiB) avg
+Total process virtual memory:  16871MB ( 16089 MiB) max;  16198MB ( 15448 MiB) avg
+
+Verification result: UNKNOWN, incomplete analysis.
+More details about the verification run can be found in the directory "./output".
+Graphical representation included in the file "./output/Report.html".
+ 
