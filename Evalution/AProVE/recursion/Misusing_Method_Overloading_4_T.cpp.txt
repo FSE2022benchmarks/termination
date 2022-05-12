@@ -1,0 +1,32 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Misusing_Method_Overloading_4_T.cpp
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Misusing_Method_Overloading_4_T.cpp
+MAYBE
+proof of /home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_4_T.cpp
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could not be shown:
+
+(0) C Problem
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_4_T.cppline 8:33 no viable alternative at input 'unnamed_addr'
+line 8:79 mismatched input 'void' expecting EXCLAMATION
+line 8:102 mismatched input '*' expecting ASSIGN
+Aborted 1652295186Exec. 2, CToLLVM with some error. Reason: java.lang.NullPointerException.
+            aprove.InputModules.Programs.llvm.parseStructures.LLVMParseModule.createBasicStructure(LLVMParseModule.java:120)
+            aprove.InputModules.Programs.llvm.Translator.translate(Translator.java:136)
+            aprove.InputModules.Programs.llvm.Translator.translate(Translator.java:115)
+            aprove.Framework.Input.Translator$TranslatorSkeleton.translate(Translator.java:91)
+            aprove.InputModules.Programs.c.CToLLVMProcessor.process(CToLLVMProcessor.java:65)
+            aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+ 

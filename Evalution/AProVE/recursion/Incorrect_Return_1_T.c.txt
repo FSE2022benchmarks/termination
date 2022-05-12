@@ -1,0 +1,32 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Incorrect_Return_1_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Return_1_T.c
+MAYBE
+proof of /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_1_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could not be shown:
+
+(0) C Problem
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_1_T.c/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_1_T.c:98:16: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int tech = __VERIFIER_nondet_int();
+               ^
+1 warning generated.
+
+line 281:18 mismatched input 'nofree' expecting CLOSEC
+Aborted 1652295172Exec. 2, CToLLVM with some error. Reason: java.lang.AssertionError: Array element type does not match expected type!.
+            aprove.InputModules.Programs.llvm.internalStructures.literals.LLVMArrayLiteral.<init>(LLVMArrayLiteral.java:26)
+            aprove.InputModules.Programs.llvm.internalStructures.dataType.LLVMArrayType.convertToZeroInitializedLiteral(LLVMArrayType.java:42)
+            aprove.InputModules.Programs.llvm.parseStructures.literals.LLVMZeroInitializer.convertToBasicLiteral(LLVMZeroInitializer.java:24)
+ 

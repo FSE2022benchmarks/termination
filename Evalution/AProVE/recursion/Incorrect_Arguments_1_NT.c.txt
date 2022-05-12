@@ -1,0 +1,160 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Incorrect_Arguments_1_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Arguments_1_NT.c
+MAYBE
+proof of /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Arguments_1_NT.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could not be shown:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 52 ms]
+(2) LLVM problem
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Arguments_1_NT.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Arguments_1_NT.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+struct.gaim_xfer --> BasicStructureType(elementType: i32, elementType: i32, elementType: i32)
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "free" returnParam: BasicVoidType parameters: (*i8) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "gaim_xfer_cancel" linkageType: EXTERNALLY_VISIBLE returnParam: BasicVoidType parameters: (0 *BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32)) variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%2 = alloca *BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32), align 8
+		store %0, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(**BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32) %2)
+		%3 = load %2
+		%4 = icmp eq %3 null
+		br %4, %5, %6
+	5:
+		br %24
+	6:
+		%7 = load %2
+		%8 = getelementptr %7, 0, 0
+		%9 = load %8
+		%10 = icmp ne %9 0
+		br %10, %11, %14
+	11:
+		%12 = load %2
+		%13 = getelementptr %12, 0, 0
+		store 0, %13
+		br %14
+	14:
+		%15 = load %2
+		%16 = getelementptr %15, 0, 1
+		%17 = load %16
+		%18 = icmp ne %17 0
+		br %18, %19, %22
+	19:
+		%20 = load %2
+		%21 = getelementptr %20, 0, 1
+		store 0, %21
+		br %22
+	22:
+		%23 = load %2
+		Unnamed Call-Instruction = call BasicVoidType @gaim_xfer_destroy(*BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32) %23)
+		br %24
+	24:
+		ret void
+
+*BasicFunctionTypename: "gaim_xfer_destroy" linkageType: EXTERNALLY_VISIBLE returnParam: BasicVoidType parameters: (0 *BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32)) variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 48
+	0:
+		%2 = alloca *BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32), align 8
+		store %0, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(**BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32) %2)
+		%3 = load %2
+		%4 = icmp eq %3 null
+		br %4, %5, %6
+	5:
+		br %16
+	6:
+		%7 = load %2
+		%8 = getelementptr %7, 0, 2
+		%9 = load %8
+		%10 = icmp sgt %9 0
+		br %10, %11, %13
+	11:
+		%12 = load %2
+		Unnamed Call-Instruction = call BasicVoidType @gaim_xfer_cancel(*BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32) %12)
+		br %16
+	13:
+		%14 = load %2
+		%15 = bitcast *BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32) %14 to *i8
+		Unnamed Call-Instruction = call BasicVoidType @free(*i8 %15)
+		br %16
+	16:
+		ret void
+
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 68
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32), align 4
+		%3 = alloca *BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32), align 8
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32) %2)
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(**BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32) %3)
+		store %2, %3
+		%4 = call i32 (...)* @__VERIFIER_nondet_int()
+		%5 = load %3
+		%6 = getelementptr %5, 0, 2
+		store %4, %6
+		%7 = call i32 (...)* @__VERIFIER_nondet_int()
+		%8 = load %3
+		%9 = getelementptr %8, 0, 1
+		store %7, %9
+		%10 = call i32 (...)* @__VERIFIER_nondet_int()
+		%11 = load %3
+		%12 = getelementptr %11, 0, 0
+		store %10, %12
+		%13 = load %3
+		Unnamed Call-Instruction = call BasicVoidType @gaim_xfer_cancel(*BasicTypeName typeName: struct.gaim_xferBasicStructureType(elementType: i32, elementType: i32, elementType: i32) %13)
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Arguments_1_NT.c:40:24: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+        a->bytes_remaining =  __VERIFIER_nondet_int();
+                              ^
+1 warning generated.
+
+line 124:18 mismatched input 'nofree' expecting CLOSEC
+Aborted 1652295159Exec. 4, LLVMToSEGraph with some error. Reason: java.lang.AssertionError.
+            aprove.InputModules.Programs.llvm.internalStructures.intersecting.tracker.LLVMFunctionGraphSpecificMemoryChangeTracker.freedAllocationWhenEvaluatingState(LLVMFunctionGraphSpecificMemoryChangeTracker.java:105)
+            aprove.InputModules.Programs.llvm.internalStructures.instructions.LLVMCallInstruction.handleFree(LLVMCallInstruction.java:356)
+            aprove.InputModules.Programs.llvm.internalStructures.instructions.LLVMCallInstruction.evaluate(LLVMCallInstruction.java:301)
+ 

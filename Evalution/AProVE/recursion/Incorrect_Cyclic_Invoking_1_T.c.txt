@@ -1,0 +1,248 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Incorrect_Cyclic_Invoking_1_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Cyclic_Invoking_1_T.c
+YES
+proof of /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be proven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 81 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 1256 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) TRUE
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+struct.cifsTconInfo --> BasicStructureType(elementType: i32)
+
+Global variables:
+
+Name: cifsTconInfo initVal: {0} type: BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) addrSpace: null alignment: 4 threadLocal: false constant: false linkageType: null section: null
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "CIFSSMBQFSUnixInfo" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: (0 i32, 1 *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32)) variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 17
+	0:
+		%3 = alloca i32, align 4
+		%4 = alloca *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32), align 8
+		%5 = alloca i32, align 4
+		store %0, %3
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		store %1, %4
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(**BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %4)
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %5)
+		store 0, %5
+		%6 = load %4
+		%7 = call i32 @smb_init_no_reconnect(i32 15, *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %6)
+		store %7, %5
+		%8 = load %5
+		ret %8
+
+*BasicFunctionTypename: "smb_init_no_reconnect" linkageType: INTERNAL returnParam: i32 parameters: (0 i32, 1 *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32)) variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 33
+	0:
+		%3 = alloca i32, align 4
+		%4 = alloca *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32), align 8
+		store %0, %3
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		store %1, %4
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(**BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %4)
+		%5 = load %3
+		%6 = load %4
+		%7 = call i32 @__smb_init(i32 %5, *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %6)
+		ret %7
+
+*BasicFunctionTypename: "reset_cifs_unix_caps" linkageType: EXTERNALLY_VISIBLE returnParam: BasicVoidType parameters: (0 i32, 1 *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32)) variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 44
+	0:
+		%3 = alloca i32, align 4
+		%4 = alloca *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32), align 8
+		store %0, %3
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		store %1, %4
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(**BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %4)
+		%5 = load %3
+		%6 = load %4
+		%7 = call i32 @CIFSSMBQFSUnixInfo(i32 %5, *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %6)
+		%8 = icmp ne %7 0
+		br %8, %10, %9
+	9:
+		br %10
+	10:
+		ret void
+
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 59
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32), align 4
+		%3 = alloca *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32), align 8
+		%4 = alloca i32, align 4
+		%5 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %2)
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(**BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %3)
+		store %2, %3
+		%6 = call i32 (...)* @__VERIFIER_nondet_int()
+		%7 = load %3
+		%8 = getelementptr %7, 0, 0
+		store %6, %8
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %4)
+		%9 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %9, %4
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %5)
+		%10 = load %4
+		%11 = load %3
+		%12 = call i32 @smb_init(i32 %10, *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %11)
+		store %12, %5
+		ret 0
+
+*BasicFunctionTypename: "smb_init" linkageType: INTERNAL returnParam: i32 parameters: (0 i32, 1 *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32)) variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 79
+	0:
+		%3 = alloca i32, align 4
+		%4 = alloca i32, align 4
+		%5 = alloca *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32), align 8
+		%6 = alloca i32, align 4
+		store %0, %4
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %4)
+		store %1, %5
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(**BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %5)
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %6)
+		%7 = load %5
+		%8 = load %4
+		%9 = call i32 @cifs_reconnect_tcon(*BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %7, i32 %8)
+		store %9, %6
+		%10 = load %6
+		%11 = icmp ne %10 0
+		br %11, %12, %14
+	12:
+		%13 = load %6
+		store %13, %3
+		br %18
+	14:
+		%15 = load %4
+		%16 = load %5
+		%17 = call i32 @__smb_init(i32 %15, *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %16)
+		store %17, %3
+		br %18
+	18:
+		%19 = load %3
+		ret %19
+
+*BasicFunctionTypename: "__smb_init" linkageType: INTERNAL returnParam: i32 parameters: (0 i32, 1 *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32)) variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 100
+	0:
+		%3 = alloca i32, align 4
+		%4 = alloca *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32), align 8
+		%5 = alloca i32, align 4
+		store %0, %3
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		store %1, %4
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(**BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %4)
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %5)
+		store 0, %5
+		%6 = load %5
+		ret %6
+
+*BasicFunctionTypename: "cifs_reconnect_tcon" linkageType: INTERNAL returnParam: i32 parameters: (0 *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32), 1 i32) variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 109
+	0:
+		%3 = alloca i32, align 4
+		%4 = alloca *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32), align 8
+		%5 = alloca i32, align 4
+		%6 = alloca i32, align 4
+		store %0, %4
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(**BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %4)
+		store %1, %5
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %5)
+		%7 = load %4
+		%8 = icmp ne %7 null
+		br %8, %10, %9
+	9:
+		store 0, %3
+		br %22
+	10:
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %6)
+		%11 = load %4
+		%12 = getelementptr %11, 0, 0
+		%13 = load %12
+		store %13, %6
+		%14 = load %6
+		%15 = icmp ne %14 0
+		br %15, %16, %18
+	16:
+		%17 = load %4
+		Unnamed Call-Instruction = call BasicVoidType @reset_cifs_unix_caps(i32 0, *BasicTypeName typeName: struct.cifsTconInfoBasicStructureType(elementType: i32) %17)
+		br %18
+	18:
+		%19 = load %4
+		%20 = getelementptr %19, 0, 0
+		%21 = load %20
+		store %21, %6
+		store %21, %3
+		br %22
+	22:
+		%23 = load %3
+		ret %23
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Proven termination by absence of SCCs
+----------------------------------------
+
+(6)
+TRUE
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c:58:15: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+        tcon->ses =  __VERIFIER_nondet_int();
+                     ^
+1 warning generated.
+
+line 192:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.002s
+ 

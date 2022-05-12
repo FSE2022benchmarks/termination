@@ -1,0 +1,32 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Incorrect_Return_2_NT.cpp
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Return_2_NT.cpp
+MAYBE
+proof of /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_2_NT.cpp
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could not be shown:
+
+(0) C Problem
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_2_NT.cpp/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_2_NT.cpp:18:18: error: use of undeclared identifier '__VERIFIER_nondet_char'
+        obj[i] = __VERIFIER_nondet_char();
+                 ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_2_NT.cpp:19:19: error: use of undeclared identifier '__VERIFIER_nondet_char'
+        kobj[i] = __VERIFIER_nondet_char();
+                  ^
+2 errors generated.
+
+java.io.FileNotFoundException: /tmp/862a5770-26af-46e7-baeb-4f53b6fd0ac4 (没有那个文件或目录)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+ 

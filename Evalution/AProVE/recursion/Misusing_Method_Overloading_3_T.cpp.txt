@@ -1,0 +1,74 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Misusing_Method_Overloading_3_T.cpp
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Misusing_Method_Overloading_3_T.cpp
+MAYBE
+proof of /home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_3_T.cpp
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could not be shown:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 16 ms]
+(2) LLVM problem
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_3_T.cpp
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_3_T.cpp to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+"class.std::__cxx11::basic_string" --> BasicStructureType(elementType: BasicTypeName typeName: "struct.std::__cxx11::basic_string<char>::_Alloc_hider"BasicStructureType(elementType: *i8), elementType: i64, elementType: BasicTypeName typeName: union.anonBasicStructureType(elementType: i64, elementType: [8 x i8]))
+
+"struct.std::__cxx11::basic_string<char>::_Alloc_hider" --> BasicStructureType(elementType: *i8)
+
+union.anon --> BasicStructureType(elementType: i64, elementType: [8 x i8])
+
+"class.std::allocator" --> BasicStructureType(elementType: i8)
+
+struct.Rule --> BasicStructureType(elementType: BasicTypeName typeName: "class.std::__cxx11::basic_string"BasicStructureType(elementType: BasicTypeName typeName: "struct.std::__cxx11::basic_string<char>::_Alloc_hider"BasicStructureType(elementType: *i8), elementType: i64, elementType: BasicTypeName typeName: union.anonBasicStructureType(elementType: i64, elementType: [8 x i8])))
+
+Global variables:
+
+Function declarations and definitions:
+
+
+
+Analyze Termination of all function calls matching the pattern:
+main()line 12:0 missing EOF at '$_ZN4RuleC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE'
+Aborted 1652295184Exec. 4, LLVMToSEGraph with some error. Reason: java.lang.IllegalArgumentException: Cannot analyze a function without its definition!.
+            aprove.InputModules.Programs.llvm.states.LLVMAbstractStateFactory.createBeginState(LLVMAbstractStateFactory.java:586)
+            aprove.InputModules.Programs.llvm.segraph.graphConstructionSteps.LLVMRootStateCreationStep.perform(LLVMRootStateCreationStep.java:25)
+            aprove.InputModules.Programs.llvm.segraph.LLVMSEGraph.executeStepAndPutSucessorStepsInQueue(LLVMSEGraph.java:1089)
+            aprove.InputModules.Programs.llvm.segraph.LLVMSEGraph.buildFullGraph(LLVMSEGraph.java:243)
+            aprove.InputModules.Programs.llvm.segraph.LLVMSEGraph.buildFullGraph(LLVMSEGraph.java:216)
+            aprove.InputModules.Programs.llvm.segraph.LLVMGraphBuilder.buildGraph(LLVMGraphBuilder.java:84)
+            aprove.InputModules.Programs.llvm.processors.LLVMToSEGraphProcessor.process(LLVMToSEGraphProcessor.java:110)
+            aprove.Strategies.ExecutableStrategies.Executor.execute(Executor.java:326)
+ 
