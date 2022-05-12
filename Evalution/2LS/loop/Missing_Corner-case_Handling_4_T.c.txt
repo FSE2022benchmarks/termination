@@ -1,0 +1,150 @@
+timeout 900 ./2ls --graphml-witness witness.graphml --termination --64 Missing_Corner-case_Handling_4_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Missing_Corner-case_Handling_4_T.c
+2LS version 0.9.5
+Parsing /home/ubuntu/tool/FSE_benchmark/loop/Missing_Corner-case_Handling_4_T.c
+Converting
+Type-checking Missing_Corner-case_Handling_4_T
+Generating GOTO Program
+Adding CPROVER library
+Function Pointer Removal
+Generic Property Instrumentation
+Constant Propagation
+Using intervals domain with binary search solver
+Computing SSA of main
+Simplifying
+Computing SSA of __CPROVER_initialize
+Simplifying
+Computing SSA of initLink
+Simplifying
+Computing SSA of findEnd
+Simplifying
+Computing SSA of __CPROVER__start
+Simplifying
+
+Summarizing function __CPROVER__start
+Checking precondition of __CPROVER_initialize
+Function __CPROVER_initialize not analyzed yet
+Recursively summarizing function __CPROVER_initialize
+Analyzing function __CPROVER_initialize
+Computing summary
+Computing termination argument for __CPROVER_initialize
+Function trivially terminates
+
+Summary for function __CPROVER_initialize
+params: 
+globals_in: __CPROVER_threads_exited __CPROVER_malloc_is_new_array __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object __CPROVER_deallocated __CPROVER_malloc_object __CPROVER_memory_leak __CPROVER_rounding_mode __CPROVER_pipe_count __CPROVER_malloc_size __CPROVER_next_thread_id __CPROVER_thread_id 
+globals_out: __CPROVER_threads_exited#40 __CPROVER_malloc_is_new_array#32 __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object#30 __CPROVER_deallocated#31 __CPROVER_malloc_object#33 __CPROVER_memory_leak#35 __CPROVER_rounding_mode#38 __CPROVER_pipe_count#37 __CPROVER_malloc_size#34 __CPROVER_next_thread_id#36 __CPROVER_thread_id#39 
+forward precondition: TRUE
+forward transformer: __CPROVER_rounding_mode#38 <= 0 && -((signed __CPROVER_bitvector[33])__CPROVER_rounding_mode#38) <= 0 && __CPROVER_pipe_count#37 <= 0u && -((signed __CPROVER_bitvector[33])__CPROVER_pipe_count#37) <= 0 && __CPROVER_malloc_size#34 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_malloc_size#34) <= 0 && __CPROVER_next_thread_id#36 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_next_thread_id#36) <= 0 && __CPROVER_thread_id#39 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_thread_id#39) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of main
+Function main not analyzed yet
+Recursively summarizing function main
+Checking precondition of initLink
+Function initLink not analyzed yet
+Recursively summarizing function initLink
+Analyzing function initLink
+Computing summary
+Computing termination argument for initLink
+Synthesizing ranking function to prove termination
+
+Summary for function initLink
+params: n 
+globals_in: __CPROVER_malloc_is_new_array __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj return_value_malloc$0'obj return_value_malloc'obj malloc#return_value'obj malloc_value'obj malloc_res'obj __CPROVER_deallocated __CPROVER_malloc_object __CPROVER_memory_leak initLink#return_value'obj.next body'obj.next cyclic'obj.next head'obj.next dynamic_object$49.next dynamic_object$84.next initLink#return_value'obj.h body'obj.h cyclic'obj.h head'obj.h dynamic_object$49.h dynamic_object$84.h initLink#return_value'obj body'obj cyclic'obj head'obj dynamic_object$49 dynamic_object$84 initLink#return_value'obj.$pad1 body'obj.$pad1 cyclic'obj.$pad1 head'obj.$pad1 dynamic_object$49.$pad1 dynamic_object$84.$pad1 __CPROVER_malloc_size 
+globals_out: __CPROVER_malloc_is_new_array#phi76 __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj return_value_malloc$0'obj return_value_malloc'obj malloc#return_value'obj malloc_value'obj malloc_res'obj __CPROVER_deallocated#phi76 __CPROVER_malloc_object#phi76 __CPROVER_memory_leak#phi76 initLink#return_value#114 initLink#return_value'obj.next body'obj.next#phi76 cyclic'obj.next#113 head'obj.next#71 dynamic_object$49.next#113 dynamic_object$84.next#113 initLink#return_value'obj.h body'obj.h#phi76 cyclic'obj.h head'obj.h#70 dynamic_object$49.h#70 dynamic_object$84.h#phi76 initLink#return_value'obj body'obj cyclic'obj head'obj dynamic_object$49 dynamic_object$84 initLink#return_value'obj.$pad1 body'obj.$pad1 cyclic'obj.$pad1 head'obj.$pad1 dynamic_object$49.$pad1#49 dynamic_object$84.$pad1#phi76 __CPROVER_malloc_size#phi76 
+forward precondition: TRUE
+forward transformer: dynamic_object$49.h#70 <= 1 && -((signed __CPROVER_bitvector[33])dynamic_object$49.h#70) <= -1 && dynamic_object$84.h#phi76 <= 2147483647 && -((signed __CPROVER_bitvector[33])dynamic_object$84.h#phi76) <= 2147483648 && dynamic_object$49.$pad1#49 <= 4294967295 && -((signed __CPROVER_bitvector[33])dynamic_object$49.$pad1#49) <= 0 && dynamic_object$84.$pad1#phi76 <= 4294967295 && -((signed __CPROVER_bitvector[33])dynamic_object$84.$pad1#phi76) <= 0 && __CPROVER_malloc_size#phi76 <= 18446744073709551615ul && -((signed __CPROVER_bitvector[65])__CPROVER_malloc_size#phi76) <= 0
+forward invariant: ($guard#76 && $guard#ls112 ==> __CPROVER_malloc_size#lb112 <= 18446744073709551615ul) && ($guard#76 && $guard#ls112 ==> -((signed __CPROVER_bitvector[65])__CPROVER_malloc_size#lb112) <= 0) && ($guard#76 && $guard#ls112 ==> i#lb112 <= 2147483647) && ($guard#76 && $guard#ls112 ==> -((signed __CPROVER_bitvector[33])i#lb112) <= 2147483648) && ($guard#76 && $guard#ls112 ==> dynamic_object$84.h#lb112 <= 2147483647) && ($guard#76 && $guard#ls112 ==> -((signed __CPROVER_bitvector[33])dynamic_object$84.h#lb112) <= 2147483648) && ($guard#76 && $guard#ls112 ==> dynamic_object$84.$pad1#lb112 <= 4294967295) && ($guard#76 && $guard#ls112 ==> -((signed __CPROVER_bitvector[33])dynamic_object$84.$pad1#lb112) <= 0)
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: $guard#76 && $guard#76 && $guard#76 && $guard#76 && $guard#76 && $guard#77 && $cond#112 && $guard#77 && $cond#112 && $guard#77 && $cond#112 && $guard#77 && $cond#112 && $guard#77 && $cond#112 ==> TRUE
+
+terminates: unknown
+
+Checking precondition of findEnd
+Function findEnd not analyzed yet
+Recursively summarizing function findEnd
+Analyzing function findEnd
+Computing summary
+Computing termination argument for findEnd
+Synthesizing ranking function to prove termination
+
+Summary for function findEnd
+params: list 
+globals_in: findEnd#return_value'obj.next begin'obj.next list'obj.next findEnd#return_value'obj.h begin'obj.h list'obj.h findEnd#return_value'obj begin'obj list'obj findEnd#return_value'obj.$pad1 begin'obj.$pad1 list'obj.$pad1 
+globals_out: findEnd#return_value#125 findEnd#return_value'obj.next begin'obj.next#phi122 list'obj.next findEnd#return_value'obj.h begin'obj.h list'obj.h findEnd#return_value'obj begin'obj list'obj findEnd#return_value'obj.$pad1 begin'obj.$pad1 list'obj.$pad1 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: unknown
+
+Analyzing function main
+Computing summary
+Computing termination argument for main
+
+Summary for function main
+params: 
+globals_in: findEnd#return_value'obj.next initLink#return_value'obj.next end'obj.next list'obj.next node'obj.next findEnd#return_value'obj.h initLink#return_value'obj.h end'obj.h list'obj.h node'obj.h findEnd#return_value'obj initLink#return_value'obj end'obj list'obj node'obj findEnd#return_value'obj.$pad1 initLink#return_value'obj.$pad1 end'obj.$pad1 list'obj.$pad1 node'obj.$pad1 
+globals_out: findEnd#return_value'obj.next initLink#return_value'obj.next end'obj.next list'obj.next node'obj.next#phi29 findEnd#return_value'obj.h initLink#return_value'obj.h main#return_value#phi29 end'obj.h list'obj.h node'obj.h#phi29 findEnd#return_value'obj initLink#return_value'obj end'obj list'obj node'obj findEnd#return_value'obj.$pad1 initLink#return_value'obj.$pad1 end'obj.$pad1 list'obj.$pad1 node'obj.$pad1 
+forward precondition: TRUE
+forward transformer: main#return_value#phi29 <= 0 && -((signed __CPROVER_bitvector[33])main#return_value#phi29) <= 0
+forward invariant: ($guard#18 && $guard#ls22 ==> h#lb22 <= 2.147484e+9f) && ($guard#18 && $guard#ls22 ==> -h#lb22 <= -0.0f)
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: unknown
+
+Analyzing function __CPROVER__start
+Computing summary
+Computing termination argument for __CPROVER__start
+
+Summary for function __CPROVER__start
+params: 
+globals_in: 
+globals_out: 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: unknown
+
+** statistics: 
+  number of solver instances: 2419701701
+  number of solver calls: 153292
+  number of summaries used: 4
+  number of termination arguments computed: 1
+
+
+** Termination: 
+[main]: unknown
+[__CPROVER_initialize]: yes
+[initLink]: unknown
+[findEnd]: unknown
+[__CPROVER__start]: unknown
+VERIFICATION INCONCLUSIVE
+ 

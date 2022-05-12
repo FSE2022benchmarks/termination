@@ -1,0 +1,101 @@
+timeout 900 ./2ls --graphml-witness witness.graphml --termination --64 Signed_Overflow_Error_1_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Signed_Overflow_Error_1_T.c
+2LS version 0.9.5
+Parsing /home/ubuntu/tool/FSE_benchmark/loop/Signed_Overflow_Error_1_T.c
+Converting
+Type-checking Signed_Overflow_Error_1_T
+Generating GOTO Program
+Adding CPROVER library
+Function Pointer Removal
+Generic Property Instrumentation
+Constant Propagation
+Using intervals domain with binary search solver
+Computing SSA of main
+Simplifying
+Computing SSA of __CPROVER_initialize
+Simplifying
+Computing SSA of __CPROVER__start
+Simplifying
+
+Summarizing function __CPROVER__start
+Checking precondition of __CPROVER_initialize
+Function __CPROVER_initialize not analyzed yet
+Recursively summarizing function __CPROVER_initialize
+Analyzing function __CPROVER_initialize
+Computing summary
+Computing termination argument for __CPROVER_initialize
+Function trivially terminates
+
+Summary for function __CPROVER_initialize
+params: 
+globals_in: __CPROVER_threads_exited __CPROVER_malloc_is_new_array __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object __CPROVER_deallocated __CPROVER_malloc_object __CPROVER_memory_leak __CPROVER_rounding_mode __CPROVER_pipe_count __CPROVER_malloc_size __CPROVER_next_thread_id __CPROVER_thread_id 
+globals_out: __CPROVER_threads_exited#19 __CPROVER_malloc_is_new_array#11 __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object#9 __CPROVER_deallocated#10 __CPROVER_malloc_object#12 __CPROVER_memory_leak#14 __CPROVER_rounding_mode#17 __CPROVER_pipe_count#16 __CPROVER_malloc_size#13 __CPROVER_next_thread_id#15 __CPROVER_thread_id#18 
+forward precondition: TRUE
+forward transformer: __CPROVER_rounding_mode#17 <= 0 && -((signed __CPROVER_bitvector[33])__CPROVER_rounding_mode#17) <= 0 && __CPROVER_pipe_count#16 <= 0u && -((signed __CPROVER_bitvector[33])__CPROVER_pipe_count#16) <= 0 && __CPROVER_malloc_size#13 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_malloc_size#13) <= 0 && __CPROVER_next_thread_id#15 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_next_thread_id#15) <= 0 && __CPROVER_thread_id#18 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_thread_id#18) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of main
+Function main not analyzed yet
+Recursively summarizing function main
+Analyzing function main
+Computing summary
+Computing termination argument for main
+Synthesizing ranking function to prove termination
+
+Summary for function main
+params: 
+globals_in: 
+globals_out: main#return_value#6 
+forward precondition: TRUE
+forward transformer: main#return_value#6 <= 0 && -((signed __CPROVER_bitvector[33])main#return_value#6) <= 0
+forward invariant: ($guard#2 && $guard#ls5 ==> i#lb5 <= 9223372036854775806l) && ($guard#2 && $guard#ls5 ==> -((signed __CPROVER_bitvector[65])i#lb5) <= 9223372036854775808)
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: $guard#2 && $guard#4 && $cond#5 ==> TRUE
+
+terminates: unknown
+
+Analyzing function __CPROVER__start
+Computing summary
+Computing termination argument for __CPROVER__start
+
+Summary for function __CPROVER__start
+params: 
+globals_in: 
+globals_out: 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: unknown
+
+** statistics: 
+  number of solver instances: 1357273475
+  number of solver calls: 109624
+  number of summaries used: 2
+  number of termination arguments computed: 1
+
+
+** Termination: 
+[main]: unknown
+[__CPROVER_initialize]: yes
+[__CPROVER__start]: unknown
+VERIFICATION INCONCLUSIVE
+ 

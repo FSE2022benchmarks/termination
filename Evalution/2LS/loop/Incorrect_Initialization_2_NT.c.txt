@@ -1,0 +1,155 @@
+timeout 900 ./2ls --graphml-witness witness.graphml --termination --64 Incorrect_Initialization_2_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Initialization_2_NT.c
+2LS version 0.9.5
+Parsing /home/ubuntu/tool/FSE_benchmark/loop/Incorrect_Initialization_2_NT.c
+Converting
+Type-checking Incorrect_Initialization_2_NT
+Generating GOTO Program
+Adding CPROVER library
+Function Pointer Removal
+Generic Property Instrumentation
+Constant Propagation
+Using intervals domain with binary search solver
+Computing SSA of main
+Simplifying
+Computing SSA of __CPROVER_initialize
+Simplifying
+Computing SSA of matroska_deliver_packet
+Simplifying
+Computing SSA of res_return
+Simplifying
+Computing SSA of __CPROVER__start
+Simplifying
+
+Summarizing function __CPROVER__start
+Checking precondition of __CPROVER_initialize
+Function __CPROVER_initialize not analyzed yet
+Recursively summarizing function __CPROVER_initialize
+Analyzing function __CPROVER_initialize
+Computing summary
+Computing termination argument for __CPROVER_initialize
+Function trivially terminates
+
+Summary for function __CPROVER_initialize
+params: 
+globals_in: __CPROVER_threads_exited __CPROVER_malloc_is_new_array __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object __CPROVER_deallocated __CPROVER_malloc_object __CPROVER_memory_leak __CPROVER_rounding_mode flag __CPROVER_pipe_count __CPROVER_malloc_size __CPROVER_next_thread_id __CPROVER_thread_id 
+globals_out: __CPROVER_threads_exited#57 __CPROVER_malloc_is_new_array#49 __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object#47 __CPROVER_deallocated#48 __CPROVER_malloc_object#50 __CPROVER_memory_leak#52 __CPROVER_rounding_mode#55 flag#58 __CPROVER_pipe_count#54 __CPROVER_malloc_size#51 __CPROVER_next_thread_id#53 __CPROVER_thread_id#56 
+forward precondition: TRUE
+forward transformer: __CPROVER_rounding_mode#55 <= 0 && -((signed __CPROVER_bitvector[33])__CPROVER_rounding_mode#55) <= 0 && flag#58 <= 0 && -((signed __CPROVER_bitvector[33])flag#58) <= 0 && __CPROVER_pipe_count#54 <= 0u && -((signed __CPROVER_bitvector[33])__CPROVER_pipe_count#54) <= 0 && __CPROVER_malloc_size#51 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_malloc_size#51) <= 0 && __CPROVER_next_thread_id#53 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_next_thread_id#53) <= 0 && __CPROVER_thread_id#56 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_thread_id#56) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of main
+Function main not analyzed yet
+Recursively summarizing function main
+Checking precondition of matroska_deliver_packet
+Function matroska_deliver_packet not analyzed yet
+Recursively summarizing function matroska_deliver_packet
+Analyzing function matroska_deliver_packet
+Computing summary
+Computing termination argument for matroska_deliver_packet
+Function trivially terminates
+
+Summary for function matroska_deliver_packet
+params: q 
+globals_in: 
+globals_out: matroska_deliver_packet#return_value#phi67 
+forward precondition: TRUE
+forward transformer: matroska_deliver_packet#return_value#phi67 <= 1 && -((signed __CPROVER_bitvector[33])matroska_deliver_packet#return_value#phi67) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of res_return
+Function res_return not analyzed yet
+Recursively summarizing function res_return
+Analyzing function res_return
+Computing summary
+Computing termination argument for res_return
+Function trivially terminates
+
+Summary for function res_return
+params: 
+globals_in: flag 
+globals_out: flag#70 res_return#return_value#phi80 
+forward precondition: TRUE
+forward transformer: flag#70 <= 2147483647 && -((signed __CPROVER_bitvector[33])flag#70) <= 2147483648 && res_return#return_value#phi80 <= 2147483647 && -((signed __CPROVER_bitvector[33])res_return#return_value#phi80) <= 2147483648
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of res_return
+Precondition trivially holds, replacing by summary.
+Checking precondition of res_return
+Precondition trivially holds, replacing by summary.
+Analyzing function main
+Computing summary
+Computing termination argument for main
+Synthesizing ranking function to prove termination
+
+Summary for function main
+params: 
+globals_in: 
+globals_out: main#return_value#42 
+forward precondition: TRUE
+forward transformer: main#return_value#42 <= 0 && -((signed __CPROVER_bitvector[33])main#return_value#42) <= 0
+forward invariant: ($guard#9 && $guard#ls38 ==> res#lb38 <= 2147483647) && ($guard#9 && $guard#ls38 ==> -((signed __CPROVER_bitvector[33])res#lb38) <= 2147483648) && ($guard#9 && $guard#ls38 ==> return_value_res_return#lb38 <= 2147483647) && ($guard#9 && $guard#ls38 ==> -((signed __CPROVER_bitvector[33])return_value_res_return#lb38) <= 2147483648) && ($guard#4 && $guard#ls41 ==> matroska#lb41 <= 2147483647) && ($guard#4 && $guard#ls41 ==> -((signed __CPROVER_bitvector[33])matroska#lb41) <= 2147483648) && ($guard#4 && $guard#ls41 ==> res#lb41 <= 2147483647) && ($guard#4 && $guard#ls41 ==> -((signed __CPROVER_bitvector[33])res#lb41) <= 2147483648) && ($guard#4 && $guard#ls41 ==> return_value_matroska_deliver_packet#lb41 <= 2147483647) && ($guard#4 && $guard#ls41 ==> -((signed __CPROVER_bitvector[33])return_value_matroska_deliver_packet#lb41) <= 2147483648) && ($guard#4 && $guard#ls41 ==> return_value_res_return#lb41 <= 2147483647) && ($guard#4 && $guard#ls41 ==> -((signed __CPROVER_bitvector[33])return_value_res_return#lb41) <= 2147483648)
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: ($guard#9 && $guard#9 && $guard#37 && $cond#38 && $guard#37 && $cond#38 ==> (signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])0 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])res#phi9 - (signed __CPROVER_bitvector[33])res#phi37)) + (signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])-1 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])return_value_res_return#phi9 - (signed __CPROVER_bitvector[33])return_value_res_return#18)) > 0 && (signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])0 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])res#phi9 - (signed __CPROVER_bitvector[33])res#phi37)) + (signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])0 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])return_value_res_return#phi9 - (signed __CPROVER_bitvector[33])return_value_res_return#18)) >= 0 || (signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])0 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])res#phi9 - (signed __CPROVER_bitvector[33])res#phi37)) + (signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])0 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])return_value_res_return#phi9 - (signed __CPROVER_bitvector[33])return_value_res_return#18)) > 0) && ($guard#4 && $guard#4 && $guard#4 && $guard#4 && $guard#41 && $cond#41 && $guard#41 && $cond#41 && $guard#41 && $cond#41 && $guard#41 && $cond#41 ==> TRUE)
+
+terminates: unknown
+
+Analyzing function __CPROVER__start
+Computing summary
+Computing termination argument for __CPROVER__start
+
+Summary for function __CPROVER__start
+params: 
+globals_in: 
+globals_out: 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: unknown
+
+** statistics: 
+  number of solver instances: 4151698181
+  number of solver calls: 185616
+  number of summaries used: 6
+  number of termination arguments computed: 1
+
+
+** Termination: 
+[main]: unknown
+[__CPROVER_initialize]: yes
+[matroska_deliver_packet]: yes
+[res_return]: yes
+[__CPROVER__start]: unknown
+VERIFICATION INCONCLUSIVE
+ 

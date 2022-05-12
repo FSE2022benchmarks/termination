@@ -1,0 +1,126 @@
+timeout 900 ./2ls --graphml-witness witness.graphml --termination --64 Type_Conversion_in_Assignment_1_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Type_Conversion_in_Assignment_1_NT.c
+2LS version 0.9.5
+Parsing /home/ubuntu/tool/FSE_benchmark/loop/Type_Conversion_in_Assignment_1_NT.c
+Converting
+Type-checking Type_Conversion_in_Assignment_1_NT
+Generating GOTO Program
+Adding CPROVER library
+Function Pointer Removal
+Generic Property Instrumentation
+Constant Propagation
+Using intervals domain with binary search solver
+Computing SSA of main
+Simplifying
+Computing SSA of fgetc
+Simplifying
+Computing SSA of __CPROVER_initialize
+Simplifying
+Computing SSA of __CPROVER__start
+Simplifying
+
+Summarizing function __CPROVER__start
+Checking precondition of __CPROVER_initialize
+Function __CPROVER_initialize not analyzed yet
+Recursively summarizing function __CPROVER_initialize
+Analyzing function __CPROVER_initialize
+Computing summary
+Computing termination argument for __CPROVER_initialize
+Function trivially terminates
+
+Summary for function __CPROVER_initialize
+params: 
+globals_in: __CPROVER_threads_exited __CPROVER_malloc_is_new_array __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object __CPROVER_deallocated __CPROVER_malloc_object __CPROVER_memory_leak __CPROVER_rounding_mode flag __CPROVER_pipe_count __CPROVER_malloc_size __CPROVER_next_thread_id __CPROVER_thread_id 
+globals_out: __CPROVER_threads_exited#47 __CPROVER_malloc_is_new_array#39 __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object#37 __CPROVER_deallocated#38 __CPROVER_malloc_object#40 __CPROVER_memory_leak#42 __CPROVER_rounding_mode#45 flag#48 __CPROVER_pipe_count#44 __CPROVER_malloc_size#41 __CPROVER_next_thread_id#43 __CPROVER_thread_id#46 
+forward precondition: TRUE
+forward transformer: __CPROVER_rounding_mode#45 <= 0 && -((signed __CPROVER_bitvector[33])__CPROVER_rounding_mode#45) <= 0 && flag#48 <= 0 && -((signed __CPROVER_bitvector[33])flag#48) <= 0 && __CPROVER_pipe_count#44 <= 0u && -((signed __CPROVER_bitvector[33])__CPROVER_pipe_count#44) <= 0 && __CPROVER_malloc_size#41 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_malloc_size#41) <= 0 && __CPROVER_next_thread_id#43 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_next_thread_id#43) <= 0 && __CPROVER_thread_id#46 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_thread_id#46) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of main
+Function main not analyzed yet
+Recursively summarizing function main
+Checking precondition of fgetc
+Function fgetc not analyzed yet
+Recursively summarizing function fgetc
+Analyzing function fgetc
+Computing summary
+Computing termination argument for fgetc
+Function trivially terminates
+
+Summary for function fgetc
+params: 
+globals_in: flag 
+globals_out: fgetc#return_value#phi36 flag#phi36 
+forward precondition: TRUE
+forward transformer: fgetc#return_value#phi36 <= 255 && -((signed __CPROVER_bitvector[33])fgetc#return_value#phi36) <= 1 && flag#phi36 <= 2147483647 && -((signed __CPROVER_bitvector[33])flag#phi36) <= 2147483647
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Analyzing function main
+Computing summary
+Computing termination argument for main
+Synthesizing ranking function to prove termination
+
+Summary for function main
+params: 
+globals_in: 
+globals_out: main#return_value#phi24 
+forward precondition: TRUE
+forward transformer: main#return_value#phi24 <= 0 && -((signed __CPROVER_bitvector[33])main#return_value#phi24) <= 0
+forward invariant: ($guard#1 && $guard#ls21 ==> temp#lb21 <= 255) && ($guard#1 && $guard#ls21 ==> -((signed __CPROVER_bitvector[9])temp#lb21) <= 0)
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: $guard#1 && $guard#20 && $cond#21 ==> TRUE
+
+terminates: unknown
+
+Analyzing function __CPROVER__start
+Computing summary
+Computing termination argument for __CPROVER__start
+
+Summary for function __CPROVER__start
+params: 
+globals_in: 
+globals_out: 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: unknown
+
+** statistics: 
+  number of solver instances: 4014298868
+  number of solver calls: 152784
+  number of summaries used: 3
+  number of termination arguments computed: 1
+
+
+** Termination: 
+[main]: unknown
+[fgetc]: yes
+[__CPROVER_initialize]: yes
+[__CPROVER__start]: unknown
+VERIFICATION INCONCLUSIVE
+ 

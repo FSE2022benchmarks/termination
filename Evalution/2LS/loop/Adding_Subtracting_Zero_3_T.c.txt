@@ -1,0 +1,127 @@
+timeout 900 ./2ls --graphml-witness witness.graphml --termination --64 Adding_Subtracting_Zero_3_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Adding_Subtracting_Zero_3_T.c
+2LS version 0.9.5
+Parsing /home/ubuntu/tool/FSE_benchmark/loop/Adding_Subtracting_Zero_3_T.c
+Converting
+Type-checking Adding_Subtracting_Zero_3_T
+Generating GOTO Program
+Adding CPROVER library
+Function Pointer Removal
+Generic Property Instrumentation
+Constant Propagation
+Using intervals domain with binary search solver
+Computing SSA of main
+Simplifying
+Computing SSA of read
+Simplifying
+Computing SSA of __CPROVER_initialize
+Simplifying
+Computing SSA of __CPROVER__start
+Simplifying
+
+Summarizing function __CPROVER__start
+Checking precondition of __CPROVER_initialize
+Function __CPROVER_initialize not analyzed yet
+Recursively summarizing function __CPROVER_initialize
+Analyzing function __CPROVER_initialize
+Computing summary
+Computing termination argument for __CPROVER_initialize
+Function trivially terminates
+
+Summary for function __CPROVER_initialize
+params: 
+globals_in: __CPROVER_threads_exited __CPROVER_malloc_is_new_array __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object __CPROVER_deallocated __CPROVER_malloc_object __CPROVER_memory_leak __CPROVER_rounding_mode flag __CPROVER_pipe_count __CPROVER_malloc_size __CPROVER_next_thread_id __CPROVER_thread_id 
+globals_out: __CPROVER_threads_exited#83 __CPROVER_malloc_is_new_array#75 __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object#73 __CPROVER_deallocated#74 __CPROVER_malloc_object#76 __CPROVER_memory_leak#78 __CPROVER_rounding_mode#81 flag#84 __CPROVER_pipe_count#80 __CPROVER_malloc_size#77 __CPROVER_next_thread_id#79 __CPROVER_thread_id#82 
+forward precondition: TRUE
+forward transformer: __CPROVER_rounding_mode#81 <= 0 && -((signed __CPROVER_bitvector[33])__CPROVER_rounding_mode#81) <= 0 && flag#84 <= 0 && -((signed __CPROVER_bitvector[33])flag#84) <= 0 && __CPROVER_pipe_count#80 <= 0u && -((signed __CPROVER_bitvector[33])__CPROVER_pipe_count#80) <= 0 && __CPROVER_malloc_size#77 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_malloc_size#77) <= 0 && __CPROVER_next_thread_id#79 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_next_thread_id#79) <= 0 && __CPROVER_thread_id#82 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_thread_id#82) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of main
+Function main not analyzed yet
+Recursively summarizing function main
+Checking precondition of read
+Function read not analyzed yet
+Recursively summarizing function read
+Analyzing function read
+Computing summary
+Computing termination argument for read
+Synthesizing ranking function to prove termination
+
+Summary for function read
+params: loc len 
+globals_in: flag 
+globals_out: flag#phi72 read#return_value#phi72 
+forward precondition: TRUE
+forward transformer: flag#phi72 <= 2147483647 && -((signed __CPROVER_bitvector[33])flag#phi72) <= 2147483648 && read#return_value#phi72 <= 2147483647 && -((signed __CPROVER_bitvector[33])read#return_value#phi72) <= 2147483648
+forward invariant: ($guard#45 && $guard#ls69 ==> loc#lb69 <= 2147483647) && ($guard#45 && $guard#ls69 ==> -((signed __CPROVER_bitvector[33])loc#lb69) <= 2147483648) && ($guard#45 && $guard#ls69 ==> count#lb69 <= 2147483647) && ($guard#45 && $guard#ls69 ==> -((signed __CPROVER_bitvector[33])count#lb69) <= 2147483648)
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: $guard#45 && $guard#45 && $guard#69 && $cond#69 && $guard#69 && $cond#69 ==> (signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])-1 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])loc#phi45 - (signed __CPROVER_bitvector[33])loc#59)) + (signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])0 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])count#phi45 - (signed __CPROVER_bitvector[33])count#57)) > 0
+
+terminates: yes
+
+Analyzing function main
+Computing summary
+Computing termination argument for main
+Synthesizing ranking function to prove termination
+
+Summary for function main
+params: 
+globals_in: flag 
+globals_out: flag#4 main#return_value#phi38 
+forward precondition: TRUE
+forward transformer: flag#4 <= 0 && -((signed __CPROVER_bitvector[33])flag#4) <= 0 && main#return_value#phi38 <= 0 && -((signed __CPROVER_bitvector[33])main#return_value#phi38) <= 0
+forward invariant: ($guard#13 && $guard#ls33 ==> pos#lb33 <= 2147483647) && ($guard#13 && $guard#ls33 ==> -((signed __CPROVER_bitvector[33])pos#lb33) <= 2147483648) && ($guard#13 && $guard#ls33 ==> errno#lb33 <= 2147483647) && ($guard#13 && $guard#ls33 ==> -((signed __CPROVER_bitvector[33])errno#lb33) <= 2147483648)
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: $guard#13 && $guard#13 && $guard#33 && $cond#33 && $guard#33 && $cond#33 ==> TRUE
+
+terminates: unknown
+
+Analyzing function __CPROVER__start
+Computing summary
+Computing termination argument for __CPROVER__start
+
+Summary for function __CPROVER__start
+params: 
+globals_in: 
+globals_out: 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: unknown
+
+** statistics: 
+  number of solver instances: 1084588468
+  number of solver calls: 163673
+  number of summaries used: 3
+  number of termination arguments computed: 2
+
+
+** Termination: 
+[main]: unknown
+[read]: yes
+[__CPROVER_initialize]: yes
+[__CPROVER__start]: unknown
+VERIFICATION INCONCLUSIVE
+ 
