@@ -1,0 +1,153 @@
+timeout 900 ./Ultimate.py --spec termination.prp --file Incorrect_Cyclic_Invoking_2_NT.c --architecture 64bit
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Cyclic_Invoking_2_NT.c
+Checking for termination
+Using default analysis
+Version 839c364b
+Calling Ultimate with: /usr/bin/java -Dosgi.configuration.area=/home/ubuntu/tool/uautomizer/UAutomizer-linux/data/config -Xmx15G -Xms4m -jar /home/ubuntu/tool/uautomizer/UAutomizer-linux/plugins/org.eclipse.equinox.launcher_1.5.800.v20200727-1323.jar -data @noDefault -ultimatedata /home/ubuntu/tool/uautomizer/UAutomizer-linux/data -tc /home/ubuntu/tool/uautomizer/UAutomizer-linux/config/AutomizerTermination.xml -i /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c -s /home/ubuntu/tool/uautomizer/UAutomizer-linux/config/svcomp-Termination-64bit-Automizer_Default.epf --cacsl2boogietranslator.entry.function main --witnessprinter.witness.directory /home/ubuntu/tool/uautomizer/UAutomizer-linux --witnessprinter.witness.filename witness.graphml --witnessprinter.write.witness.besides.input.file false --witnessprinter.graph.data.specification CHECK( init(main()), LTL(F end) )
+
+ --witnessprinter.graph.data.producer Automizer --witnessprinter.graph.data.architecture 64bit --witnessprinter.graph.data.programhash 3ba4c4cd93bd39116e4d84c2e8ab672736a65e59deadb4da4355b78b05ab136f
+--- Real Ultimate output ---
+This is Ultimate 0.2.2-hotfix-svcomp22-839c364
+[2022-05-11 19:37:44,327 INFO  L177        SettingsManager]: Resetting all preferences to default values...
+[2022-05-11 19:37:44,329 INFO  L181        SettingsManager]: Resetting UltimateCore preferences to default values
+[2022-05-11 19:37:44,345 INFO  L184        SettingsManager]: Ultimate Commandline Interface provides no preferences, ignoring...
+[2022-05-11 19:37:44,346 INFO  L181        SettingsManager]: Resetting Boogie Preprocessor preferences to default values
+[2022-05-11 19:37:44,346 INFO  L181        SettingsManager]: Resetting Boogie Procedure Inliner preferences to default values
+[2022-05-11 19:37:44,347 INFO  L181        SettingsManager]: Resetting Abstract Interpretation preferences to default values
+[2022-05-11 19:37:44,348 INFO  L181        SettingsManager]: Resetting LassoRanker preferences to default values
+[2022-05-11 19:37:44,349 INFO  L181        SettingsManager]: Resetting Reaching Definitions preferences to default values
+[2022-05-11 19:37:44,350 INFO  L181        SettingsManager]: Resetting SyntaxChecker preferences to default values
+[2022-05-11 19:37:44,350 INFO  L181        SettingsManager]: Resetting Sifa preferences to default values
+[2022-05-11 19:37:44,351 INFO  L184        SettingsManager]: Büchi Program Product provides no preferences, ignoring...
+[2022-05-11 19:37:44,351 INFO  L181        SettingsManager]: Resetting LTL2Aut preferences to default values
+[2022-05-11 19:37:44,352 INFO  L181        SettingsManager]: Resetting PEA to Boogie preferences to default values
+[2022-05-11 19:37:44,353 INFO  L181        SettingsManager]: Resetting BlockEncodingV2 preferences to default values
+[2022-05-11 19:37:44,353 INFO  L181        SettingsManager]: Resetting ChcToBoogie preferences to default values
+[2022-05-11 19:37:44,354 INFO  L181        SettingsManager]: Resetting AutomataScriptInterpreter preferences to default values
+[2022-05-11 19:37:44,354 INFO  L181        SettingsManager]: Resetting BuchiAutomizer preferences to default values
+[2022-05-11 19:37:44,355 INFO  L181        SettingsManager]: Resetting CACSL2BoogieTranslator preferences to default values
+[2022-05-11 19:37:44,357 INFO  L181        SettingsManager]: Resetting CodeCheck preferences to default values
+[2022-05-11 19:37:44,357 INFO  L181        SettingsManager]: Resetting InvariantSynthesis preferences to default values
+[2022-05-11 19:37:44,358 INFO  L181        SettingsManager]: Resetting RCFGBuilder preferences to default values
+[2022-05-11 19:37:44,359 INFO  L181        SettingsManager]: Resetting Referee preferences to default values
+[2022-05-11 19:37:44,359 INFO  L181        SettingsManager]: Resetting TraceAbstraction preferences to default values
+[2022-05-11 19:37:44,361 INFO  L184        SettingsManager]: TraceAbstractionConcurrent provides no preferences, ignoring...
+[2022-05-11 19:37:44,361 INFO  L184        SettingsManager]: TraceAbstractionWithAFAs provides no preferences, ignoring...
+[2022-05-11 19:37:44,361 INFO  L181        SettingsManager]: Resetting TreeAutomizer preferences to default values
+[2022-05-11 19:37:44,362 INFO  L181        SettingsManager]: Resetting IcfgToChc preferences to default values
+[2022-05-11 19:37:44,362 INFO  L181        SettingsManager]: Resetting IcfgTransformer preferences to default values
+[2022-05-11 19:37:44,362 INFO  L184        SettingsManager]: ReqToTest provides no preferences, ignoring...
+[2022-05-11 19:37:44,362 INFO  L181        SettingsManager]: Resetting Boogie Printer preferences to default values
+[2022-05-11 19:37:44,363 INFO  L181        SettingsManager]: Resetting ChcSmtPrinter preferences to default values
+[2022-05-11 19:37:44,363 INFO  L181        SettingsManager]: Resetting ReqPrinter preferences to default values
+[2022-05-11 19:37:44,364 INFO  L181        SettingsManager]: Resetting Witness Printer preferences to default values
+[2022-05-11 19:37:44,364 INFO  L184        SettingsManager]: Boogie PL CUP Parser provides no preferences, ignoring...
+[2022-05-11 19:37:44,364 INFO  L181        SettingsManager]: Resetting CDTParser preferences to default values
+[2022-05-11 19:37:44,365 INFO  L184        SettingsManager]: AutomataScriptParser provides no preferences, ignoring...
+[2022-05-11 19:37:44,365 INFO  L184        SettingsManager]: ReqParser provides no preferences, ignoring...
+[2022-05-11 19:37:44,365 INFO  L181        SettingsManager]: Resetting SmtParser preferences to default values
+[2022-05-11 19:37:44,366 INFO  L181        SettingsManager]: Resetting Witness Parser preferences to default values
+[2022-05-11 19:37:44,366 INFO  L188        SettingsManager]: Finished resetting all preferences to default values...
+[2022-05-11 19:37:44,366 INFO  L101        SettingsManager]: Beginning loading settings from /home/ubuntu/tool/uautomizer/UAutomizer-linux/config/svcomp-Termination-64bit-Automizer_Default.epf
+[2022-05-11 19:37:44,387 INFO  L113        SettingsManager]: Loading preferences was successful
+[2022-05-11 19:37:44,388 INFO  L115        SettingsManager]: Preferences different from defaults after loading the file:
+[2022-05-11 19:37:44,388 INFO  L136        SettingsManager]: Preferences of UltimateCore differ from their defaults:
+[2022-05-11 19:37:44,388 INFO  L138        SettingsManager]:  * Log level for class=de.uni_freiburg.informatik.ultimate.lib.smtlibutils.quantifier.QuantifierPusher=ERROR;
+[2022-05-11 19:37:44,389 INFO  L136        SettingsManager]: Preferences of BlockEncodingV2 differ from their defaults:
+[2022-05-11 19:37:44,389 INFO  L138        SettingsManager]:  * Create parallel compositions if possible=false
+[2022-05-11 19:37:44,389 INFO  L138        SettingsManager]:  * Use SBE=true
+[2022-05-11 19:37:44,389 INFO  L136        SettingsManager]: Preferences of BuchiAutomizer differ from their defaults:
+[2022-05-11 19:37:44,389 INFO  L138        SettingsManager]:  * NCSB implementation=INTSET_LAZY3
+[2022-05-11 19:37:44,390 INFO  L138        SettingsManager]:  * Use old map elimination=false
+[2022-05-11 19:37:44,390 INFO  L138        SettingsManager]:  * Use external solver (rank synthesis)=false
+[2022-05-11 19:37:44,390 INFO  L138        SettingsManager]:  * Use only trivial implications for array writes=true
+[2022-05-11 19:37:44,390 INFO  L138        SettingsManager]:  * Rank analysis=LINEAR_WITH_GUESSES
+[2022-05-11 19:37:44,390 INFO  L136        SettingsManager]: Preferences of CACSL2BoogieTranslator differ from their defaults:
+[2022-05-11 19:37:44,390 INFO  L138        SettingsManager]:  * Check unreachability of error function in SV-COMP mode=false
+[2022-05-11 19:37:44,390 INFO  L138        SettingsManager]:  * Overapproximate operations on floating types=true
+[2022-05-11 19:37:44,390 INFO  L138        SettingsManager]:  * Check division by zero=IGNORE
+[2022-05-11 19:37:44,390 INFO  L138        SettingsManager]:  * Pointer to allocated memory at dereference=ASSUME
+[2022-05-11 19:37:44,391 INFO  L138        SettingsManager]:  * If two pointers are subtracted or compared they have the same base address=ASSUME
+[2022-05-11 19:37:44,391 INFO  L138        SettingsManager]:  * Check array bounds for arrays that are off heap=ASSUME
+[2022-05-11 19:37:44,391 INFO  L138        SettingsManager]:  * Check if freed pointer was valid=false
+[2022-05-11 19:37:44,391 INFO  L138        SettingsManager]:  * Assume nondeterminstic values are in range=false
+[2022-05-11 19:37:44,391 INFO  L138        SettingsManager]:  * Use constant arrays=true
+[2022-05-11 19:37:44,391 INFO  L138        SettingsManager]:  * Pointer base address is valid at dereference=ASSUME
+[2022-05-11 19:37:44,391 INFO  L136        SettingsManager]: Preferences of RCFGBuilder differ from their defaults:
+[2022-05-11 19:37:44,391 INFO  L138        SettingsManager]:  * Size of a code block=SequenceOfStatements
+[2022-05-11 19:37:44,391 INFO  L136        SettingsManager]: Preferences of TraceAbstraction differ from their defaults:
+[2022-05-11 19:37:44,392 INFO  L138        SettingsManager]:  * Trace refinement strategy=CAMEL
+[2022-05-11 19:37:44,392 INFO  L138        SettingsManager]:  * Trace refinement exception blacklist=NONE
+[2022-05-11 19:37:44,392 INFO  L136        SettingsManager]: Preferences of IcfgTransformer differ from their defaults:
+[2022-05-11 19:37:44,392 INFO  L138        SettingsManager]:  * TransformationType=MODULO_NEIGHBOR
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1 (file:/home/ubuntu/tool/uautomizer/UAutomizer-linux/plugins/com.sun.xml.bind_2.2.0.v201505121915.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int)
+WARNING: Please consider reporting this to the maintainers of com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator: Entry function -> main
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.witnessprinter: Witness directory -> /home/ubuntu/tool/uautomizer/UAutomizer-linux
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.witnessprinter: Witness filename -> witness.graphml
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.witnessprinter: Write witness besides input file -> false
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.witnessprinter: Graph data specification -> CHECK( init(main()), LTL(F end) )
+
+
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.witnessprinter: Graph data producer -> Automizer
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.witnessprinter: Graph data architecture -> 64bit
+Applying setting for plugin de.uni_freiburg.informatik.ultimate.witnessprinter: Graph data programhash -> 3ba4c4cd93bd39116e4d84c2e8ab672736a65e59deadb4da4355b78b05ab136f
+[2022-05-11 19:37:44,576 INFO  L75    nceAwareModelManager]: Repository-Root is: /tmp
+[2022-05-11 19:37:44,590 INFO  L261   ainManager$Toolchain]: [Toolchain 1]: Applicable parser(s) successfully (re)initialized
+[2022-05-11 19:37:44,591 INFO  L217   ainManager$Toolchain]: [Toolchain 1]: Toolchain selected.
+[2022-05-11 19:37:44,592 INFO  L271        PluginConnector]: Initializing CDTParser...
+[2022-05-11 19:37:44,593 INFO  L275        PluginConnector]: CDTParser initialized
+[2022-05-11 19:37:44,594 INFO  L432   ainManager$Toolchain]: [Toolchain 1]: Parsing single file: /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c
+[2022-05-11 19:37:44,631 INFO  L220              CDTParser]: Created temporary CDT project at /home/ubuntu/tool/uautomizer/UAutomizer-linux/data/faf5d1fb1/b25f495267a54857ae0e48e52658d894/FLAGc3bd045d7
+[2022-05-11 19:37:44,962 INFO  L306              CDTParser]: Found 1 translation units.
+[2022-05-11 19:37:44,962 INFO  L160              CDTParser]: Scanning /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c
+[2022-05-11 19:37:44,967 INFO  L349              CDTParser]: About to delete temporary CDT project at /home/ubuntu/tool/uautomizer/UAutomizer-linux/data/faf5d1fb1/b25f495267a54857ae0e48e52658d894/FLAGc3bd045d7
+[2022-05-11 19:37:44,975 INFO  L357              CDTParser]: Successfully deleted /home/ubuntu/tool/uautomizer/UAutomizer-linux/data/faf5d1fb1/b25f495267a54857ae0e48e52658d894
+[2022-05-11 19:37:44,977 INFO  L299   ainManager$Toolchain]: ####################### [Toolchain 1] #######################
+[2022-05-11 19:37:44,978 INFO  L131        ToolchainWalker]: Walking toolchain with 6 elements.
+[2022-05-11 19:37:44,979 INFO  L113        PluginConnector]: ------------------------CACSL2BoogieTranslator----------------------------
+[2022-05-11 19:37:44,979 INFO  L271        PluginConnector]: Initializing CACSL2BoogieTranslator...
+[2022-05-11 19:37:44,982 INFO  L275        PluginConnector]: CACSL2BoogieTranslator initialized
+[2022-05-11 19:37:44,982 INFO  L185        PluginConnector]: Executing the observer ACSLObjectContainerObserver from plugin CACSL2BoogieTranslator for "CDTParser AST 11.05 07:37:44" (1/1) ...
+[2022-05-11 19:37:44,983 INFO  L205        PluginConnector]: Invalid model from CACSL2BoogieTranslator for observer de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator.ACSLObjectContainerObserver@166bc169 and model type de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 11.05 07:37:44, skipping insertion in model container
+[2022-05-11 19:37:44,983 INFO  L185        PluginConnector]: Executing the observer CACSL2BoogieTranslatorObserver from plugin CACSL2BoogieTranslator for "CDTParser AST 11.05 07:37:44" (1/1) ...
+[2022-05-11 19:37:44,987 INFO  L145         MainTranslator]: Starting translation in SV-COMP mode 
+[2022-05-11 19:37:44,998 INFO  L178         MainTranslator]: Built tables and reachable declarations
+[2022-05-11 19:37:45,089 ERROR L326         MainTranslator]: Unsupported Syntax: identifier is not declared (neither a variable nor a function name): ompa2 in file /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c
+[2022-05-11 19:37:45,089 INFO  L205        PluginConnector]: Invalid model from CACSL2BoogieTranslator for observer de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator.CACSL2BoogieTranslatorObserver@559a7ea2 and model type de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator AST 11.05 07:37:45, skipping insertion in model container
+[2022-05-11 19:37:45,089 INFO  L132        PluginConnector]: ------------------------ END CACSL2BoogieTranslator----------------------------
+[2022-05-11 19:37:45,090 INFO  L184        ToolchainWalker]: Toolchain execution was canceled (user or tool) before executing de.uni_freiburg.informatik.ultimate.boogie.procedureinliner
+[2022-05-11 19:37:45,091 INFO  L158              Benchmark]: Toolchain (without parser) took 112.33ms. Allocated memory is still 58.7MB. Free memory was 36.5MB in the beginning and 28.0MB in the end (delta: 8.4MB). Peak memory consumption was 8.4MB. Max. memory is 16.1GB.
+[2022-05-11 19:37:45,092 INFO  L158              Benchmark]: CDTParser took 0.10ms. Allocated memory is still 58.7MB. Free memory was 38.8MB in the beginning and 38.7MB in the end (delta: 73.4kB). There was no memory consumed. Max. memory is 16.1GB.
+[2022-05-11 19:37:45,093 INFO  L158              Benchmark]: CACSL2BoogieTranslator took 110.44ms. Allocated memory is still 58.7MB. Free memory was 36.2MB in the beginning and 28.0MB in the end (delta: 8.1MB). Peak memory consumption was 8.4MB. Max. memory is 16.1GB.
+[2022-05-11 19:37:45,094 INFO  L339   ainManager$Toolchain]: #######################  End [Toolchain 1] #######################
+ --- Results ---
+ * Results from de.uni_freiburg.informatik.ultimate.core:
+  - StatisticsResult: Toolchain Benchmarks
+    Benchmark results are:
+ * CDTParser took 0.10ms. Allocated memory is still 58.7MB. Free memory was 38.8MB in the beginning and 38.7MB in the end (delta: 73.4kB). There was no memory consumed. Max. memory is 16.1GB.
+ * CACSL2BoogieTranslator took 110.44ms. Allocated memory is still 58.7MB. Free memory was 36.2MB in the beginning and 28.0MB in the end (delta: 8.1MB). Peak memory consumption was 8.4MB. Max. memory is 16.1GB.
+ * Results from de.uni_freiburg.informatik.ultimate.plugins.generator.cacsl2boogietranslator:
+  - UnsupportedSyntaxResult [Line: 100]: Unsupported Syntax
+    identifier is not declared (neither a variable nor a function name): ompa2 in file /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c
+RESULT: Ultimate could not prove your program: Toolchain returned no result.
+Received shutdown request...
+--- End real Ultimate output ---
+
+Execution finished normally
+Using bit-precise analysis
+No suitable file found in config dir /home/ubuntu/tool/uautomizer/UAutomizer-linux/config using search string *Termination*64bit*_Bitvector*.epf
+No suitable settings file found using Termination*64bit*_Bitvector
+ERROR: UNSUPPORTED PROPERTY
+Writing output log to file Ultimate.log
+Result:
+UNKNOWN
+ 
