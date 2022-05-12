@@ -1,0 +1,38 @@
+timeout 900 scripts/cpa.sh -preprocess -heap 10000M -stats -spec -config config/terminationAnalysisWithRecursion.properties -64 Incorrect_Cyclic_Invoking_3_NT.cpp
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Cyclic_Invoking_3_NT.cpp
+Running CPAchecker with Java heap of size 10000M.
+Running CPAchecker with default stack size (1024k). Specify a larger value with -stack if needed.
+
+CPAchecker general statistics
+-----------------------------
+
+Time for analysis setup:          0.402s
+  Time for loading CPAs:          0.000s
+  Time for loading parser:        0.122s
+  Time for CFA construction:      0.257s
+    Time for parsing file(s):     0.149s
+    Time for AST to CFA:          0.040s
+    Time for CFA sanity check:    0.000s
+    Time for post-processing:     0.000s
+Time for Analysis:                0.000s
+CPU time for analysis:            0.000s
+Total time for CPAchecker:        0.401s
+Total CPU time for CPAchecker:    0.850s
+Time for statistics:              0.005s
+
+Time for Garbage Collector:       0.009s (in 2 runs)
+Garbage Collector(s) used:    G1 Old Generation, G1 Young Generation
+Used heap memory:                 26MB (    25 MiB) max;     22MB (    21 MiB) avg;     47MB (    44 MiB) peak
+Used non-heap memory:             18MB (    17 MiB) max;     15MB (    14 MiB) avg;     22MB (    21 MiB) peak
+Used in G1 Old Gen pool:           7MB (     6 MiB) max;      3MB (     3 MiB) avg;      7MB (     6 MiB) peak
+Allocated heap memory:           234MB (   224 MiB) max;    233MB (   223 MiB) avg
+Allocated non-heap memory:        22MB (    21 MiB) max;     19MB (    18 MiB) avg
+Total process virtual memory:  14418MB ( 13750 MiB) max;  14195MB ( 13538 MiB) avg
+
+More details about the verification run can be found in the directory "./output".
+ 
