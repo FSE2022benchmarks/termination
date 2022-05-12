@@ -1,0 +1,254 @@
+timeout 900 ./2ls --graphml-witness witness.graphml --termination --64 Incorrect_Return_1_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Return_1_T.c
+2LS version 0.9.5
+Parsing /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_1_T.c
+Converting
+Type-checking Incorrect_Return_1_T
+Generating GOTO Program
+Adding CPROVER library
+Function Pointer Removal
+Generic Property Instrumentation
+Constant Propagation
+Using intervals domain with binary search solver
+Computing SSA of main
+Simplifying
+Computing SSA of __CPROVER_initialize
+Simplifying
+Computing SSA of advance_number
+Simplifying
+Computing SSA of advance_required
+Simplifying
+Computing SSA of valid_advance
+Simplifying
+Computing SSA of advance_by_number
+Simplifying
+Computing SSA of valid_advance_by_number
+Simplifying
+Computing SSA of player_invention_reachable
+Simplifying
+Computing SSA of __CPROVER__start
+Simplifying
+
+Summarizing function __CPROVER__start
+Checking precondition of __CPROVER_initialize
+Function __CPROVER_initialize not analyzed yet
+Recursively summarizing function __CPROVER_initialize
+Analyzing function __CPROVER_initialize
+Computing summary
+Computing termination argument for __CPROVER_initialize
+Function trivially terminates
+
+Summary for function __CPROVER_initialize
+params: 
+globals_in: __CPROVER_threads_exited advances __CPROVER_malloc_is_new_array __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object __CPROVER_deallocated __CPROVER_malloc_object __CPROVER_memory_leak __CPROVER_rounding_mode __CPROVER_pipe_count __CPROVER_malloc_size __CPROVER_next_thread_id __CPROVER_thread_id 
+globals_out: __CPROVER_threads_exited#41 advances#42 __CPROVER_malloc_is_new_array#33 __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object#31 __CPROVER_deallocated#32 __CPROVER_malloc_object#34 __CPROVER_memory_leak#36 __CPROVER_rounding_mode#39 __CPROVER_pipe_count#38 __CPROVER_malloc_size#35 __CPROVER_next_thread_id#37 __CPROVER_thread_id#40 
+forward precondition: TRUE
+forward transformer: __CPROVER_rounding_mode#39 <= 0 && -((signed __CPROVER_bitvector[33])__CPROVER_rounding_mode#39) <= 0 && __CPROVER_pipe_count#38 <= 0u && -((signed __CPROVER_bitvector[33])__CPROVER_pipe_count#38) <= 0 && __CPROVER_malloc_size#35 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_malloc_size#35) <= 0 && __CPROVER_next_thread_id#37 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_next_thread_id#37) <= 0 && __CPROVER_thread_id#40 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_thread_id#40) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of main
+Function main not analyzed yet
+Recursively summarizing function main
+Checking precondition of player_invention_reachable
+Function player_invention_reachable not analyzed yet
+Recursively summarizing function player_invention_reachable
+Checking precondition of valid_advance_by_number
+Function valid_advance_by_number not analyzed yet
+Recursively summarizing function valid_advance_by_number
+Checking precondition of advance_by_number
+Function advance_by_number not analyzed yet
+Recursively summarizing function advance_by_number
+Analyzing function advance_by_number
+Computing summary
+Computing termination argument for advance_by_number
+Function trivially terminates
+
+Summary for function advance_by_number
+params: atype 
+globals_in: advance_by_number#return_value'obj.require advances advance_by_number#return_value'obj.item_number advance_by_number#return_value'obj advance_by_number#return_value'obj.$pad1 
+globals_out: advance_by_number#return_value'obj.require advances advance_by_number#return_value#phi65 advance_by_number#return_value'obj.item_number advance_by_number#return_value'obj advance_by_number#return_value'obj.$pad1 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of valid_advance
+Function valid_advance not analyzed yet
+Recursively summarizing function valid_advance
+Analyzing function valid_advance
+Computing summary
+Computing termination argument for valid_advance
+Function trivially terminates
+
+Summary for function valid_advance
+params: padvance 
+globals_in: valid_advance#return_value'obj.require padvance'obj.require valid_advance#return_value'obj.item_number padvance'obj.item_number valid_advance#return_value'obj padvance'obj valid_advance#return_value'obj.$pad1 padvance'obj.$pad1 
+globals_out: valid_advance#return_value'obj.require padvance'obj.require valid_advance#return_value#phi60 valid_advance#return_value'obj.item_number padvance'obj.item_number valid_advance#return_value'obj padvance'obj valid_advance#return_value'obj.$pad1 padvance'obj.$pad1 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Analyzing function valid_advance_by_number
+Computing summary
+Computing termination argument for valid_advance_by_number
+Function terminates
+
+Summary for function valid_advance_by_number
+params: id 
+globals_in: advance_by_number#return_value'obj.require valid_advance#return_value'obj.require valid_advance_by_number#return_value'obj.require return_value_advance_by_number'obj.require return_value_valid_advance'obj.require advance_by_number#return_value'obj.item_number valid_advance#return_value'obj.item_number valid_advance_by_number#return_value'obj.item_number return_value_advance_by_number'obj.item_number return_value_valid_advance'obj.item_number advance_by_number#return_value'obj valid_advance#return_value'obj valid_advance_by_number#return_value'obj return_value_advance_by_number'obj return_value_valid_advance'obj advance_by_number#return_value'obj.$pad1 valid_advance#return_value'obj.$pad1 valid_advance_by_number#return_value'obj.$pad1 return_value_advance_by_number'obj.$pad1 return_value_valid_advance'obj.$pad1 
+globals_out: advance_by_number#return_value'obj.require valid_advance#return_value'obj.require valid_advance_by_number#return_value'obj.require return_value_advance_by_number'obj.require return_value_valid_advance'obj.require valid_advance_by_number#return_value#74 advance_by_number#return_value'obj.item_number valid_advance#return_value'obj.item_number valid_advance_by_number#return_value'obj.item_number return_value_advance_by_number'obj.item_number return_value_valid_advance'obj.item_number advance_by_number#return_value'obj valid_advance#return_value'obj valid_advance_by_number#return_value'obj return_value_advance_by_number'obj return_value_valid_advance'obj advance_by_number#return_value'obj.$pad1 valid_advance#return_value'obj.$pad1 valid_advance_by_number#return_value'obj.$pad1 return_value_advance_by_number'obj.$pad1 return_value_valid_advance'obj.$pad1 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of advance_required
+Function advance_required not analyzed yet
+Recursively summarizing function advance_required
+Checking precondition of advance_number
+Function advance_number not analyzed yet
+Recursively summarizing function advance_number
+Analyzing function advance_number
+Computing summary
+Computing termination argument for advance_number
+Function trivially terminates
+
+Summary for function advance_number
+params: padvance 
+globals_in: padvance'obj.require padvance'obj.item_number padvance'obj padvance'obj.$pad1 
+globals_out: padvance'obj.require advance_number#return_value#44 padvance'obj.item_number#44 padvance'obj padvance'obj.$pad1 
+forward precondition: TRUE
+forward transformer: advance_number#return_value#44 <= 2147483647 && -((signed __CPROVER_bitvector[33])advance_number#return_value#44) <= 2147483648
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Analyzing function advance_required
+Computing summary
+Computing termination argument for advance_required
+Function terminates
+
+Summary for function advance_required
+params: tech require 
+globals_in: advances 
+globals_out: advances advance_required#return_value#phi55 
+forward precondition: TRUE
+forward transformer: advance_required#return_value#phi55 <= 2147483647 && -((signed __CPROVER_bitvector[33])advance_required#return_value#phi55) <= 2147483648
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of player_invention_reachable
+Havoc recursive function call to player_invention_reachable
+Analyzing function player_invention_reachable
+Computing summary
+Computing termination argument for player_invention_reachable
+Function terminates
+
+Summary for function player_invention_reachable
+params: tech allow_prereqs 
+globals_in: return_value_valid_advance_by_number'obj.require valid_advance_by_number#return_value'obj.require return_value_valid_advance_by_number'obj.item_number valid_advance_by_number#return_value'obj.item_number return_value_valid_advance_by_number'obj valid_advance_by_number#return_value'obj return_value_valid_advance_by_number'obj.$pad1 valid_advance_by_number#return_value'obj.$pad1 
+globals_out: return_value_valid_advance_by_number'obj.require valid_advance_by_number#return_value'obj.require player_invention_reachable#return_value#phi114 return_value_valid_advance_by_number'obj.item_number valid_advance_by_number#return_value'obj.item_number return_value_valid_advance_by_number'obj valid_advance_by_number#return_value'obj return_value_valid_advance_by_number'obj.$pad1 valid_advance_by_number#return_value'obj.$pad1 
+forward precondition: TRUE
+forward transformer: player_invention_reachable#return_value#phi114 <= 2147483647 && -((signed __CPROVER_bitvector[33])player_invention_reachable#return_value#phi114) <= 2147483648
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Analyzing function main
+Computing summary
+Computing termination argument for main
+Synthesizing ranking function to prove termination
+
+Summary for function main
+params: 
+globals_in: advances 
+globals_out: advances#phi2 main#return_value#26 
+forward precondition: TRUE
+forward transformer: main#return_value#26 <= 0 && -((signed __CPROVER_bitvector[33])main#return_value#26) <= 0
+forward invariant: ($guard#6 && $guard#ls12 ==> j#lb12 <= 3) && ($guard#6 && $guard#ls12 ==> -((signed __CPROVER_bitvector[33])j#lb12) <= 0) && ($guard#6 && $guard#ls12 ==> req.item_number#lb12 <= 2147483647) && ($guard#6 && $guard#ls12 ==> -((signed __CPROVER_bitvector[33])req.item_number#lb12) <= 2147483648) && ($guard#6 && $guard#ls12 ==> req.$pad1#lb12 <= 4294967295) && ($guard#6 && $guard#ls12 ==> -((signed __CPROVER_bitvector[33])req.$pad1#lb12) <= 0) && ($guard#2 && $guard#ls15 ==> i#lb15 <= 10) && ($guard#2 && $guard#ls15 ==> -((signed __CPROVER_bitvector[33])i#lb15) <= 0) && ($guard#2 && $guard#ls15 ==> req.item_number#lb15 <= 2147483647) && ($guard#2 && $guard#ls15 ==> -((signed __CPROVER_bitvector[33])req.item_number#lb15) <= 2147483648) && ($guard#2 && $guard#ls15 ==> req.$pad1#lb15 <= 4294967295) && ($guard#2 && $guard#ls15 ==> -((signed __CPROVER_bitvector[33])req.$pad1#lb15) <= 0)
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: ($guard#6 && $guard#6 && $guard#6 && $guard#7 && $cond#12 && $guard#7 && $cond#12 && $guard#7 && $cond#12 ==> (signed __CPROVER_bitvector[46])((signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])-1 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])j#phi6 - (signed __CPROVER_bitvector[33])j#11)) + (signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])0 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])req.item_number#phi6 - (signed __CPROVER_bitvector[33])req.item_number#8))) + (signed __CPROVER_bitvector[46])((signed __CPROVER_bitvector[44])0 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])req.$pad1#phi6 - (signed __CPROVER_bitvector[33])req.$pad1#7)) > 0) && ($guard#2 && $guard#2 && $guard#2 && $guard#13 && $cond#15 && $guard#13 && $cond#15 && $guard#13 && $cond#15 ==> (signed __CPROVER_bitvector[46])((signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])-1 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])i#phi2 - (signed __CPROVER_bitvector[33])i#14)) + (signed __CPROVER_bitvector[45])((signed __CPROVER_bitvector[44])0 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])req.item_number#phi2 - (signed __CPROVER_bitvector[33])req.item_number#phi6))) + (signed __CPROVER_bitvector[46])((signed __CPROVER_bitvector[44])0 * (signed __CPROVER_bitvector[44])((signed __CPROVER_bitvector[33])req.$pad1#phi2 - (signed __CPROVER_bitvector[33])req.$pad1#phi6)) > 0)
+
+terminates: yes
+
+Analyzing function __CPROVER__start
+Computing summary
+Computing termination argument for __CPROVER__start
+Function terminates
+
+Summary for function __CPROVER__start
+params: 
+globals_in: 
+globals_out: 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+** statistics: 
+  number of solver instances: 3182508265
+  number of solver calls: 273433
+  number of summaries used: 8
+  number of termination arguments computed: 1
+
+
+** Termination: 
+[main]: yes
+[__CPROVER_initialize]: yes
+[advance_number]: yes
+[advance_required]: yes
+[valid_advance]: yes
+[advance_by_number]: yes
+[valid_advance_by_number]: yes
+[player_invention_reachable]: yes
+[__CPROVER__start]: yes
+VERIFICATION SUCCESSFUL
+ 

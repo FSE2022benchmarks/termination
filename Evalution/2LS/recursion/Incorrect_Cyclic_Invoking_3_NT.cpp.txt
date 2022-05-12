@@ -1,0 +1,9 @@
+timeout 900 ./2ls --graphml-witness witness.graphml --termination --64 Incorrect_Cyclic_Invoking_3_NT.cpp
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Cyclic_Invoking_3_NT.cpp
+2LS version 0.9.5
+ 

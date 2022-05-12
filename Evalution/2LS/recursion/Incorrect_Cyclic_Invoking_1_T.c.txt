@@ -1,0 +1,253 @@
+timeout 900 ./2ls --graphml-witness witness.graphml --termination --64 Incorrect_Cyclic_Invoking_1_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Cyclic_Invoking_1_T.c
+2LS version 0.9.5
+Parsing /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c
+Converting
+Type-checking Incorrect_Cyclic_Invoking_1_T
+Generating GOTO Program
+Adding CPROVER library
+Function Pointer Removal
+Generic Property Instrumentation
+Constant Propagation
+Using intervals domain with binary search solver
+Computing SSA of main
+Simplifying
+Computing SSA of __CPROVER_initialize
+Simplifying
+Computing SSA of cifs_reconnect_tcon
+Simplifying
+Computing SSA of __smb_init
+Simplifying
+Computing SSA of smb_init
+Simplifying
+Computing SSA of smb_init_no_reconnect
+Simplifying
+Computing SSA of CIFSSMBQFSUnixInfo
+Simplifying
+Computing SSA of reset_cifs_unix_caps
+Simplifying
+Computing SSA of __CPROVER__start
+Simplifying
+
+Summarizing function __CPROVER__start
+Checking precondition of __CPROVER_initialize
+Function __CPROVER_initialize not analyzed yet
+Recursively summarizing function __CPROVER_initialize
+Analyzing function __CPROVER_initialize
+Computing summary
+Computing termination argument for __CPROVER_initialize
+Function trivially terminates
+
+Summary for function __CPROVER_initialize
+params: 
+globals_in: __CPROVER_threads_exited __CPROVER_malloc_is_new_array __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object __CPROVER_deallocated __CPROVER_malloc_object __CPROVER_memory_leak __CPROVER_rounding_mode cifsTconInfo.ses __CPROVER_pipe_count __CPROVER_malloc_size __CPROVER_next_thread_id __CPROVER_thread_id 
+globals_out: __CPROVER_threads_exited#26 __CPROVER_malloc_is_new_array#18 __CPROVER_dead_object'obj __CPROVER_deallocated'obj __CPROVER_malloc_object'obj __CPROVER_memory_leak'obj __CPROVER_dead_object#16 __CPROVER_deallocated#17 __CPROVER_malloc_object#19 __CPROVER_memory_leak#21 __CPROVER_rounding_mode#24 cifsTconInfo.ses#27 __CPROVER_pipe_count#23 __CPROVER_malloc_size#20 __CPROVER_next_thread_id#22 __CPROVER_thread_id#25 
+forward precondition: TRUE
+forward transformer: __CPROVER_rounding_mode#24 <= 0 && -((signed __CPROVER_bitvector[33])__CPROVER_rounding_mode#24) <= 0 && cifsTconInfo.ses#27 <= 0 && -((signed __CPROVER_bitvector[33])cifsTconInfo.ses#27) <= 0 && __CPROVER_pipe_count#23 <= 0u && -((signed __CPROVER_bitvector[33])__CPROVER_pipe_count#23) <= 0 && __CPROVER_malloc_size#20 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_malloc_size#20) <= 0 && __CPROVER_next_thread_id#22 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_next_thread_id#22) <= 0 && __CPROVER_thread_id#25 <= 0ul && -((signed __CPROVER_bitvector[65])__CPROVER_thread_id#25) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of main
+Function main not analyzed yet
+Recursively summarizing function main
+Checking precondition of smb_init
+Function smb_init not analyzed yet
+Recursively summarizing function smb_init
+Checking precondition of cifs_reconnect_tcon
+Function cifs_reconnect_tcon not analyzed yet
+Recursively summarizing function cifs_reconnect_tcon
+Checking precondition of reset_cifs_unix_caps
+Function reset_cifs_unix_caps not analyzed yet
+Recursively summarizing function reset_cifs_unix_caps
+Checking precondition of CIFSSMBQFSUnixInfo
+Function CIFSSMBQFSUnixInfo not analyzed yet
+Recursively summarizing function CIFSSMBQFSUnixInfo
+Checking precondition of smb_init_no_reconnect
+Function smb_init_no_reconnect not analyzed yet
+Recursively summarizing function smb_init_no_reconnect
+Checking precondition of __smb_init
+Function __smb_init not analyzed yet
+Recursively summarizing function __smb_init
+Analyzing function __smb_init
+Computing summary
+Computing termination argument for __smb_init
+Function trivially terminates
+
+Summary for function __smb_init
+params: smb_command tcon 
+globals_in: 
+globals_out: __smb_init#return_value#42 
+forward precondition: TRUE
+forward transformer: __smb_init#return_value#42 <= 0 && -((signed __CPROVER_bitvector[33])__smb_init#return_value#42) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Analyzing function smb_init_no_reconnect
+Computing summary
+Computing termination argument for smb_init_no_reconnect
+Function terminates
+
+Summary for function smb_init_no_reconnect
+params: smb_command tcon 
+globals_in: tcon'obj.ses tcon'obj 
+globals_out: smb_init_no_reconnect#return_value#65 tcon'obj.ses tcon'obj 
+forward precondition: TRUE
+forward transformer: smb_init_no_reconnect#return_value#65 <= 0 && -((signed __CPROVER_bitvector[33])smb_init_no_reconnect#return_value#65) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Analyzing function CIFSSMBQFSUnixInfo
+Computing summary
+Computing termination argument for CIFSSMBQFSUnixInfo
+Function terminates
+
+Summary for function CIFSSMBQFSUnixInfo
+params: xid tcon 
+globals_in: tcon'obj.ses tcon'obj 
+globals_out: CIFSSMBQFSUnixInfo#return_value#73 tcon'obj.ses tcon'obj 
+forward precondition: TRUE
+forward transformer: CIFSSMBQFSUnixInfo#return_value#73 <= 0 && -((signed __CPROVER_bitvector[33])CIFSSMBQFSUnixInfo#return_value#73) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Analyzing function reset_cifs_unix_caps
+Computing summary
+Computing termination argument for reset_cifs_unix_caps
+Function terminates
+
+Summary for function reset_cifs_unix_caps
+params: xid tcon 
+globals_in: tcon'obj.ses tcon'obj 
+globals_out: tcon'obj.ses tcon'obj 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Analyzing function cifs_reconnect_tcon
+Computing summary
+Computing termination argument for cifs_reconnect_tcon
+Function terminates
+
+Summary for function cifs_reconnect_tcon
+params: tcon smb_command 
+globals_in: tcon'obj.ses tcon'obj 
+globals_out: cifs_reconnect_tcon#return_value#phi39 tcon'obj.ses#phi39 tcon'obj 
+forward precondition: TRUE
+forward transformer: cifs_reconnect_tcon#return_value#phi39 <= 2147483647 && -((signed __CPROVER_bitvector[33])cifs_reconnect_tcon#return_value#phi39) <= 2147483648
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Checking precondition of __smb_init
+Precondition trivially holds, replacing by summary.
+Analyzing function smb_init
+Computing summary
+Computing termination argument for smb_init
+Function terminates
+
+Summary for function smb_init
+params: smb_command tcon 
+globals_in: tcon'obj.ses tcon'obj 
+globals_out: __smb_init#return_value smb_init#return_value#phi60 tcon'obj.ses tcon'obj 
+forward precondition: TRUE
+forward transformer: __smb_init#return_value <= 2147483647 && -((signed __CPROVER_bitvector[33])__smb_init#return_value) <= 2147483648 && smb_init#return_value#phi60 <= 2147483647 && -((signed __CPROVER_bitvector[33])smb_init#return_value#phi60) <= 2147483648
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Analyzing function main
+Computing summary
+Computing termination argument for main
+Function terminates
+
+Summary for function main
+params: 
+globals_in: tcon'obj.ses tcon'obj 
+globals_out: main#return_value#10 tcon'obj.ses#3 tcon'obj 
+forward precondition: TRUE
+forward transformer: main#return_value#10 <= 0 && -((signed __CPROVER_bitvector[33])main#return_value#10) <= 0
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+Analyzing function __CPROVER__start
+Computing summary
+Computing termination argument for __CPROVER__start
+Function terminates
+
+Summary for function __CPROVER__start
+params: 
+globals_in: 
+globals_out: 
+forward precondition: TRUE
+forward transformer: TRUE
+forward invariant: TRUE
+backward precondition: not computed
+backward postcondition: not computed
+backward transformer: not computed
+backward invariant: not computed
+termination argument: not computed
+terminates: yes
+
+** statistics: 
+  number of solver instances: 2772138889
+  number of solver calls: 283729
+  number of summaries used: 9
+  number of termination arguments computed: 0
+
+
+** Termination: 
+[main]: yes
+[__CPROVER_initialize]: yes
+[cifs_reconnect_tcon]: yes
+[__smb_init]: yes
+[smb_init]: yes
+[smb_init_no_reconnect]: yes
+[CIFSSMBQFSUnixInfo]: yes
+[reset_cifs_unix_caps]: yes
+[__CPROVER__start]: yes
+VERIFICATION SUCCESSFUL
+ 

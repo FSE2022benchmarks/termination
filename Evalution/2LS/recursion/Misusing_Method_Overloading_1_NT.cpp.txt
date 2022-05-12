@@ -1,0 +1,9 @@
+timeout 900 ./2ls --graphml-witness witness.graphml --termination --64 Misusing_Method_Overloading_1_NT.cpp
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Misusing_Method_Overloading_1_NT.cpp
+2LS version 0.9.5
+ 

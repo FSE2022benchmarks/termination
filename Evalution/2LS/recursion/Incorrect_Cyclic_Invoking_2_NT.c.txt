@@ -1,0 +1,12 @@
+timeout 900 ./2ls --graphml-witness witness.graphml --termination --64 Incorrect_Cyclic_Invoking_2_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Incorrect_Cyclic_Invoking_2_NT.c
+2LS version 0.9.5
+Parsing /home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c
+Converting
+Type-checking Incorrect_Cyclic_Invoking_2_NT
+ 
