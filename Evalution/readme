@@ -1,1 +1,5 @@
-This folder provides our experimental results and result-files.  
+This folder provides our experimental results and result-files.   
+We select five existing tools for conducting our experiment: UAutomizer, CPAchecker, 2LS, AProVE, and T2.   
+Each verification run is started on a machine with a GNU/Linux operating system (x86_64-linux, Ubuntu 18.02);  
+there are three resource limits for each verification run: a memory limit of 15 GB of RAM,  
+a runtime limit of 15 min of CPU time, and a limit to 8 processing units of a CPU.
