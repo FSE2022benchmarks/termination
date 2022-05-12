@@ -1,0 +1,7 @@
+./T2.exe -input_t2 Incorrect_Update_for_Loop_Iterator_2_T.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Incorrect_Update_for_Loop_Iterator_2_T.t2
+
+Nontermination proof succeeded
+Found this recurrent set for cutpoint 8: v_l.0-nondef.0 <= 0 and 1+v_l.0 <= 0

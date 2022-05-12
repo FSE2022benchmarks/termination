@@ -1,0 +1,6 @@
+./T2.exe -input_t2 Reusing_Same_Loop_Iterator_1_NT.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Reusing_Same_Loop_Iterator_1_NT.t2
+
+Parse error at line 30 in C:\Users\Administrator\Desktop\FSE_final\result-8-16g\T2\loop\t2_file\Reusing_Same_Loop_Iterator_1_NT.t2

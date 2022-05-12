@@ -1,0 +1,24 @@
+./T2.exe -input_t2 Misusing_Variable_Type_1_NT.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Misusing_Variable_Type_1_NT.t2
+
+Termination proof succeeded
+Initially, performed program simplifications using lexicographic rank functions:
+ * Removed transitions 9, 10, 17, 19, 20, 21, 28, 31, 38 using the following rank functions:
+    - Rank function 1:
+      RF for loc. 9: 4*v_div1.0
+      RF for loc. 11: 4*v_div1.0
+      Bound for (chained) transitions 20, 31, 38: 4
+    - Rank function 2:
+      RF for loc. 9: 3*v_div2.0
+      RF for loc. 11: 1+3*v_div2.0
+      Bound for (chained) transitions 21, 28: 1
+    - Rank function 3:
+      RF for loc. 9: -v_mul.0
+      RF for loc. 11: -1-v_mul.0
+      Bound for (chained) transitions 10, 17, 19: -255
+    - Rank function 4:
+      RF for loc. 9: v_mul.0
+      RF for loc. 11: 0
+      Bound for (chained) transitions 9: 256

@@ -1,0 +1,14 @@
+./T2.exe -input_t2 Reusing_Same_Loop_Iterator_2_T.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Reusing_Same_Loop_Iterator_2_T.t2
+
+Termination proof succeeded
+Initially, performed program simplifications using lexicographic rank functions:
+ * Removed transitions 10, 11, 18, 20, 22, 29 using the following rank functions:
+    - Rank function 1:
+      RF for loc. 10: 2*v_0-2*v_i.0
+      Bound for (chained) transitions 10, 22, 29: 4
+    - Rank function 2:
+      RF for loc. 10: -v_j.0
+      Bound for (chained) transitions 11, 18, 20: -2

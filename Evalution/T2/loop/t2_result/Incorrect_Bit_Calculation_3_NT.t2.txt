@@ -1,0 +1,7 @@
+./T2.exe -input_t2 Incorrect_Bit_Calculation_3_NT.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Incorrect_Bit_Calculation_3_NT.t2
+
+Nontermination proof succeeded
+Found this recurrent set for cutpoint 8: nondef.1 == -1

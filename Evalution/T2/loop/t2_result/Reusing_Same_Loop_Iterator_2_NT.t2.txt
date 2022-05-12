@@ -1,0 +1,5 @@
+./T2.exe -input_t2 Reusing_Same_Loop_Iterator_2_NT.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Reusing_Same_Loop_Iterator_2_NT.t2
+

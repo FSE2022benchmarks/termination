@@ -1,0 +1,11 @@
+./T2.exe -input_t2 Type_Conversion_in_Comparison_1_NT.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Type_Conversion_in_Comparison_1_NT.t2
+
+Termination proof succeeded
+Initially, performed program simplifications using lexicographic rank functions:
+ * Removed transitions 6, 13, 15 using the following rank functions:
+    - Rank function 1:
+      RF for loc. 7: v_4+v_5-v_s.0
+      Bound for (chained) transitions 6, 13, 15: 1

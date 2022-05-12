@@ -1,0 +1,6 @@
+./T2.exe -input_t2 Missing_Corner-case_Handling_2_T.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Missing_Corner-case_Handling_2_T.t2
+
+Termination/nontermination proof failed

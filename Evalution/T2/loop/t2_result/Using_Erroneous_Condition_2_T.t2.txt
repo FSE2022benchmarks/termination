@@ -1,0 +1,11 @@
+./T2.exe -input_t2 Using_Erroneous_Condition_2_T.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Using_Erroneous_Condition_2_T.t2
+
+Termination proof succeeded
+Initially, performed program simplifications using lexicographic rank functions:
+ * Removed transitions 9, 16, 18 using the following rank functions:
+    - Rank function 1:
+      RF for loc. 9: v_0-v_i.0
+      Bound for (chained) transitions 9, 16, 18: 1

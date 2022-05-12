@@ -1,0 +1,7 @@
+./T2.exe -input_t2 Using_Erroneous_Condition_2_NT.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Using_Erroneous_Condition_2_NT.t2
+
+Nontermination proof succeeded
+Found this recurrent set for cutpoint 10: nondef.0 <= 65534 and v_0 <= 65534 and 0 <= v_i.0 and nondef.0-v_0 <= 0 and v_0-nondef.0 <= 0 and nondef.0+v_0 <= 131068 and nondef.0-v_i.0 <= 65534 and v_0-v_i.0 <= 65534 and 1+v_0 <= 0 and -v_i.0 <= 0

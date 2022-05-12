@@ -1,0 +1,7 @@
+./T2.exe -input_t2 Type_Conversion_in_Comparison_2_T.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Type_Conversion_in_Comparison_2_T.t2
+
+Nontermination proof succeeded
+Found this recurrent set for cutpoint 8: nondef.0-v_ac.0 <= 0 and nondef.1-v_4 <= 0 and v_4-nondef.1 <= 0 and 1+v_4-v_ac.0 <= 0

@@ -1,0 +1,7 @@
+./T2.exe -input_t2 Signed_Overflow_Error_1_NT.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Signed_Overflow_Error_1_NT.t2
+
+Nontermination proof succeeded
+Found this recurrent set for cutpoint 7: nondef.0 == 1 and v_i.0 == 1

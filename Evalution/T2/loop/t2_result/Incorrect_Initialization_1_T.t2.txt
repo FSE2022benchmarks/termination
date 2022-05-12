@@ -1,0 +1,6 @@
+./T2.exe -input_t2 Incorrect_Initialization_1_T.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Incorrect_Initialization_1_T.t2
+
+Parse error at line 1 in C:\Users\Administrator\Desktop\FSE_final\result-8-16g\T2\loop\t2_file\Incorrect_Initialization_1_T.t2

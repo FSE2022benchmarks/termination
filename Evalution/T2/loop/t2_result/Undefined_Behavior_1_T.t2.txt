@@ -1,0 +1,7 @@
+./T2.exe -input_t2 Undefined_Behavior_1_T.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Undefined_Behavior_1_T.t2
+
+Nontermination proof succeeded
+Found this recurrent set for cutpoint 8: nondef.1 == -1

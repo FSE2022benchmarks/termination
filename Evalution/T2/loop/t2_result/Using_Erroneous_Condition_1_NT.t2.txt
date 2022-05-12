@@ -1,0 +1,6 @@
+./T2.exe -input_t2 Using_Erroneous_Condition_1_NT.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Using_Erroneous_Condition_1_NT.t2
+
+Parse error at line 62 in C:\Users\Administrator\Desktop\FSE_final\result-8-16g\T2\loop\t2_file\Using_Erroneous_Condition_1_NT.t2

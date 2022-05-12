@@ -1,0 +1,11 @@
+./T2.exe -input_t2 Unsigned_Wraparound_Error_4_NT.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Unsigned_Wraparound_Error_4_NT.t2
+
+Termination proof succeeded
+Initially, performed program simplifications using lexicographic rank functions:
+ * Removed transitions 6, 13, 15 using the following rank functions:
+    - Rank function 1:
+      RF for loc. 7: v_n.0
+      Bound for (chained) transitions 6, 13, 15: 1

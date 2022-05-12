@@ -1,0 +1,7 @@
+./T2.exe -input_t2 Adding_Subtracting_Zero_1_NT.t2 -termination -print_proof -timeout 900
+-----------------------------------------------------------------------------
+
+testfile:Adding_Subtracting_Zero_1_NT.t2
+
+Nontermination proof succeeded
+Found this recurrent set for cutpoint 10: kittel_old__v_h.0 == 1 and nondef.0 == 0 and nondef.1 == 1 and v_0 == 0 and v_h.0 == 1 and v_linesToRead.0 == 0
