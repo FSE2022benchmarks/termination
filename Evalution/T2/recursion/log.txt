@@ -1,0 +1,371 @@
+Script started on 2022-05-12 09:00:01+0800
+(base) ]0;ubuntu@ubuntu: ~/tool/result/T2/recursion[01;32mubuntu@ubuntu[00m:[01;34m~/tool/result/T2/recursion[00m$ script -f log.txt[8P./test.sh
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Arguments_1_NT.c:40:24: warning: 
+      implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99
+      [-Wimplicit-function-declaration]
+        a->bytes_remaining =  __VERIFIER_nondet_int();
+                              ^
+1 warning generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Arguments_1_T.c:41:24: warning: 
+      implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99
+      [-Wimplicit-function-declaration]
+        a->bytes_remaining =  __VERIFIER_nondet_int();
+                              ^
+1 warning generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_NT.c:14:34: warning: 
+      unused parameter 'xid' [-Wunused-parameter]
+int CIFSSMBQFSUnixInfo(const int xid, struct cifsTconInfo *tcon)
+                                 ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_NT.c:29:63: warning: 
+      unused parameter 'smb_command' [-Wunused-parameter]
+static int cifs_reconnect_tcon(struct cifsTconInfo *tcon, int smb_command)
+                                                              ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_NT.c:42:15: warning: 
+      implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99
+      [-Wimplicit-function-declaration]
+        tcon->ses =  __VERIFIER_nondet_int();
+                     ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_NT.c:44:6: warning: 
+      unused variable 'rc' [-Wunused-variable]
+        int rc = smb_init(smb_command,tcon);
+            ^
+4 warnings generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c:7:28: warning: 
+      unused parameter 'smb_command' [-Wunused-parameter]
+static int __smb_init( int smb_command, struct cifsTconInfo *tcon)
+                           ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c:7:62: warning: 
+      unused parameter 'tcon' [-Wunused-parameter]
+static int __smb_init( int smb_command, struct cifsTconInfo *tcon)
+                                                             ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c:30:34: warning: 
+      unused parameter 'xid' [-Wunused-parameter]
+int CIFSSMBQFSUnixInfo(const int xid, struct cifsTconInfo *tcon)
+                                 ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c:45:63: warning: 
+      unused parameter 'smb_command' [-Wunused-parameter]
+static int cifs_reconnect_tcon(struct cifsTconInfo *tcon, int smb_command)
+                                                              ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c:58:15: warning: 
+      implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99
+      [-Wimplicit-function-declaration]
+        tcon->ses =  __VERIFIER_nondet_int();
+                     ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_1_T.c:60:6: warning: 
+      unused variable 'rc' [-Wunused-variable]
+        int rc = smb_init(smb_command,tcon);
+            ^
+6 warnings generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:98:25: warning: 
+      implicit declaration of function '__VERIFIER_nondet_uint' is invalid in
+      C99 [-Wimplicit-function-declaration]
+    unsigned int addr = __VERIFIER_nondet_uint();
+                        ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:100:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.revision = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:101:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.config = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:102:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.ints = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:103:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.mask = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:104:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.wumask = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:105:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.dir = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:106:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.inputs = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:107:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.outputs = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:108:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.level = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:109:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.edge = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:110:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.debounce = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_NT.c:111:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.delay = __VERIFIER_nondet_uint();
+    ^
+1 warning and 12 errors generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:98:25: warning: 
+      implicit declaration of function '__VERIFIER_nondet_uint' is invalid in
+      C99 [-Wimplicit-function-declaration]
+    unsigned int addr = __VERIFIER_nondet_uint();
+                        ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:100:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.revision = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:101:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.config = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:102:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.ints = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:103:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.mask = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:104:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.wumask = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:105:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.dir = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:106:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.inputs = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:107:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.outputs = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:108:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.level = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:109:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.edge = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:110:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.debounce = __VERIFIER_nondet_uint();
+    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Cyclic_Invoking_2_T.c:111:5: error: 
+      use of undeclared identifier 'ompa2'
+    ompa2.delay = __VERIFIER_nondet_uint();
+    ^
+1 warning and 12 errors generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_1_NT.c:96:16: warning: 
+      implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99
+      [-Wimplicit-function-declaration]
+    int tech = __VERIFIER_nondet_int();
+               ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_1_NT.c:99:9: warning: 
+      unused variable 'ok' [-Wunused-variable]
+    int ok = player_invention_reachable(tech,allow_prereqs);
+        ^
+2 warnings generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_1_T.c:98:16: warning: 
+      implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99
+      [-Wimplicit-function-declaration]
+    int tech = __VERIFIER_nondet_int();
+               ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_1_T.c:101:9: warning: 
+      unused variable 'ok' [-Wunused-variable]
+    int ok = player_invention_reachable(tech,allow_prereqs);
+        ^
+2 warnings generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_2_NT.cpp:18:18: error: 
+      use of undeclared identifier '__VERIFIER_nondet_char'
+        obj[i] = __VERIFIER_nondet_char();
+                 ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_2_NT.cpp:19:19: error: 
+      use of undeclared identifier '__VERIFIER_nondet_char'
+        kobj[i] = __VERIFIER_nondet_char();
+                  ^
+2 errors generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_2_T.cpp:23:18: error: 
+      use of undeclared identifier '__VERIFIER_nondet_char'
+        obj[i] = __VERIFIER_nondet_char();
+                 ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Incorrect_Return_2_T.cpp:24:19: error: 
+      use of undeclared identifier '__VERIFIER_nondet_char'
+        kobj[i] = __VERIFIER_nondet_char();
+                  ^
+2 errors generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Miscalling_Inherited_Method_1_NT.cpp:23:6: warning: 
+      unused variable 'c' [-Wunused-variable]
+        int c = A.LookupInTransaction();
+            ^
+1 warning generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Miscalling_Inherited_Method_1_T.cpp:23:6: warning: 
+      unused variable 'c' [-Wunused-variable]
+        int c = A.LookupInTransaction();
+            ^
+1 warning generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Missing_undef_Instruction_1_NT.c:4:45: warning: 
+      unused parameter 'mutex' [-Wunused-parameter]
+int pthread_mutex_trylock( pthread_mutex_t* mutex)
+                                            ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Missing_undef_Instruction_1_NT.c:25:9: warning: 
+      unused variable 'rc' [-Wunused-variable]
+    int rc = my_pthread_mutex_trylock(mutex);
+        ^
+2 warnings generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Missing_undef_Instruction_1_T.c:4:45: warning: 
+      unused parameter 'mutex' [-Wunused-parameter]
+int pthread_mutex_trylock( pthread_mutex_t* mutex)
+                                            ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Missing_undef_Instruction_1_T.c:26:9: warning: 
+      unused variable 'rc' [-Wunused-variable]
+    int rc = my_pthread_mutex_trylock(mutex);
+        ^
+2 warnings generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_NT.cpp:10:70: warning: 
+      unused parameter 'to_signal_index' [-Wunused-parameter]
+void QMetaObject::activate( float sender, int from_signal_index, int to_signa...
+                                                                     ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_NT.cpp:17:21: warning: 
+      unused variable 'mo' [-Wunused-variable]
+        const QMetaObject *mo;
+                           ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_NT.cpp:21:98: warning: 
+      unused parameter 'to_local_signal_index' [-Wunused-parameter]
+  ...sender, const QMetaObject *m, int from_local_signal_index, int to_local_...
+                                                                    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_NT.cpp:26:35: warning: 
+      unused parameter 'sender' [-Wunused-parameter]
+void QMetaObject::activate( float sender, const QMetaObject *m, int loca...
+                                  ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_NT.cpp:26:62: warning: 
+      unused parameter 'm' [-Wunused-parameter]
+void QMetaObject::activate( float sender, const QMetaObject *m, int loca...
+                                                             ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_NT.cpp:26:69: warning: 
+      unused parameter 'local_signal_index' [-Wunused-parameter]
+void QMetaObject::activate( float sender, const QMetaObject *m, int local_sig...
+                                                                    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_NT.cpp:26:96: warning: 
+      unused parameter 'argv' [-Wunused-parameter]
+  ...float sender, const QMetaObject *m, int local_signal_index, double argv)
+                                                                        ^
+7 warnings generated.
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_T.cpp:10:70: warning: 
+      unused parameter 'to_signal_index' [-Wunused-parameter]
+void QMetaObject::activate( float sender, int from_signal_index, int to_signa...
+                                                                     ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_T.cpp:18:19: warning: 
+      variable 'mo' is uninitialized when used here [-Wuninitialized]
+        activate(sender, mo , signal_index, argv);
+                         ^~
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_T.cpp:17:23: note: 
+      initialize the variable 'mo' to silence this warning
+        const QMetaObject *mo;
+                             ^
+                              = 0
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_T.cpp:21:98: warning: 
+      unused parameter 'to_local_signal_index' [-Wunused-parameter]
+  ...sender, const QMetaObject *m, int from_local_signal_index, int to_local_...
+                                                                    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_T.cpp:26:35: warning: 
+      unused parameter 'sender' [-Wunused-parameter]
+void QMetaObject::activate( float sender, const QMetaObject *m, int loca...
+                                  ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_T.cpp:26:62: warning: 
+      unused parameter 'm' [-Wunused-parameter]
+void QMetaObject::activate( float sender, const QMetaObject *m, int loca...
+                                                             ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_T.cpp:26:69: warning: 
+      unused parameter 'local_signal_index' [-Wunused-parameter]
+void QMetaObject::activate( float sender, const QMetaObject *m, int local_sig...
+                                                                    ^
+/home/ubuntu/tool/FSE_benchmark/recursion/Misusing_Method_Overloading_1_T.cpp:26:96: warning: 
+      unused parameter 'argv' [-Wunused-parameter]
+  ...float sender, const QMetaObject *m, int local_signal_index, double argv)
+                                                                        ^
+7 warnings generated.
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(%"class.std::__cxx11::basic_string"* %6, %"class.std::__cxx11::basic_string"* %7)
+          to label %.noexc unwind label %26
+The unwind destination does not have a landingpad instruction!
+  %8 = invoke %struct.Rule* @_ZN4RuleaSERKS_(%struct.Rule* %this, %struct.Rule* %1)
+          to label %9 unwind label %13
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* %10)
+          to label %_ZN4RuleaSERKS_.exit unwind label %26
+LandingPadInst not the first non-PHI instruction in the block.
+  %15 = landingpad { i8*, i32 } personality i8* %14
+          cleanup
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* %18)
+          to label %_ZN4RuleD2Ev.exit.i unwind label %21
+LandingPadInst not the first non-PHI instruction in the block.
+  %23 = landingpad { i8*, i32 } personality i8* %22
+          catch i8* null
+LandingPadInst not the first non-PHI instruction in the block.
+  %28 = landingpad { i8*, i32 } personality i8* %27
+          cleanup
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* %31)
+          to label %_ZN4RuleD2Ev.exit unwind label %34
+LandingPadInst not the first non-PHI instruction in the block.
+  %36 = landingpad { i8*, i32 } personality i8* %35
+          catch i8* null
+Broken module found, compilation aborted!
+./test.sh: line 18:  3558 Aborted                 (core dumped) /home/ubuntu/llvm2kittel/llvm2kittel-master/build/./llvm2kittel --dump-ll --no-slicing --eager-inline --t2 ../bc_file/$filename >> $bbname.t2
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* %test, i8* %2, %"class.std::allocator"* %1)
+          to label %3 unwind label %24
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(%"class.std::__cxx11::basic_string"* %4, %"class.std::__cxx11::basic_string"* %test)
+          to label %_ZN4RuleC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %14
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(%"class.std::__cxx11::basic_string"* %5)
+          to label %_ZN4RuleC2Ev.exit unwind label %8
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* %6)
+          to label %_ZN4RuleD2Ev.exit unwind label %8
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* %7)
+          to label %_ZN4RuleD2Ev.exit2 unwind label %14
+LandingPadInst not the first non-PHI instruction in the block.
+  %10 = landingpad { i8*, i32 } personality i8* %9
+          cleanup
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* %13)
+          to label %_ZN4RuleD2Ev.exit1 unwind label %19
+LandingPadInst not the first non-PHI instruction in the block.
+  %16 = landingpad { i8*, i32 } personality i8* %15
+          cleanup
+The unwind destination does not have a landingpad instruction!
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* %test)
+          to label %29 unwind label %19
+LandingPadInst not the first non-PHI instruction in the block.
+  %21 = landingpad { i8*, i32 } personality i8* %20
+          catch i8* null
+LandingPadInst not the first non-PHI instruction in the block.
+  %26 = landingpad { i8*, i32 } personality i8* %25
+          cleanup
+Broken module found, compilation aborted!
+./test.sh: line 18:  3561 Aborted                 (core dumped) /home/ubuntu/llvm2kittel/llvm2kittel-master/build/./llvm2kittel --dump-ll --no-slicing --eager-inline --t2 ../bc_file/$filename >> $bbname.t2
+Cannot use "-eager-inline" with a cyclic call hierarchy!
+
