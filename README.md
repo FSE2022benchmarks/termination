@@ -3,4 +3,5 @@
 **\loop**: benchmark extracted from infinite loops;  
 **\recursion**: benchmark extracted from infinite recursion.  
 **\Evalution**: provides our experimental results and result-files.   
+**\license**: provides all licenses 
 **More details can be found in https://sites.google.com/view/non-termbug/home
