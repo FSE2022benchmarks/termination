@@ -1,0 +1,25 @@
+https://github.com/NetHack/NetHack
+
+Please read items (1), (2) and (3) BEFORE doing anything with your new code.
+
+1.  Unpack the code in a dedicated new directory.  We will refer to that
+    directory as the 'Top' directory.  It makes no difference what you
+    call it.
+
+2.  Having unpacked, you should have a file called 'Files' in your Top
+    directory.
+
+    This file contains the list of all the files you now SHOULD
+    have in each directory.  Please check the files in each directory
+    against this list to make sure that you have a complete set.
+
+    This file also contains a list of what files are created during
+    the build process.
+
+    The names of the directories listed should not be changed unless you
+    are ready to go through the makefiles and the makedefs program and change
+    all the directory references in them.
+
+3.  Before you do anything else, please read carefully the file called
+    "license" in the 'dat' subdirectory.  It is expected that you comply
+    with the terms of that license, and we are very serious about it.
