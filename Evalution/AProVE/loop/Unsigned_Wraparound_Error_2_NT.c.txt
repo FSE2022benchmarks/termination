@@ -1,0 +1,259 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Unsigned_Wraparound_Error_2_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Unsigned_Wraparound_Error_2_NT.c
+YES
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_2_NT.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be proven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 81 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 680 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) AND
+    (7) LLVM Symbolic Execution SCC
+        (8) SCC2IRS [SOUND, 48 ms]
+        (9) IntTRS
+        (10) IntTRSCompressionProof [EQUIVALENT, 0 ms]
+        (11) IntTRS
+        (12) PolynomialOrderProcessor [EQUIVALENT, 3 ms]
+        (13) YES
+    (14) LLVM Symbolic Execution SCC
+        (15) SCC2IRS [SOUND, 47 ms]
+        (16) IntTRS
+        (17) IntTRSCompressionProof [EQUIVALENT, 0 ms]
+        (18) IntTRS
+        (19) PolynomialOrderProcessor [EQUIVALENT, 0 ms]
+        (20) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_2_NT.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_2_NT.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_uint" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		%4 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		store 1, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		%5 = call i32 (...)* @__VERIFIER_nondet_uint()
+		store %5, %3
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %4)
+		%6 = call i32 (...)* @__VERIFIER_nondet_uint()
+		store %6, %4
+		%7 = load %3
+		%8 = load %4
+		%9 = icmp ult %7 %8
+		br %9, %10, %12
+	10:
+		%11 = load %4
+		store %11, %3
+		br %12
+	12:
+		br %13
+	13:
+		%14 = load %2
+		%15 = load %3
+		%16 = icmp ult %14 %15
+		br %16, %17, %20
+	17:
+		%18 = load %2
+		%19 = mul i32 %18, 2
+		store %19, %2
+		br %13
+	20:
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Splitted symbolic execution graph to 2 SCCs.
+----------------------------------------
+
+(6)
+Complex Obligation (AND)
+
+----------------------------------------
+
+(7)
+Obligation:
+SCC
+----------------------------------------
+
+(8) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 10 rulesP rules:
+f_227(v266, v267, v268, v269, v270, v271, 1, v274, v273, v275, v276, v277, v278, 0, 3, 2, 4) -> f_230(v266, v267, v268, v269, v270, v271, 1, v274, v273, v275, v276, v277, v278, 0, 3, 2, 4) :|: 0 = 0
+f_230(v266, v267, v268, v269, v270, v271, 1, v274, v273, v275, v276, v277, v278, 0, 3, 2, 4) -> f_233(v266, v267, v268, v269, v270, v271, 1, v274, v273, v275, v276, v277, v278, 0, 3, 2, 4) :|: v274 < v271 && 3 <= v271
+f_233(v266, v267, v268, v269, v270, v271, 1, v274, v273, v275, v276, v277, v278, 0, 3, 2, 4) -> f_236(v266, v267, v268, v269, v270, v271, 1, v274, v273, v275, v276, v277, v278, 0, 3, 2, 4) :|: 0 = 0
+f_236(v266, v267, v268, v269, v270, v271, 1, v274, v273, v275, v276, v277, v278, 0, 3, 2, 4) -> f_239(v266, v267, v268, v269, v270, v271, 1, v274, v273, v275, v276, v277, v278, 0, 3, 2, 4) :|: TRUE
+f_239(v266, v267, v268, v269, v270, v271, 1, v274, v273, v275, v276, v277, v278, 0, 3, 2, 4) -> f_242(v266, v267, v268, v269, v270, v271, 1, v274, v275, v276, v277, v278, 0, 3, 2, 4) :|: 0 = 0
+f_242(v266, v267, v268, v269, v270, v271, 1, v274, v275, v276, v277, v278, 0, 3, 2, 4) -> f_244(v266, v267, v268, v269, v270, v271, 1, v274, v341, v275, v276, v277, v278, 0, 3, 2, 4) :|: v341 = 2 * v274 && 4 <= v341
+f_244(v266, v267, v268, v269, v270, v271, 1, v274, v341, v275, v276, v277, v278, 0, 3, 2, 4) -> f_245(v266, v267, v268, v269, v270, v271, 1, v274, v341, v275, v276, v277, v278, 0, 3, 2, 4) :|: TRUE
+f_245(v266, v267, v268, v269, v270, v271, 1, v274, v341, v275, v276, v277, v278, 0, 3, 2, 4) -> f_246(v266, v267, v268, v269, v270, v271, 1, v274, v341, v275, v276, v277, v278, 0, 3, 2, 4) :|: TRUE
+f_246(v266, v267, v268, v269, v270, v271, 1, v274, v341, v275, v276, v277, v278, 0, 3, 2, 4) -> f_224(v266, v267, v268, v269, v270, v271, 1, v274, v341, v275, v276, v277, v278, 0, 3, 2, 4) :|: TRUE
+f_224(v266, v267, v268, v269, v270, v271, 1, v273, v274, v275, v276, v277, v278, 0, 3, 2, 4) -> f_227(v266, v267, v268, v269, v270, v271, 1, v274, v273, v275, v276, v277, v278, 0, 3, 2, 4) :|: 0 = 0
+Combined rules. Obtained 1 rulesP rules:
+f_227(v266:0, v267:0, v268:0, v269:0, v270:0, v271:0, 1, v274:0, v273:0, v275:0, v276:0, v277:0, v278:0, 0, 3, 2, 4) -> f_227(v266:0, v267:0, v268:0, v269:0, v270:0, v271:0, 1, 2 * v274:0, v274:0, v275:0, v276:0, v277:0, v278:0, 0, 3, 2, 4) :|: v271:0 > 2 && 3 < 2 * v274:0 && v274:0 < v271:0
+Filtered unneeded arguments:
+   f_227(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17) -> f_227(x6, x8)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_227(v271:0, v274:0) -> f_227(v271:0, 2 * v274:0) :|: 3 < 2 * v274:0 && v274:0 < v271:0 && v271:0 > 2
+
+----------------------------------------
+
+(9)
+Obligation:
+Rules:
+f_227(v271:0, v274:0) -> f_227(v271:0, 2 * v274:0) :|: 3 < 2 * v274:0 && v274:0 < v271:0 && v271:0 > 2
+
+----------------------------------------
+
+(10) IntTRSCompressionProof (EQUIVALENT)
+Compressed rules.
+----------------------------------------
+
+(11)
+Obligation:
+Rules:
+f_227(v271:0:0, v274:0:0) -> f_227(v271:0:0, 2 * v274:0:0) :|: 3 < 2 * v274:0:0 && v274:0:0 < v271:0:0 && v271:0:0 > 2
+
+----------------------------------------
+
+(12) PolynomialOrderProcessor (EQUIVALENT)
+Found the following polynomial interpretation:
+[f_227(x, x1)] = -1 + x - x1
+
+The following rules are decreasing:
+f_227(v271:0:0, v274:0:0) -> f_227(v271:0:0, 2 * v274:0:0) :|: 3 < 2 * v274:0:0 && v274:0:0 < v271:0:0 && v271:0:0 > 2
+The following rules are bounded:
+f_227(v271:0:0, v274:0:0) -> f_227(v271:0:0, 2 * v274:0:0) :|: 3 < 2 * v274:0:0 && v274:0:0 < v271:0:0 && v271:0:0 > 2
+
+----------------------------------------
+
+(13)
+YES
+
+----------------------------------------
+
+(14)
+Obligation:
+SCC
+----------------------------------------
+
+(15) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 10 rulesP rules:
+f_220(v237, v238, v239, v240, v241, v242, 0, v246, 1, v244, v247, v248, v249, v250, 3, 2, 4) -> f_222(v237, v238, v239, v240, v241, v242, 0, v246, 1, v244, v247, v248, v249, v250, 3, 2, 4) :|: 0 = 0
+f_222(v237, v238, v239, v240, v241, v242, 0, v246, 1, v244, v247, v248, v249, v250, 3, 2, 4) -> f_225(v237, v238, v239, v240, v241, v242, 0, v246, 1, v244, v247, v248, v249, v250, 3, 2, 4) :|: v246 < v241 && 3 <= v241
+f_225(v237, v238, v239, v240, v241, v242, 0, v246, 1, v244, v247, v248, v249, v250, 3, 2, 4) -> f_228(v237, v238, v239, v240, v241, v242, 0, v246, 1, v244, v247, v248, v249, v250, 3, 2, 4) :|: 0 = 0
+f_228(v237, v238, v239, v240, v241, v242, 0, v246, 1, v244, v247, v248, v249, v250, 3, 2, 4) -> f_231(v237, v238, v239, v240, v241, v242, 0, v246, 1, v244, v247, v248, v249, v250, 3, 2, 4) :|: TRUE
+f_231(v237, v238, v239, v240, v241, v242, 0, v246, 1, v244, v247, v248, v249, v250, 3, 2, 4) -> f_235(v237, v238, v239, v240, v241, v242, 0, v246, 1, v247, v248, v249, v250, 3, 2, 4) :|: 0 = 0
+f_235(v237, v238, v239, v240, v241, v242, 0, v246, 1, v247, v248, v249, v250, 3, 2, 4) -> f_238(v237, v238, v239, v240, v241, v242, 0, v246, 1, v295, v247, v248, v249, v250, 3, 2, 4) :|: v295 = 2 * v246 && 4 <= v295
+f_238(v237, v238, v239, v240, v241, v242, 0, v246, 1, v295, v247, v248, v249, v250, 3, 2, 4) -> f_241(v237, v238, v239, v240, v241, v242, 0, v246, 1, v295, v247, v248, v249, v250, 3, 2, 4) :|: TRUE
+f_241(v237, v238, v239, v240, v241, v242, 0, v246, 1, v295, v247, v248, v249, v250, 3, 2, 4) -> f_243(v237, v238, v239, v240, v241, v242, 0, v246, 1, v295, v247, v248, v249, v250, 3, 2, 4) :|: TRUE
+f_243(v237, v238, v239, v240, v241, v242, 0, v246, 1, v295, v247, v248, v249, v250, 3, 2, 4) -> f_218(v237, v238, v239, v240, v241, v242, 0, v246, 1, v295, v247, v248, v249, v250, 3, 2, 4) :|: TRUE
+f_218(v237, v238, v239, v240, v241, v242, 0, v244, 1, v246, v247, v248, v249, v250, 3, 2, 4) -> f_220(v237, v238, v239, v240, v241, v242, 0, v246, 1, v244, v247, v248, v249, v250, 3, 2, 4) :|: 0 = 0
+Combined rules. Obtained 1 rulesP rules:
+f_220(v237:0, v238:0, v239:0, v240:0, v241:0, v242:0, 0, v246:0, 1, v244:0, v247:0, v248:0, v249:0, v250:0, 3, 2, 4) -> f_220(v237:0, v238:0, v239:0, v240:0, v241:0, v242:0, 0, 2 * v246:0, 1, v246:0, v247:0, v248:0, v249:0, v250:0, 3, 2, 4) :|: v241:0 > 2 && 3 < 2 * v246:0 && v246:0 < v241:0
+Filtered unneeded arguments:
+   f_220(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17) -> f_220(x5, x8)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_220(v241:0, v246:0) -> f_220(v241:0, 2 * v246:0) :|: 3 < 2 * v246:0 && v246:0 < v241:0 && v241:0 > 2
+
+----------------------------------------
+
+(16)
+Obligation:
+Rules:
+f_220(v241:0, v246:0) -> f_220(v241:0, 2 * v246:0) :|: 3 < 2 * v246:0 && v246:0 < v241:0 && v241:0 > 2
+
+----------------------------------------
+
+(17) IntTRSCompressionProof (EQUIVALENT)
+Compressed rules.
+----------------------------------------
+
+(18)
+Obligation:
+Rules:
+f_220(v241:0:0, v246:0:0) -> f_220(v241:0:0, 2 * v246:0:0) :|: 3 < 2 * v246:0:0 && v246:0:0 < v241:0:0 && v241:0:0 > 2
+
+----------------------------------------
+
+(19) PolynomialOrderProcessor (EQUIVALENT)
+Found the following polynomial interpretation:
+[f_220(x, x1)] = -1 + x - x1
+
+The following rules are decreasing:
+f_220(v241:0:0, v246:0:0) -> f_220(v241:0:0, 2 * v246:0:0) :|: 3 < 2 * v246:0:0 && v246:0:0 < v241:0:0 && v241:0:0 > 2
+The following rules are bounded:
+f_220(v241:0:0, v246:0:0) -> f_220(v241:0:0, 2 * v246:0:0) :|: 3 < 2 * v246:0:0 && v246:0:0 < v241:0:0 && v241:0:0 > 2
+
+----------------------------------------
+
+(20)
+YES
+/home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_2_NT.c:10:25: warning: implicit declaration of function '__VERIFIER_nondet_uint' is invalid in C99 [-Wimplicit-function-declaration]
+    unsigned int size = __VERIFIER_nondet_uint();
+                        ^
+1 warning generated.
+
+line 56:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.0s
+ 

@@ -1,0 +1,232 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Signed_Overflow_Error_3_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Signed_Overflow_Error_3_T.c
+YES
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Signed_Overflow_Error_3_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be proven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 83 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 785 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) LLVM Symbolic Execution SCC
+(7) SCC2IRS [SOUND, 43 ms]
+(8) IntTRS
+(9) TerminationGraphProcessor [EQUIVALENT, 41 ms]
+(10) IntTRS
+(11) IntTRSCompressionProof [EQUIVALENT, 0 ms]
+(12) IntTRS
+(13) RankingReductionPairProof [EQUIVALENT, 264 ms]
+(14) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Signed_Overflow_Error_3_T.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Signed_Overflow_Error_3_T.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_uint" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%4 = call i32 (...)* @__VERIFIER_nondet_uint()
+		store %4, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		store 1, %3
+		br %5
+	5:
+		%6 = load %2
+		%7 = icmp uge %6 10
+		br %7, %8, %14
+	8:
+		%9 = load %2
+		%10 = udiv i32 %9, 10
+		store %10, %2
+		br %11
+	11:
+		%12 = load %3
+		%13 = add i32 %12, 1
+		store %13, %3
+		br %5
+	14:
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Splitted symbolic execution graph to 1 SCC.
+----------------------------------------
+
+(6)
+Obligation:
+SCC
+----------------------------------------
+
+(7) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 26 rulesP rules:
+f_258(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_259(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: 0 <= v174
+f_258(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_260(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: 1 + v174 <= 0
+f_259(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_261(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: 10 <= v174
+f_261(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_264(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: 0 = 0
+f_264(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_267(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_267(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_270(v168, v169, v170, v171, v174, 1, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: 0 = 0
+f_270(v168, v169, v170, v171, v174, 1, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_272(v168, v169, v170, v171, v174, 1, v186, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: v186 = v174 / 10
+f_272(v168, v169, v170, v171, v174, 1, v186, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_274(v168, v169, v170, v171, v174, 1, v186, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_274(v168, v169, v170, v171, v174, 1, v186, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_276(v168, v169, v170, v171, v174, 1, v186, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_276(v168, v169, v170, v171, v174, 1, v186, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_278(v168, v169, v170, v171, v174, 1, v186, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: 0 = 0
+f_278(v168, v169, v170, v171, v174, 1, v186, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_280(v168, v169, v170, v171, v174, 1, v186, v176, v194, v177, v178, v179, 0, 3, 10, 2, 4) :|: v194 = 1 + v176 && 3 <= v194
+f_280(v168, v169, v170, v171, v174, 1, v186, v176, v194, v177, v178, v179, 0, 3, 10, 2, 4) -> f_282(v168, v169, v170, v171, v174, 1, v186, v176, v194, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_282(v168, v169, v170, v171, v174, 1, v186, v176, v194, v177, v178, v179, 0, 3, 10, 2, 4) -> f_284(v168, v169, v170, v171, v174, 1, v186, v176, v194, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_284(v168, v169, v170, v171, v174, 1, v186, v176, v194, v177, v178, v179, 0, 3, 10, 2, 4) -> f_257(v168, v169, v170, v171, v174, 1, v186, v176, v194, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_257(v168, v169, v170, v171, v172, 1, v174, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_258(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: 0 = 0
+f_260(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_263(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: 0 = 0
+f_263(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_266(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_266(v168, v169, v170, v171, v174, 1, v172, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_269(v168, v169, v170, v171, v174, 1, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: 0 = 0
+f_269(v168, v169, v170, v171, v174, 1, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_271(v168, v169, v170, v171, v174, 1, v185, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: v185 = v174 / 10
+f_271(v168, v169, v170, v171, v174, 1, v185, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_273(v168, v169, v170, v171, v174, 1, v185, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_273(v168, v169, v170, v171, v174, 1, v185, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_275(v168, v169, v170, v171, v174, 1, v185, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_275(v168, v169, v170, v171, v174, 1, v185, v175, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_277(v168, v169, v170, v171, v174, 1, v185, v176, v177, v178, v179, 0, 3, 10, 2, 4) :|: 0 = 0
+f_277(v168, v169, v170, v171, v174, 1, v185, v176, v177, v178, v179, 0, 3, 10, 2, 4) -> f_279(v168, v169, v170, v171, v174, 1, v185, v176, v193, v177, v178, v179, 0, 3, 10, 2, 4) :|: v193 = 1 + v176 && 3 <= v193
+f_279(v168, v169, v170, v171, v174, 1, v185, v176, v193, v177, v178, v179, 0, 3, 10, 2, 4) -> f_281(v168, v169, v170, v171, v174, 1, v185, v176, v193, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_281(v168, v169, v170, v171, v174, 1, v185, v176, v193, v177, v178, v179, 0, 3, 10, 2, 4) -> f_283(v168, v169, v170, v171, v174, 1, v185, v176, v193, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+f_283(v168, v169, v170, v171, v174, 1, v185, v176, v193, v177, v178, v179, 0, 3, 10, 2, 4) -> f_257(v168, v169, v170, v171, v174, 1, v185, v176, v193, v177, v178, v179, 0, 3, 10, 2, 4) :|: TRUE
+Combined rules. Obtained 2 rulesP rules:
+f_258(v168:0, v169:0, v170:0, v171:0, v174:0, 1, v172:0, v175:0, v176:0, v177:0, v178:0, v179:0, 0, 3, 10, 2, 4) -> f_258(v168:0, v169:0, v170:0, v171:0, v186:0, 1, v174:0, v176:0, 1 + v176:0, v177:0, v178:0, v179:0, 0, 3, 10, 2, 4) :|: v174:0 > 9 && v176:0 > 1 && v186:0 = v174:0 / 10
+f_258(v168:0, v169:0, v170:0, v171:0, v174:0, 1, v172:0, v175:0, v176:0, v177:0, v178:0, v179:0, 0, 3, 10, 2, 4) -> f_258(v168:0, v169:0, v170:0, v171:0, v185:0, 1, v174:0, v176:0, 1 + v176:0, v177:0, v178:0, v179:0, 0, 3, 10, 2, 4) :|: v174:0 < 0 && v176:0 > 1 && v185:0 = v174:0 / 10
+Filtered unneeded arguments:
+   f_258(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17) -> f_258(x5, x9)
+Removed division, modulo operations, cleaned up constraints. Obtained 6 rules.P rules:
+f_258(v174:0, v176:0) -> f_258'(v174:0, v176:0) :|: v174:0 > 9 && v176:0 > 1
+f_258'(v174:0, v176:0) -> f_258(div, 1 + v176:0) :|: v176:0 > 1 && v174:0 > 9 && v174:0 < 0 && v174:0 - 10 * div <= 0 && v174:0 - 10 * div > -10
+f_258'(v174:0, v176:0) -> f_258(div, 1 + v176:0) :|: v174:0 > 9 && v176:0 > 1 && v174:0 - 10 * div < 10 && v174:0 - 10 * div >= 0
+f_258(v174:0, v176:0) -> f_258'(v174:0, v176:0) :|: v174:0 < 0 && v176:0 > 1
+f_258'(v174:0, v176:0) -> f_258(div, 1 + v176:0) :|: v176:0 > 1 && v174:0 < 0 && v174:0 - 10 * div <= 0 && v174:0 - 10 * div > -10
+f_258'(v174:0, v176:0) -> f_258(div, 1 + v176:0) :|: v176:0 > 1 && v174:0 < 0 && v174:0 > -1 && v174:0 - 10 * div < 10 && v174:0 - 10 * div >= 0
+
+----------------------------------------
+
+(8)
+Obligation:
+Rules:
+f_258(v174:0, v176:0) -> f_258'(v174:0, v176:0) :|: v174:0 > 9 && v176:0 > 1
+f_258'(x, x1) -> f_258(x2, 1 + x1) :|: x1 > 1 && x > 9 && x < 0 && x - 10 * x2 <= 0 && x - 10 * x2 > -10
+f_258'(x3, x4) -> f_258(x5, 1 + x4) :|: x3 > 9 && x4 > 1 && x3 - 10 * x5 < 10 && x3 - 10 * x5 >= 0
+f_258(x6, x7) -> f_258'(x6, x7) :|: x6 < 0 && x7 > 1
+f_258'(x8, x9) -> f_258(x10, 1 + x9) :|: x9 > 1 && x8 < 0 && x8 - 10 * x10 <= 0 && x8 - 10 * x10 > -10
+f_258'(x11, x12) -> f_258(x13, 1 + x12) :|: x12 > 1 && x11 < 0 && x11 > -1 && x11 - 10 * x13 < 10 && x11 - 10 * x13 >= 0
+
+----------------------------------------
+
+(9) TerminationGraphProcessor (EQUIVALENT)
+Constructed the termination graph and obtained one non-trivial SCC.
+
+----------------------------------------
+
+(10)
+Obligation:
+Rules:
+f_258(v174:0, v176:0) -> f_258'(v174:0, v176:0) :|: v174:0 > 9 && v176:0 > 1
+f_258'(x3, x4) -> f_258(x5, 1 + x4) :|: x3 > 9 && x4 > 1 && x3 - 10 * x5 < 10 && x3 - 10 * x5 >= 0
+f_258(x6, x7) -> f_258'(x6, x7) :|: x6 < 0 && x7 > 1
+f_258'(x8, x9) -> f_258(x10, 1 + x9) :|: x9 > 1 && x8 < 0 && x8 - 10 * x10 <= 0 && x8 - 10 * x10 > -10
+
+----------------------------------------
+
+(11) IntTRSCompressionProof (EQUIVALENT)
+Compressed rules.
+----------------------------------------
+
+(12)
+Obligation:
+Rules:
+f_258(x6:0, x7:0) -> f_258'(x6:0, x7:0) :|: x6:0 < 0 && x7:0 > 1
+f_258(v174:0:0, v176:0:0) -> f_258'(v174:0:0, v176:0:0) :|: v174:0:0 > 9 && v176:0:0 > 1
+f_258'(x8:0, x9:0) -> f_258(x10:0, 1 + x9:0) :|: x8:0 - 10 * x10:0 <= 0 && x8:0 - 10 * x10:0 > -10 && x8:0 < 0 && x9:0 > 1
+f_258'(x3:0, x4:0) -> f_258(x5:0, 1 + x4:0) :|: x3:0 - 10 * x5:0 < 10 && x3:0 - 10 * x5:0 >= 0 && x4:0 > 1 && x3:0 > 9
+
+----------------------------------------
+
+(13) RankingReductionPairProof (EQUIVALENT)
+Interpretation:
+[ f_258 ] = -125/63*f_258_1 + 50/231*f_258_1^2 + 1
+[ f_258' ] = -125/63*f_258'_1 + 50/231*f_258'_1^2
+
+The following rules are decreasing:
+f_258(x6:0, x7:0) -> f_258'(x6:0, x7:0) :|: x6:0 < 0 && x7:0 > 1
+f_258(v174:0:0, v176:0:0) -> f_258'(v174:0:0, v176:0:0) :|: v174:0:0 > 9 && v176:0:0 > 1
+f_258'(x8:0, x9:0) -> f_258(x10:0, 1 + x9:0) :|: x8:0 - 10 * x10:0 <= 0 && x8:0 - 10 * x10:0 > -10 && x8:0 < 0 && x9:0 > 1
+f_258'(x3:0, x4:0) -> f_258(x5:0, 1 + x4:0) :|: x3:0 - 10 * x5:0 < 10 && x3:0 - 10 * x5:0 >= 0 && x4:0 > 1 && x3:0 > 9
+
+The following rules are bounded:
+f_258(x6:0, x7:0) -> f_258'(x6:0, x7:0) :|: x6:0 < 0 && x7:0 > 1
+f_258(v174:0:0, v176:0:0) -> f_258'(v174:0:0, v176:0:0) :|: v174:0:0 > 9 && v176:0:0 > 1
+f_258'(x8:0, x9:0) -> f_258(x10:0, 1 + x9:0) :|: x8:0 - 10 * x10:0 <= 0 && x8:0 - 10 * x10:0 > -10 && x8:0 < 0 && x9:0 > 1
+f_258'(x3:0, x4:0) -> f_258(x5:0, 1 + x4:0) :|: x3:0 - 10 * x5:0 < 10 && x3:0 - 10 * x5:0 >= 0 && x4:0 > 1 && x3:0 > 9
+
+
+----------------------------------------
+
+(14)
+YES
+/home/ubuntu/tool/FSE_benchmark/loop/Signed_Overflow_Error_3_T.c:8:27: warning: implicit declaration of function '__VERIFIER_nondet_uint' is invalid in C99 [-Wimplicit-function-declaration]
+    unsigned int number = __VERIFIER_nondet_uint();
+                          ^
+1 warning generated.
+
+line 46:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.0s
+ 

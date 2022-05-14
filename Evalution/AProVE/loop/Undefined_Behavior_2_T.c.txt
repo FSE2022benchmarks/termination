@@ -1,0 +1,8 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Undefined_Behavior_2_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Undefined_Behavior_2_T.c
+ 

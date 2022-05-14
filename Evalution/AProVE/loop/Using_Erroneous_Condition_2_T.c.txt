@@ -1,0 +1,186 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Using_Erroneous_Condition_2_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Using_Erroneous_Condition_2_T.c
+YES
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Using_Erroneous_Condition_2_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be proven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 85 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 480 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) LLVM Symbolic Execution SCC
+(7) SCC2IRS [SOUND, 61 ms]
+(8) IntTRS
+(9) IntTRSCompressionProof [EQUIVALENT, 0 ms]
+(10) IntTRS
+(11) PolynomialOrderProcessor [EQUIVALENT, 8 ms]
+(12) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Using_Erroneous_Condition_2_T.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Using_Erroneous_Condition_2_T.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%4 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %4, %2
+		%5 = load %2
+		%6 = icmp sgt %5 65534
+		br %6, %7, %8
+	7:
+		store 0, %1
+		br %18
+	8:
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		store 0, %3
+		br %9
+	9:
+		%10 = load %3
+		%11 = load %2
+		%12 = icmp slt %10 %11
+		br %12, %13, %17
+	13:
+		br %14
+	14:
+		%15 = load %3
+		%16 = add i32 %15, 1
+		store %16, %3
+		br %9
+	17:
+		store 0, %1
+		br %18
+	18:
+		%19 = load %1
+		ret %19
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Splitted symbolic execution graph to 1 SCC.
+----------------------------------------
+
+(6)
+Obligation:
+SCC
+----------------------------------------
+
+(7) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 11 rulesP rules:
+f_208(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 4) -> f_209(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 4) :|: 0 = 0
+f_209(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 4) -> f_210(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 2, 4) :|: v83 < v79 && 2 <= v79
+f_210(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 2, 4) -> f_212(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 2, 4) :|: 0 = 0
+f_212(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 2, 4) -> f_214(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 2, 4) :|: TRUE
+f_214(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 2, 4) -> f_216(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 2, 4) :|: TRUE
+f_216(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 2, 4) -> f_218(v76, v77, v78, v79, 0, v83, 1, v84, v85, v86, 3, 2, 4) :|: 0 = 0
+f_218(v76, v77, v78, v79, 0, v83, 1, v84, v85, v86, 3, 2, 4) -> f_220(v76, v77, v78, v79, 0, v83, 1, v90, v84, v85, v86, 3, 2, 4) :|: v90 = 1 + v83 && 2 <= v90
+f_220(v76, v77, v78, v79, 0, v83, 1, v90, v84, v85, v86, 3, 2, 4) -> f_222(v76, v77, v78, v79, 0, v83, 1, v90, v84, v85, v86, 3, 2, 4) :|: TRUE
+f_222(v76, v77, v78, v79, 0, v83, 1, v90, v84, v85, v86, 3, 2, 4) -> f_223(v76, v77, v78, v79, 0, v83, 1, v90, v84, v85, v86, 3, 2, 4) :|: TRUE
+f_223(v76, v77, v78, v79, 0, v83, 1, v90, v84, v85, v86, 3, 2, 4) -> f_207(v76, v77, v78, v79, 0, v83, 1, v90, v84, v85, v86, 3, 4) :|: TRUE
+f_207(v76, v77, v78, v79, 0, v81, 1, v83, v84, v85, v86, 3, 4) -> f_208(v76, v77, v78, v79, 0, v83, 1, v81, v84, v85, v86, 3, 4) :|: 0 = 0
+Combined rules. Obtained 1 rulesP rules:
+f_208(v76:0, v77:0, v78:0, v79:0, 0, v83:0, 1, v81:0, v84:0, v85:0, v86:0, 3, 4) -> f_208(v76:0, v77:0, v78:0, v79:0, 0, 1 + v83:0, 1, v83:0, v84:0, v85:0, v86:0, 3, 4) :|: v79:0 > 1 && v83:0 > 0 && v83:0 < v79:0
+Filtered unneeded arguments:
+   f_208(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13) -> f_208(x4, x6)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_208(v79:0, v83:0) -> f_208(v79:0, 1 + v83:0) :|: v83:0 > 0 && v83:0 < v79:0 && v79:0 > 1
+
+----------------------------------------
+
+(8)
+Obligation:
+Rules:
+f_208(v79:0, v83:0) -> f_208(v79:0, 1 + v83:0) :|: v83:0 > 0 && v83:0 < v79:0 && v79:0 > 1
+
+----------------------------------------
+
+(9) IntTRSCompressionProof (EQUIVALENT)
+Compressed rules.
+----------------------------------------
+
+(10)
+Obligation:
+Rules:
+f_208(v79:0:0, v83:0:0) -> f_208(v79:0:0, 1 + v83:0:0) :|: v83:0:0 > 0 && v83:0:0 < v79:0:0 && v79:0:0 > 1
+
+----------------------------------------
+
+(11) PolynomialOrderProcessor (EQUIVALENT)
+Found the following polynomial interpretation:
+[f_208(x, x1)] = x - x1
+
+The following rules are decreasing:
+f_208(v79:0:0, v83:0:0) -> f_208(v79:0:0, 1 + v83:0:0) :|: v83:0:0 > 0 && v83:0:0 < v79:0:0 && v79:0:0 > 1
+The following rules are bounded:
+f_208(v79:0:0, v83:0:0) -> f_208(v79:0:0, 1 + v83:0:0) :|: v83:0:0 > 0 && v83:0:0 < v79:0:0 && v79:0:0 > 1
+
+----------------------------------------
+
+(12)
+YES
+/home/ubuntu/tool/FSE_benchmark/loop/Using_Erroneous_Condition_2_T.c:8:21: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int reg_count = __VERIFIER_nondet_int();
+                    ^
+1 warning generated.
+
+line 58:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.0s
+ 

@@ -1,0 +1,186 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Signed_Overflow_Error_3_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Signed_Overflow_Error_3_NT.c
+YES
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Signed_Overflow_Error_3_NT.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be proven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 0 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 786 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) LLVM Symbolic Execution SCC
+(7) SCC2IRS [SOUND, 56 ms]
+(8) IntTRS
+(9) IntTRSCompressionProof [EQUIVALENT, 2 ms]
+(10) IntTRS
+(11) RankingReductionPairProof [EQUIVALENT, 19 ms]
+(12) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Signed_Overflow_Error_3_NT.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Signed_Overflow_Error_3_NT.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		%4 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%5 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %5, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %4)
+		store 1, %4
+		store 10, %3
+		br %6
+	6:
+		%7 = load %3
+		%8 = load %2
+		%9 = icmp sle %7 %8
+		br %9, %10, %16
+	10:
+		%11 = load %3
+		%12 = mul i32 %11, 10
+		store %12, %3
+		br %13
+	13:
+		%14 = load %4
+		%15 = add i32 %14, 1
+		store %15, %4
+		br %6
+	16:
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Splitted symbolic execution graph to 1 SCC.
+----------------------------------------
+
+(6)
+Obligation:
+SCC
+----------------------------------------
+
+(7) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 14 rulesP rules:
+f_214(v106, v107, v108, v109, v110, v113, 1, v111, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) -> f_215(v106, v107, v108, v109, v110, v113, 1, v111, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) :|: 0 = 0
+f_215(v106, v107, v108, v109, v110, v113, 1, v111, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) -> f_216(v106, v107, v108, v109, v110, v113, 1, v111, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) :|: v113 <= v110 && 100 <= v110
+f_216(v106, v107, v108, v109, v110, v113, 1, v111, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) -> f_218(v106, v107, v108, v109, v110, v113, 1, v111, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) :|: 0 = 0
+f_218(v106, v107, v108, v109, v110, v113, 1, v111, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) -> f_220(v106, v107, v108, v109, v110, v113, 1, v111, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) :|: TRUE
+f_220(v106, v107, v108, v109, v110, v113, 1, v111, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) -> f_222(v106, v107, v108, v109, v110, v113, 1, v114, v115, v116, v117, v118, v119, 0, 3, 100, 2, 4) :|: 0 = 0
+f_222(v106, v107, v108, v109, v110, v113, 1, v114, v115, v116, v117, v118, v119, 0, 3, 100, 2, 4) -> f_223(v106, v107, v108, v109, v110, v113, 1, v121, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) :|: v121 = 10 * v113 && 1000 <= v121
+f_223(v106, v107, v108, v109, v110, v113, 1, v121, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) -> f_224(v106, v107, v108, v109, v110, v113, 1, v121, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) :|: TRUE
+f_224(v106, v107, v108, v109, v110, v113, 1, v121, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) -> f_225(v106, v107, v108, v109, v110, v113, 1, v121, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) :|: TRUE
+f_225(v106, v107, v108, v109, v110, v113, 1, v121, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) -> f_226(v106, v107, v108, v109, v110, v113, 1, v121, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) :|: 0 = 0
+f_226(v106, v107, v108, v109, v110, v113, 1, v121, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) -> f_227(v106, v107, v108, v109, v110, v113, 1, v121, v115, v123, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) :|: v123 = 1 + v115 && 3 <= v123
+f_227(v106, v107, v108, v109, v110, v113, 1, v121, v115, v123, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) -> f_228(v106, v107, v108, v109, v110, v113, 1, v121, v115, v123, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) :|: TRUE
+f_228(v106, v107, v108, v109, v110, v113, 1, v121, v115, v123, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) -> f_229(v106, v107, v108, v109, v110, v113, 1, v121, v115, v123, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) :|: TRUE
+f_229(v106, v107, v108, v109, v110, v113, 1, v121, v115, v123, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4, 1000) -> f_213(v106, v107, v108, v109, v110, v113, 1, v121, v115, v123, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) :|: TRUE
+f_213(v106, v107, v108, v109, v110, v111, 1, v113, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) -> f_214(v106, v107, v108, v109, v110, v113, 1, v111, v114, v115, v116, v117, v118, v119, 0, 3, 10, 100, 2, 4) :|: 0 = 0
+Combined rules. Obtained 1 rulesP rules:
+f_214(v106:0, v107:0, v108:0, v109:0, v110:0, v113:0, 1, v111:0, v114:0, v115:0, v116:0, v117:0, v118:0, v119:0, 0, 3, 10, 100, 2, 4) -> f_214(v106:0, v107:0, v108:0, v109:0, v110:0, 10 * v113:0, 1, v113:0, v115:0, 1 + v115:0, v116:0, v117:0, v118:0, v119:0, 0, 3, 10, 100, 2, 4) :|: v110:0 > 99 && v113:0 <= v110:0 && v115:0 > 1 && 999 < 10 * v113:0
+Filtered unneeded arguments:
+   f_214(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20) -> f_214(x5, x6, x10)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_214(v110:0, v113:0, v115:0) -> f_214(v110:0, 10 * v113:0, 1 + v115:0) :|: v113:0 <= v110:0 && v110:0 > 99 && 999 < 10 * v113:0 && v115:0 > 1
+
+----------------------------------------
+
+(8)
+Obligation:
+Rules:
+f_214(v110:0, v113:0, v115:0) -> f_214(v110:0, 10 * v113:0, 1 + v115:0) :|: v113:0 <= v110:0 && v110:0 > 99 && 999 < 10 * v113:0 && v115:0 > 1
+
+----------------------------------------
+
+(9) IntTRSCompressionProof (EQUIVALENT)
+Compressed rules.
+----------------------------------------
+
+(10)
+Obligation:
+Rules:
+f_214(v110:0:0, v113:0:0, v115:0:0) -> f_214(v110:0:0, 10 * v113:0:0, 1 + v115:0:0) :|: 999 < 10 * v113:0:0 && v115:0:0 > 1 && v110:0:0 > 99 && v113:0:0 <= v110:0:0
+
+----------------------------------------
+
+(11) RankingReductionPairProof (EQUIVALENT)
+Interpretation:
+[ f_214 ] = -1/900*f_214_2 + 1/900*f_214_1
+
+The following rules are decreasing:
+f_214(v110:0:0, v113:0:0, v115:0:0) -> f_214(v110:0:0, 10 * v113:0:0, 1 + v115:0:0) :|: 999 < 10 * v113:0:0 && v115:0:0 > 1 && v110:0:0 > 99 && v113:0:0 <= v110:0:0
+
+The following rules are bounded:
+f_214(v110:0:0, v113:0:0, v115:0:0) -> f_214(v110:0:0, 10 * v113:0:0, 1 + v115:0:0) :|: 999 < 10 * v113:0:0 && v115:0:0 > 1 && v110:0:0 > 99 && v113:0:0 <= v110:0:0
+
+
+----------------------------------------
+
+(12)
+YES
+/home/ubuntu/tool/FSE_benchmark/loop/Signed_Overflow_Error_3_NT.c:8:18: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int number = __VERIFIER_nondet_int();
+                 ^
+1 warning generated.
+
+line 50:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.0s
+ 

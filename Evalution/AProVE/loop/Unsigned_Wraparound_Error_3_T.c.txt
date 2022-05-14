@@ -1,0 +1,219 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Unsigned_Wraparound_Error_3_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Unsigned_Wraparound_Error_3_T.c
+YES
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_3_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be proven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 87 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 1486 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) LLVM Symbolic Execution SCC
+(7) SCC2IRS [SOUND, 48 ms]
+(8) IntTRS
+(9) IntTRSCompressionProof [EQUIVALENT, 0 ms]
+(10) IntTRS
+(11) RankingReductionPairProof [EQUIVALENT, 25 ms]
+(12) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_3_T.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_3_T.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_uint" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		%4 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%5 = call i32 (...)* @__VERIFIER_nondet_uint()
+		store %5, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		%6 = call i32 (...)* @__VERIFIER_nondet_uint()
+		store %6, %3
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %4)
+		%7 = call i32 (...)* @__VERIFIER_nondet_uint()
+		store %7, %4
+		%8 = load %3
+		%9 = load %4
+		%10 = add i32 %8, %9
+		%11 = add i32 %10, 1
+		%12 = icmp eq %11 -1
+		br %12, %13, %14
+	13:
+		store 0, %1
+		br %35
+	14:
+		%15 = load %3
+		%16 = icmp eq %15 0
+		br %16, %17, %18
+	17:
+		store 0, %1
+		br %35
+	18:
+		br %19
+	19:
+		%20 = load %3
+		%21 = load %2
+		%22 = load %4
+		%23 = add i32 %21, %22
+		%24 = add i32 %23, 1
+		%25 = icmp ult %20 %24
+		br %25, %26, %34
+	26:
+		%27 = load %3
+		%28 = icmp uge %27 -2147483648
+		br %28, %29, %30
+	29:
+		store -1, %3
+		br %33
+	30:
+		%31 = load %3
+		%32 = mul i32 %31, 2
+		store %32, %3
+		br %33
+	33:
+		br %19
+	34:
+		store 0, %1
+		br %35
+	35:
+		%36 = load %1
+		ret %36
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Splitted symbolic execution graph to 1 SCC.
+----------------------------------------
+
+(6)
+Obligation:
+SCC
+----------------------------------------
+
+(7) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 17 rulesP rules:
+f_228(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_229(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: 0 = 0
+f_229(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_230(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: 0 = 0
+f_230(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_231(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: v45 = v38 + v40
+f_231(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_232(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: v46 = 1 + v45
+f_232(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_233(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: v48 < v46 && 3 <= v46 && 2 <= v45
+f_233(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_235(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: 0 = 0
+f_235(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_237(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: TRUE
+f_237(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_239(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: 0 = 0
+f_239(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_241(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: 0 = 0
+f_241(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_243(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: TRUE
+f_243(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) -> f_245(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v49, v50, v51, v52, 3, 2, 4) :|: 0 = 0
+f_245(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v49, v50, v51, v52, 3, 2, 4) -> f_246(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v64, v49, v50, v51, v52, 3, 2, 4) :|: v64 = 2 * v48 && 4 <= v64
+f_246(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v64, v49, v50, v51, v52, 3, 2, 4) -> f_247(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v64, v49, v50, v51, v52, 3, 2, 4) :|: TRUE
+f_247(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v64, v49, v50, v51, v52, 3, 2, 4) -> f_248(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v64, v49, v50, v51, v52, 3, 2, 4) :|: TRUE
+f_248(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v64, v49, v50, v51, v52, 3, 2, 4) -> f_249(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v64, v49, v50, v51, v52, 3, 2, 4) :|: TRUE
+f_249(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v64, v49, v50, v51, v52, 3, 2, 4) -> f_227(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v64, v49, v50, v51, v52, 3, 2, 4) :|: TRUE
+f_227(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v44, v45, v46, 1, v48, v49, v50, v51, v52, 3, 2, 4) -> f_228(v34, v35, v36, v37, v38, v39, v40, v41, v42, 0, v48, v45, v46, 1, v44, v49, v50, v51, v52, 3, 2, 4) :|: 0 = 0
+Combined rules. Obtained 1 rulesP rules:
+f_228(v34:0, v35:0, v36:0, v37:0, v38:0, v39:0, v40:0, v41:0, v42:0, 0, v48:0, v38:0 + v40:0, 1 + (v38:0 + v40:0), 1, v44:0, v49:0, v50:0, v51:0, v52:0, 3, 2, 4) -> f_228(v34:0, v35:0, v36:0, v37:0, v38:0, v39:0, v40:0, v41:0, v42:0, 0, 2 * v48:0, v38:0 + v40:0, 1 + (v38:0 + v40:0), 1, v48:0, v49:0, v50:0, v51:0, v52:0, 3, 2, 4) :|: v38:0 + v40:0 > 1 && v48:0 < 1 + (v38:0 + v40:0) && 3 < 2 * v48:0
+Filtered unneeded arguments:
+   f_228(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22) -> f_228(x5, x7, x11, x12, x13)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_228(v38:0, v40:0, v48:0, sum~v38:0~v40:0, sum~cons_1~sum~v38:0~v40:0) -> f_228(v38:0, v40:0, 2 * v48:0, v38:0 + v40:0, 1 + (v38:0 + v40:0)) :|: v48:0 < 1 + (v38:0 + v40:0) && 3 < 2 * v48:0 && v38:0 + v40:0 > 1 && sum~v38:0~v40:0 = v38:0 + v40:0 && sum~cons_1~sum~v38:0~v40:0 = 1 + (v38:0 + v40:0)
+
+----------------------------------------
+
+(8)
+Obligation:
+Rules:
+f_228(v38:0, v40:0, v48:0, sum~v38:0~v40:0, sum~cons_1~sum~v38:0~v40:0) -> f_228(v38:0, v40:0, 2 * v48:0, v38:0 + v40:0, 1 + (v38:0 + v40:0)) :|: v48:0 < 1 + (v38:0 + v40:0) && 3 < 2 * v48:0 && v38:0 + v40:0 > 1 && sum~v38:0~v40:0 = v38:0 + v40:0 && sum~cons_1~sum~v38:0~v40:0 = 1 + (v38:0 + v40:0)
+
+----------------------------------------
+
+(9) IntTRSCompressionProof (EQUIVALENT)
+Compressed rules.
+----------------------------------------
+
+(10)
+Obligation:
+Rules:
+f_228(v38:0:0, v40:0:0, v48:0:0, sum~v38:0:0~v40:0:0, sum~cons_1~sum~v38:0:0~v40:0:0) -> f_228(v38:0:0, v40:0:0, 2 * v48:0:0, v38:0:0 + v40:0:0, 1 + (v38:0:0 + v40:0:0)) :|: v48:0:0 < 1 + (v38:0:0 + v40:0:0) && 3 < 2 * v48:0:0 && v38:0:0 + v40:0:0 > 1 && sum~v38:0:0~v40:0:0 = v38:0:0 + v40:0:0 && sum~cons_1~sum~v38:0:0~v40:0:0 = 1 + (v38:0:0 + v40:0:0)
+
+----------------------------------------
+
+(11) RankingReductionPairProof (EQUIVALENT)
+Interpretation:
+[ f_228 ] = -1/2*f_228_3 + 1/2*f_228_1 + 1/2*f_228_2
+
+The following rules are decreasing:
+f_228(v38:0:0, v40:0:0, v48:0:0, sum~v38:0:0~v40:0:0, sum~cons_1~sum~v38:0:0~v40:0:0) -> f_228(v38:0:0, v40:0:0, 2 * v48:0:0, v38:0:0 + v40:0:0, 1 + (v38:0:0 + v40:0:0)) :|: v48:0:0 < 1 + (v38:0:0 + v40:0:0) && 3 < 2 * v48:0:0 && v38:0:0 + v40:0:0 > 1 && sum~v38:0:0~v40:0:0 = v38:0:0 + v40:0:0 && sum~cons_1~sum~v38:0:0~v40:0:0 = 1 + (v38:0:0 + v40:0:0)
+
+The following rules are bounded:
+f_228(v38:0:0, v40:0:0, v48:0:0, sum~v38:0:0~v40:0:0, sum~cons_1~sum~v38:0:0~v40:0:0) -> f_228(v38:0:0, v40:0:0, 2 * v48:0:0, v38:0:0 + v40:0:0, 1 + (v38:0:0 + v40:0:0)) :|: v48:0:0 < 1 + (v38:0:0 + v40:0:0) && 3 < 2 * v48:0:0 && v38:0:0 + v40:0:0 > 1 && sum~v38:0:0~v40:0:0 = v38:0:0 + v40:0:0 && sum~cons_1~sum~v38:0:0~v40:0:0 = 1 + (v38:0:0 + v40:0:0)
+
+
+----------------------------------------
+
+(12)
+YES
+/home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_3_T.c:10:28: warning: implicit declaration of function '__VERIFIER_nondet_uint' is invalid in C99 [-Wimplicit-function-declaration]
+    unsigned int pathlen = __VERIFIER_nondet_uint();
+                           ^
+1 warning generated.
+
+line 87:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.0s
+ 

@@ -1,0 +1,8 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Using_Erroneous_Condition_3_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Using_Erroneous_Condition_3_T.c
+ 

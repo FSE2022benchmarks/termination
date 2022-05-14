@@ -1,0 +1,256 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Undefined_Behavior_1.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Undefined_Behavior_1.c
+MAYBE
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Undefined_Behavior_1.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could not be shown:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 0 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 482 ms]
+(4) LLVM Symbolic Execution Graph
+(5) SymbolicExecutionGraphToSCCProof [SOUND, 0 ms]
+(6) LLVM Symbolic Execution SCC
+    (7) SCC2IRS [SOUND, 40 ms]
+    (8) IntTRS
+        (9) IntTRSCompressionProof [EQUIVALENT, 0 ms]
+        (10) IntTRS
+        (11) IntTRSNonPeriodicNontermProof [COMPLETE, 5 ms]
+        (12) NO
+    (13) SCC2IRS [SOUND, 0 ms]
+    (14) IntTRS
+        (15) IntTRSCompressionProof [EQUIVALENT, 0 ms]
+        (16) IntTRS
+        (17) IntTRSNonPeriodicNontermProof [COMPLETE, 4 ms]
+        (18) NO
+(19) SymbolicExecutionGraphToLassoProof [EQUIVALENT, 0 ms]
+(20) LLVM Symbolic Execution Lasso
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Undefined_Behavior_1.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Undefined_Behavior_1.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_uint" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%4 = call i32 (...)* @__VERIFIER_nondet_uint()
+		store %4, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		store 1, %3
+		br %5
+	5:
+		%6 = load %2
+		%7 = add i32 %6, 1
+		%8 = load %3
+		%9 = mul i32 %8, 7
+		%10 = lshr i32 %7, %9
+		%11 = icmp ne %10 0
+		br %11, %12, %15
+	12:
+		%13 = load %3
+		%14 = add i32 %13, 1
+		store %14, %3
+		br %5
+	15:
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) SymbolicExecutionGraphToSCCProof (SOUND)
+Splitted symbolic execution graph to 1 SCC.
+----------------------------------------
+
+(6)
+Obligation:
+SCC
+----------------------------------------
+
+(7) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 13 rulesP rules:
+f_160(v66, v67, v68, v69, v70, v71, v72, v73, 1, v75, v76, v77, v78, 0, 3, 7, 2, 4) -> f_161(v66, v67, v68, v69, v70, v71, v72, v73, 1, v75, v76, v77, v78, 0, 3, 7, 2, 4) :|: v70 = 1 + v69
+f_161(v66, v67, v68, v69, v70, v71, v72, v73, 1, v75, v76, v77, v78, 0, 3, 7, 2, 4) -> f_162(v66, v67, v68, v69, v70, v75, v72, v73, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4) :|: 0 = 0
+f_162(v66, v67, v68, v69, v70, v75, v72, v73, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4) -> f_163(v66, v67, v68, v69, v70, v75, v80, v73, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: v80 = 7 * v75 && 14 <= v80
+f_163(v66, v67, v68, v69, v70, v75, v80, v73, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_164(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: 0 = 0
+f_164(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_165(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: v81 != 0
+f_165(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_167(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: 0 = 0
+f_167(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_169(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: TRUE
+f_169(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_171(v66, v67, v68, v69, v70, v75, v80, v81, 1, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: 0 = 0
+f_171(v66, v67, v68, v69, v70, v75, v80, v81, 1, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_172(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: v82 = 1 + v75 && 3 <= v82
+f_172(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_173(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: TRUE
+f_173(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_174(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: TRUE
+f_174(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_159(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4) :|: TRUE
+f_159(v66, v67, v68, v69, v70, v71, v72, v73, 1, v75, v76, v77, v78, 0, 3, 7, 2, 4) -> f_160(v66, v67, v68, v69, v70, v71, v72, v73, 1, v75, v76, v77, v78, 0, 3, 7, 2, 4) :|: 0 = 0
+Combined rules. Obtained 2 rulesP rules:
+f_160(v66:0, v67:0, v68:0, v69:0, 1 + v69:0, v71:0, v72:0, v73:0, 1, v75:0, v76:0, v77:0, v78:0, 0, 3, 7, 2, 4) -> f_160(v66:0, v67:0, v68:0, v69:0, 1 + v69:0, v75:0, 7 * v75:0, v81:0, 1, 1 + v75:0, v76:0, v77:0, v78:0, 0, 3, 7, 2, 4) :|: 7 * v75:0 > 13 && v75:0 > 1 && v81:0 < 0
+f_160(v66:0, v67:0, v68:0, v69:0, 1 + v69:0, v71:0, v72:0, v73:0, 1, v75:0, v76:0, v77:0, v78:0, 0, 3, 7, 2, 4) -> f_160(v66:0, v67:0, v68:0, v69:0, 1 + v69:0, v75:0, 7 * v75:0, v81:0, 1, 1 + v75:0, v76:0, v77:0, v78:0, 0, 3, 7, 2, 4) :|: 7 * v75:0 > 13 && v75:0 > 1 && v81:0 > 0
+Filtered unneeded arguments:
+   f_160(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18) -> f_160(x4, x5, x10)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_160(v69:0, sum~cons_1~v69:0, v75:0) -> f_160(v69:0, 1 + v69:0, 1 + v75:0) :|: 7 * v75:0 > 13 && v75:0 > 1 && sum~cons_1~v69:0 = 1 + v69:0
+
+----------------------------------------
+
+(8)
+Obligation:
+Rules:
+f_160(v69:0, sum~cons_1~v69:0, v75:0) -> f_160(v69:0, 1 + v69:0, 1 + v75:0) :|: 7 * v75:0 > 13 && v75:0 > 1 && sum~cons_1~v69:0 = 1 + v69:0
+
+----------------------------------------
+
+(9) IntTRSCompressionProof (EQUIVALENT)
+Compressed rules.
+----------------------------------------
+
+(10)
+Obligation:
+Rules:
+f_160(v69:0:0, sum~cons_1~v69:0:0, v75:0:0) -> f_160(v69:0:0, 1 + v69:0:0, 1 + v75:0:0) :|: 7 * v75:0:0 > 13 && v75:0:0 > 1 && sum~cons_1~v69:0:0 = 1 + v69:0:0
+
+----------------------------------------
+
+(11) IntTRSNonPeriodicNontermProof (COMPLETE)
+Normalized system to the following form:
+f(pc, v69:0:0, sum~cons_1~v69:0:0, v75:0:0) -> f(1, v69:0:0, 1 + v69:0:0, 1 + v75:0:0) :|: pc = 1 && (7 * v75:0:0 > 13 && v75:0:0 > 1 && sum~cons_1~v69:0:0 = 1 + v69:0:0)
+Proved unsatisfiability of the following formula, indicating that the system is never left after entering:
+(((run2_0 = ((1 * 1)) and run2_1 = ((run1_1 * 1)) and run2_2 = ((1 * 1) + (run1_1 * 1)) and run2_3 = ((1 * 1) + (run1_3 * 1))) and (((run1_0 * 1)) = ((1 * 1)) and ((((run1_3 * 7)) > ((1 * 13)) and ((run1_3 * 1)) > ((1 * 1))) and ((run1_2 * 1)) = ((1 * 1) + (run1_1 * 1))))) and !(((run2_0 * 1)) = ((1 * 1)) and ((((run2_3 * 7)) > ((1 * 13)) and ((run2_3 * 1)) > ((1 * 1))) and ((run2_2 * 1)) = ((1 * 1) + (run2_1 * 1)))))
+Proved satisfiability of the following formula, indicating that the system is entered at least once:
+((run2_0 = ((1 * 1)) and run2_1 = ((run1_1 * 1)) and run2_2 = ((1 * 1) + (run1_1 * 1)) and run2_3 = ((1 * 1) + (run1_3 * 1))) and (((run1_0 * 1)) = ((1 * 1)) and ((((run1_3 * 7)) > ((1 * 13)) and ((run1_3 * 1)) > ((1 * 1))) and ((run1_2 * 1)) = ((1 * 1) + (run1_1 * 1)))))
+
+----------------------------------------
+
+(12)
+NO
+
+----------------------------------------
+
+(13) SCC2IRS (SOUND)
+Transformed LLVM symbolic execution graph SCC into a rewrite problem. Log: 
+Generated rules. Obtained 13 rulesP rules:
+f_160(v66, v67, v68, v69, v70, v71, v72, v73, 1, v75, v76, v77, v78, 0, 3, 7, 2, 4) -> f_161(v66, v67, v68, v69, v70, v71, v72, v73, 1, v75, v76, v77, v78, 0, 3, 7, 2, 4) :|: v70 = 1 + v69
+f_161(v66, v67, v68, v69, v70, v71, v72, v73, 1, v75, v76, v77, v78, 0, 3, 7, 2, 4) -> f_162(v66, v67, v68, v69, v70, v75, v72, v73, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4) :|: 0 = 0
+f_162(v66, v67, v68, v69, v70, v75, v72, v73, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4) -> f_163(v66, v67, v68, v69, v70, v75, v80, v73, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: v80 = 7 * v75 && 14 <= v80
+f_163(v66, v67, v68, v69, v70, v75, v80, v73, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_164(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: 0 = 0
+f_164(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_165(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: v81 != 0
+f_165(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_167(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: 0 = 0
+f_167(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_169(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: TRUE
+f_169(v66, v67, v68, v69, v70, v75, v80, v81, 1, v71, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_171(v66, v67, v68, v69, v70, v75, v80, v81, 1, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: 0 = 0
+f_171(v66, v67, v68, v69, v70, v75, v80, v81, 1, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_172(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: v82 = 1 + v75 && 3 <= v82
+f_172(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_173(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: TRUE
+f_173(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_174(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) :|: TRUE
+f_174(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4, 14) -> f_159(v66, v67, v68, v69, v70, v75, v80, v81, 1, v82, v76, v77, v78, 0, 3, 7, 2, 4) :|: 1 <= v66 && 1 <= v67 && 1 <= v68 && 0 <= v69 && 1 <= v70 && 1 <= v75 && 7 <= v80 && 2 <= v82 && 4 <= v76 && 4 <= v77 && 4 <= v78 && v66 <= v76 && v67 <= v77 && v68 <= v78
+f_159(v66, v67, v68, v69, v70, v71, v72, v73, 1, v75, v76, v77, v78, 0, 3, 7, 2, 4) -> f_160(v66, v67, v68, v69, v70, v71, v72, v73, 1, v75, v76, v77, v78, 0, 3, 7, 2, 4) :|: 0 = 0
+Combined rules. Obtained 2 rulesP rules:
+f_160(v66:0, v67:0, v68:0, v69:0, 1 + v69:0, v71:0, v72:0, v73:0, 1, v75:0, v76:0, v77:0, v78:0, 0, 3, 7, 2, 4) -> f_160(v66:0, v67:0, v68:0, v69:0, 1 + v69:0, v75:0, 7 * v75:0, v81:0, 1, 1 + v75:0, v76:0, v77:0, v78:0, 0, 3, 7, 2, 4) :|: v75:0 > 1 && 7 * v75:0 > 13 && v67:0 > 0 && v66:0 > 0 && v68:0 > 0 && v69:0 > -1 && v81:0 < 0 && v76:0 > 3 && v77:0 > 3 && v78:0 > 3 && v76:0 >= v66:0 && v78:0 >= v68:0 && v77:0 >= v67:0
+f_160(v66:0, v67:0, v68:0, v69:0, 1 + v69:0, v71:0, v72:0, v73:0, 1, v75:0, v76:0, v77:0, v78:0, 0, 3, 7, 2, 4) -> f_160(v66:0, v67:0, v68:0, v69:0, 1 + v69:0, v75:0, 7 * v75:0, v81:0, 1, 1 + v75:0, v76:0, v77:0, v78:0, 0, 3, 7, 2, 4) :|: v75:0 > 1 && 7 * v75:0 > 13 && v67:0 > 0 && v66:0 > 0 && v68:0 > 0 && v69:0 > -1 && v81:0 > 0 && v76:0 > 3 && v77:0 > 3 && v78:0 > 3 && v76:0 >= v66:0 && v78:0 >= v68:0 && v77:0 >= v67:0
+Filtered unneeded arguments:
+   f_160(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18) -> f_160(x1, x2, x3, x4, x5, x10, x11, x12, x13)
+Removed division, modulo operations, cleaned up constraints. Obtained 1 rules.P rules:
+f_160(v66:0, v67:0, v68:0, v69:0, sum~cons_1~v69:0, v75:0, v76:0, v77:0, v78:0) -> f_160(v66:0, v67:0, v68:0, v69:0, 1 + v69:0, 1 + v75:0, v76:0, v77:0, v78:0) :|: 7 * v75:0 > 13 && v75:0 > 1 && v67:0 > 0 && v66:0 > 0 && v68:0 > 0 && v69:0 > -1 && v76:0 > 3 && v77:0 > 3 && v78:0 > 3 && v76:0 >= v66:0 && v77:0 >= v67:0 && v78:0 >= v68:0 && sum~cons_1~v69:0 = 1 + v69:0
+
+----------------------------------------
+
+(14)
+Obligation:
+Rules:
+f_160(v66:0, v67:0, v68:0, v69:0, sum~cons_1~v69:0, v75:0, v76:0, v77:0, v78:0) -> f_160(v66:0, v67:0, v68:0, v69:0, 1 + v69:0, 1 + v75:0, v76:0, v77:0, v78:0) :|: 7 * v75:0 > 13 && v75:0 > 1 && v67:0 > 0 && v66:0 > 0 && v68:0 > 0 && v69:0 > -1 && v76:0 > 3 && v77:0 > 3 && v78:0 > 3 && v76:0 >= v66:0 && v77:0 >= v67:0 && v78:0 >= v68:0 && sum~cons_1~v69:0 = 1 + v69:0
+
+----------------------------------------
+
+(15) IntTRSCompressionProof (EQUIVALENT)
+Compressed rules.
+----------------------------------------
+
+(16)
+Obligation:
+Rules:
+f_160(v66:0:0, v67:0:0, v68:0:0, v69:0:0, sum~cons_1~v69:0:0, v75:0:0, v76:0:0, v77:0:0, v78:0:0) -> f_160(v66:0:0, v67:0:0, v68:0:0, v69:0:0, 1 + v69:0:0, 1 + v75:0:0, v76:0:0, v77:0:0, v78:0:0) :|: v77:0:0 >= v67:0:0 && v78:0:0 >= v68:0:0 && v76:0:0 >= v66:0:0 && v78:0:0 > 3 && v77:0:0 > 3 && v76:0:0 > 3 && v69:0:0 > -1 && v68:0:0 > 0 && v66:0:0 > 0 && v67:0:0 > 0 && v75:0:0 > 1 && 7 * v75:0:0 > 13 && sum~cons_1~v69:0:0 = 1 + v69:0:0
+
+----------------------------------------
+
+(17) IntTRSNonPeriodicNontermProof (COMPLETE)
+Normalized system to the following form:
+f(pc, v66:0:0, v67:0:0, v68:0:0, v69:0:0, sum~cons_1~v69:0:0, v75:0:0, v76:0:0, v77:0:0, v78:0:0) -> f(1, v66:0:0, v67:0:0, v68:0:0, v69:0:0, 1 + v69:0:0, 1 + v75:0:0, v76:0:0, v77:0:0, v78:0:0) :|: pc = 1 && (v77:0:0 >= v67:0:0 && v78:0:0 >= v68:0:0 && v76:0:0 >= v66:0:0 && v78:0:0 > 3 && v77:0:0 > 3 && v76:0:0 > 3 && v69:0:0 > -1 && v68:0:0 > 0 && v66:0:0 > 0 && v67:0:0 > 0 && v75:0:0 > 1 && 7 * v75:0:0 > 13 && sum~cons_1~v69:0:0 = 1 + v69:0:0)
+Proved unsatisfiability of the following formula, indicating that the system is never left after entering:
+(((run2_0 = ((1 * 1)) and run2_1 = ((run1_1 * 1)) and run2_2 = ((run1_2 * 1)) and run2_3 = ((run1_3 * 1)) and run2_4 = ((run1_4 * 1)) and run2_5 = ((1 * 1) + (run1_4 * 1)) and run2_6 = ((1 * 1) + (run1_6 * 1)) and run2_7 = ((run1_7 * 1)) and run2_8 = ((run1_8 * 1)) and run2_9 = ((run1_9 * 1))) and (((run1_0 * 1)) = ((1 * 1)) and ((((((((((((((run1_8 * 1)) >= ((run1_2 * 1)) and ((run1_9 * 1)) >= ((run1_3 * 1))) and ((run1_7 * 1)) >= ((run1_1 * 1))) and ((run1_9 * 1)) > ((1 * 3))) and ((run1_8 * 1)) > ((1 * 3))) and ((run1_7 * 1)) > ((1 * 3))) and ((run1_4 * 1)) > ((1 * -1))) and ((run1_3 * 1)) > 0) and ((run1_1 * 1)) > 0) and ((run1_2 * 1)) > 0) and ((run1_6 * 1)) > ((1 * 1))) and ((run1_6 * 7)) > ((1 * 13))) and ((run1_5 * 1)) = ((1 * 1) + (run1_4 * 1))))) and !(((run2_0 * 1)) = ((1 * 1)) and ((((((((((((((run2_8 * 1)) >= ((run2_2 * 1)) and ((run2_9 * 1)) >= ((run2_3 * 1))) and ((run2_7 * 1)) >= ((run2_1 * 1))) and ((run2_9 * 1)) > ((1 * 3))) and ((run2_8 * 1)) > ((1 * 3))) and ((run2_7 * 1)) > ((1 * 3))) and ((run2_4 * 1)) > ((1 * -1))) and ((run2_3 * 1)) > 0) and ((run2_1 * 1)) > 0) and ((run2_2 * 1)) > 0) and ((run2_6 * 1)) > ((1 * 1))) and ((run2_6 * 7)) > ((1 * 13))) and ((run2_5 * 1)) = ((1 * 1) + (run2_4 * 1)))))
+Proved satisfiability of the following formula, indicating that the system is entered at least once:
+((run2_0 = ((1 * 1)) and run2_1 = ((run1_1 * 1)) and run2_2 = ((run1_2 * 1)) and run2_3 = ((run1_3 * 1)) and run2_4 = ((run1_4 * 1)) and run2_5 = ((1 * 1) + (run1_4 * 1)) and run2_6 = ((1 * 1) + (run1_6 * 1)) and run2_7 = ((run1_7 * 1)) and run2_8 = ((run1_8 * 1)) and run2_9 = ((run1_9 * 1))) and (((run1_0 * 1)) = ((1 * 1)) and ((((((((((((((run1_8 * 1)) >= ((run1_2 * 1)) and ((run1_9 * 1)) >= ((run1_3 * 1))) and ((run1_7 * 1)) >= ((run1_1 * 1))) and ((run1_9 * 1)) > ((1 * 3))) and ((run1_8 * 1)) > ((1 * 3))) and ((run1_7 * 1)) > ((1 * 3))) and ((run1_4 * 1)) > ((1 * -1))) and ((run1_3 * 1)) > 0) and ((run1_1 * 1)) > 0) and ((run1_2 * 1)) > 0) and ((run1_6 * 1)) > ((1 * 1))) and ((run1_6 * 7)) > ((1 * 13))) and ((run1_5 * 1)) = ((1 * 1) + (run1_4 * 1)))))
+
+----------------------------------------
+
+(18)
+NO
+
+----------------------------------------
+
+(19) SymbolicExecutionGraphToLassoProof (EQUIVALENT)
+Converted SEGraph to 1 independent lasso.
+----------------------------------------
+
+(20)
+Obligation:
+Lasso/home/ubuntu/tool/FSE_benchmark/loop/Undefined_Behavior_1.c:9:24: warning: implicit declaration of function '__VERIFIER_nondet_uint' is invalid in C99 [-Wimplicit-function-declaration]
+    unsigned int num = __VERIFIER_nondet_uint();
+                       ^
+1 warning generated.
+
+line 44:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.0s
+Aborted 1652289761Exec. 10, LLVMLassoToIntTRS with some error. Reason: java.lang.UnsupportedOperationException: Not yet implemented!.
+Aborted 1652289761Exec. 5, LLVMSEGraphToIntTRS with some error. Reason: java.lang.UnsupportedOperationException: Not yet implemented!.
+ 

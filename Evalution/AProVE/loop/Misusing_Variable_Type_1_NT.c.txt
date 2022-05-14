@@ -1,0 +1,8 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Misusing_Variable_Type_1_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Misusing_Variable_Type_1_NT.c
+ 

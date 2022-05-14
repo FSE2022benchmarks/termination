@@ -1,0 +1,129 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Using_Erroneous_Condition_2_NT.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Using_Erroneous_Condition_2_NT.c
+NO
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Using_Erroneous_Condition_2_NT.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could be disproven:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 78 ms]
+(2) LLVM problem
+(3) LLVMToTerminationGraphProof [EQUIVALENT, 372 ms]
+(4) LLVM Symbolic Execution Graph
+(5) LLVMNonterminationProof [COMPLETE, 122 ms]
+(6) NO
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Using_Erroneous_Condition_2_NT.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Using_Erroneous_Condition_2_NT.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_int" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		%4 = call i32 (...)* @__VERIFIER_nondet_int()
+		store %4, %2
+		%5 = load %2
+		%6 = icmp sgt %5 65534
+		br %6, %7, %8
+	7:
+		store 0, %1
+		br %17
+	8:
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		store 0, %3
+		br %9
+	9:
+		%10 = load %2
+		%11 = icmp ne %10 0
+		br %11, %12, %16
+	12:
+		br %13
+	13:
+		%14 = load %3
+		%15 = add i32 %14, 1
+		store %15, %3
+		br %9
+	16:
+		store 0, %1
+		br %17
+	17:
+		%18 = load %1
+		ret %18
+
+
+Analyze Termination of all function calls matching the pattern:
+main()
+----------------------------------------
+
+(3) LLVMToTerminationGraphProof (EQUIVALENT)
+Constructed symbolic execution graph for LLVM program.
+----------------------------------------
+
+(4)
+Obligation:
+Symbolic Execution Graph
+----------------------------------------
+
+(5) LLVMNonterminationProof (COMPLETE)
+Proved nontermination with the following witness:
+
+State #85 with references set to {}.
+Nondeterministic instruction %1 = alloca i32, align 4 in node #85 yields value 98301.
+Nondeterministic instruction %2 = alloca i32, align 4 in node #86 yields value 131069.
+Nondeterministic instruction %3 = alloca i32, align 4 in node #87 yields value 32765.
+Nondeterministic instruction %4 = call i32 (...)* @__VERIFIER_nondet_int() in node #90 yields value 65534.
+
+----------------------------------------
+
+(6)
+NO
+/home/ubuntu/tool/FSE_benchmark/loop/Using_Erroneous_Condition_2_NT.c:8:21: warning: implicit declaration of function '__VERIFIER_nondet_int' is invalid in C99 [-Wimplicit-function-declaration]
+    int reg_count = __VERIFIER_nondet_int();
+                    ^
+1 warning generated.
+
+line 57:18 mismatched input 'nofree' expecting CLOSEC
+Graph finished, checking  consistency
+Graph finished, checked consistency, took 0.0s
+ 

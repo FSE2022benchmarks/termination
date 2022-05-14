@@ -1,0 +1,8 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Signed_Overflow_Error_1_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Signed_Overflow_Error_1_T.c
+ 

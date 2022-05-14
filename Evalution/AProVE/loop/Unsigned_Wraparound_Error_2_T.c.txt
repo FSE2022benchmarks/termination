@@ -1,0 +1,112 @@
+timeout 900 ./AProVE.sh -m wst --bit-width 64 Unsigned_Wraparound_Error_2_T.c
+ 
+ 
+-------------------------------------------------------------------------------------------------------
+ 
+ 
+testfile: Unsigned_Wraparound_Error_2_T.c
+MAYBE
+proof of /home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_2_T.c
+# AProVE Commit ID: 249ab60e2b58fea5661f104665226199f0baff7b jera 20211103 unpublished
+
+
+Termination of the given C Problem could not be shown:
+
+(0) C Problem
+(1) CToLLVMProof [EQUIVALENT, 72 ms]
+(2) LLVM problem
+
+
+----------------------------------------
+
+(0)
+Obligation:
+c file /home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_2_T.c
+----------------------------------------
+
+(1) CToLLVMProof (EQUIVALENT)
+Compiled c-file /home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_2_T.c to LLVM.
+----------------------------------------
+
+(2)
+Obligation:
+LLVM Problem
+
+Aliases:
+
+Data layout:
+
+"e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+
+Machine:
+
+"x86_64-unknown-linux-gnu"
+
+Type definitions:
+
+Global variables:
+
+Function declarations and definitions:
+
+*BasicFunctionTypename: "llvm.dbg.declare" returnParam: BasicVoidType parameters: (BasicMetadataType, BasicMetadataType, BasicMetadataType) variableLength: false visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "__VERIFIER_nondet_uint" returnParam: i32 parameters: () variableLength: true visibilityType: DEFAULT callingConvention: ccc
+*BasicFunctionTypename: "main" linkageType: EXTERNALLY_VISIBLE returnParam: i32 parameters: () variableLength: false visibilityType: DEFAULT callingConvention: ccc debug line: 9
+	0:
+		%1 = alloca i32, align 4
+		%2 = alloca i32, align 4
+		%3 = alloca i32, align 4
+		%4 = alloca i32, align 4
+		store 0, %1
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %2)
+		store 1, %2
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %3)
+		%5 = call i32 (...)* @__VERIFIER_nondet_uint()
+		store %5, %3
+		Unnamed Call-Instruction = call BasicVoidType @llvm.dbg.declare(*i32 %4)
+		%6 = call i32 (...)* @__VERIFIER_nondet_uint()
+		store %6, %4
+		%7 = load %3
+		%8 = load %4
+		%9 = icmp ult %7 %8
+		br %9, %10, %12
+	10:
+		%11 = load %4
+		store %11, %3
+		br %12
+	12:
+		br %13
+	13:
+		%14 = load %2
+		%15 = load %3
+		%16 = icmp ult %14 %15
+		br %16, %17, %22
+	17:
+		%18 = load %2
+		%19 = mul i32 %18, 2
+		%20 = load %2
+		%21 = icmp ugt %19 %20
+		br %22
+	22:
+		%23 = phi [0, %13], [%21, %17]
+		br %23, %24, %27
+	24:
+		%25 = load %2
+		%26 = mul i32 %25, 2
+		store %26, %2
+		br %13
+	27:
+		ret 0
+
+
+Analyze Termination of all function calls matching the pattern:
+main()/home/ubuntu/tool/FSE_benchmark/loop/Unsigned_Wraparound_Error_2_T.c:10:25: warning: implicit declaration of function '__VERIFIER_nondet_uint' is invalid in C99 [-Wimplicit-function-declaration]
+    unsigned int size = __VERIFIER_nondet_uint();
+                        ^
+1 warning generated.
+
+line 67:18 mismatched input 'nofree' expecting CLOSEC
+Aborted 1652293373Exec. 4, LLVMToSEGraph with some error. Reason: InconsistentStateException [integerState=null, newRelation=null].
+            aprove.InputModules.Programs.llvm.states.LLVMHeuristicState.replaceReferences(LLVMHeuristicState.java:5755)
+            aprove.InputModules.Programs.llvm.states.LLVMHeuristicState.unifySymbolicVariables(LLVMHeuristicState.java:2296)
+            aprove.InputModules.Programs.llvm.states.LLVMHeuristicState.unifyReferences(LLVMHeuristicState.java:5843)
+ 
